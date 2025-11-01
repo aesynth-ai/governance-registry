@@ -1,15 +1,16 @@
 # governance-registry
 
-Governance Registry | Public Root of Trust
+**Governance Registry | Public Root of Trust**
 
 Repository: aesynth-ai/governance-registry
 
-Description:
+**Description:**
 Public, version-controlled record of all ratified constitutional documents, resolutions, bodies, actors, and provenance events for the Aesynth Intelligence System.
 
 This repository serves as the Root of Trust for the entire organization, providing an immutable catalog of foundational laws and proceedings necessary for XAI governance, auditing, and compliance.
 
-1. Core Purpose (The Registry)
+
+**1. Core Purpose (The Registry)**
 
 The Governance Registry tracks and verifies four core components:
 
@@ -23,7 +24,8 @@ How to verify it (Content Hashes, Digital Signatures, Provenance Envelopes).
 
 The entire system is based on transparency (read-public) and permanency (version-controlled).
 
-2. Technical Namespaces (MVP v1)
+
+**2. Technical Namespaces (MVP v1)**
 
 All files and API endpoints are organized under the following canonical namespaces, which serve as immutable identifiers:
 
@@ -69,7 +71,8 @@ aesynth:gov:ledger/*
 
 Immutable log of events.
 
-3. Workflow & Branch Structure
+
+**3. Workflow & Branch Structure**
 
 To maintain the integrity of the Root of Trust, a two-branch workflow is enforced:
 
