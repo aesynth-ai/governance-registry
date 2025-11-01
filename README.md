@@ -1,103 +1,123 @@
-# governance-registry
+Aesynth Governance Registry
 
-**Governance Registry | Public Root of Trust**
-
+Public Root of Trust for the Aesynth Intelligence System
 Repository: aesynth-ai/governance-registry
 
-**Description:**
-Public, version-controlled record of all ratified constitutional documents, resolutions, bodies, actors, and provenance events for the Aesynth Intelligence System.
-
-This repository serves as the Root of Trust for the entire organization, providing an immutable catalog of foundational laws and proceedings necessary for XAI governance, auditing, and compliance.
 
 
-**1. Core Purpose (The Registry)**
-
-The Governance Registry tracks and verifies four core components:
-
-What exists (Constitutional Documents, Charters, Protocols).
-
-Who approved it (Signers, Governing Bodies, Roles).
-
-When it changed (Versions, Amendments, Supersessions).
-
-How to verify it (Content Hashes, Digital Signatures, Provenance Envelopes).
-
-The entire system is based on transparency (read-public) and permanency (version-controlled).
 
 
-**2. Technical Namespaces (MVP v1)**
 
-All files and API endpoints are organized under the following canonical namespaces, which serve as immutable identifiers:
+Overview
 
-Namespace
+The Governance Registry is the Root of Trust for the Aesynth ecosystem.
+It provides an immutable, version-controlled record of all constitutional documents, resolutions, governing bodies, and provenance events that define and protect Aesynth’s lawful operation.
 
-Example ID
+This repository ensures the integrity, transparency, and continuity required for Explainable Artificial Intelligence (XAI) governance, auditing, and compliance.
 
-Purpose
+1. Core Purpose
 
-aesynth:gov:doc/*
+The Registry tracks and verifies four fundamental dimensions of lawful operation:
 
-aesynth:gov:doc/constitution/v1
+Function	Description
+What exists	Constitutional Documents, Charters, and Protocols.
+Who approved it	Signers, Governing Bodies, and Authorized Roles.
+When it changed	Versions, Amendments, and Supersessions.
+How to verify it	Content Hashes, Digital Signatures, and Provenance Envelopes.
 
-Foundational constitutional documents.
+The system is read-public and write-controlled, ensuring transparency for all participants and permanence of the historical record.
 
-aesynth:gov:res/*
+2. Canonical Namespaces
 
-aesynth:gov:res/veto/20250915
+All entities in the Registry follow a strict URN-based naming convention.
+These namespaces serve as immutable identifiers across all Aesynth subsystems.
 
-Resolutions, amendments, ratifications, and proceedings.
+Namespace	Example ID	Purpose
+aesynth:gov:doc/*	aesynth:gov:doc/aesynth-constitution@1.0.0	Foundational constitutional documents.
+aesynth:gov:res/*	aesynth:gov:res/2025-11-01-ratify-semantic-charter-1-1	Resolutions, ratifications, amendments, and vetoes.
+aesynth:gov:body/*	aesynth:gov:body/jsa	Governing assemblies and councils.
+aesynth:gov:actor/*	aesynth:gov:actor/provisional-steward	Individuals or agents with signing authority.
+aesynth:gov:seat/*	aesynth:gov:seat/jsa-synthlex-1	Assigned roles within governing bodies.
+aesynth:gov:ledger/*	(Implied via Git commits and ledger entries)	Immutable record of events and attestations.
+3. Workflow & Branch Policy
 
-aesynth:gov:body/*
+To preserve the integrity of the Registry, a strict two-branch model is enforced.
 
-aesynth:gov:body/synthlex-council
+Branch	Status	Access	Content Type
+main	Production	Write-controlled (via Pull Requests)	Ratified, immutable, and verified documents.
+draft	Staging	Open for collaboration	Proposed documents, pending resolutions, and unratified changes.
 
-Governing assemblies/groups.
+No direct commits are permitted to main.
+All changes must be submitted via Pull Request and pass automated integrity checks, including:
 
-aesynth:gov:actor/*
+Schema validation
 
-aesynth:gov:actor/john-doe-key-a
+Hash and signature verification
 
-Individuals or automated agents with signing keys.
+Required-body approvals
 
-aesynth:gov:seat/*
+Latency-gap (human reflection) enforcement
 
-aesynth:gov:seat/ethical-auditor-a
+4. Transparency & Verification
 
-Specific roles within bodies.
+Every ratified document includes a Provenance Envelope containing:
 
-aesynth:gov:ledger/*
+Canonical content hash (sha256)
 
-(Implied via Git History & Proofs)
+Signing key ID (did:key)
 
-Immutable log of events.
+Signature (JWS detached payload)
 
+Timestamp and signing algorithm
 
-**3. Workflow & Branch Structure**
+Reference to the corresponding ledger event
 
-To maintain the integrity of the Root of Trust, a two-branch workflow is enforced:
+Verification scripts are provided under /tools
+ and automatically executed via GitHub Actions CI.
+The verification ritual can also be performed manually using registry-cli (coming soon).
 
-Branch
+5. Governance Principles
 
-Status
+The Registry embodies the foundational oaths defined in the Aesynth Founder’s Manifesto:
 
-Access
+Clarity — Every law and policy must remain interpretable.
 
-Content Status
+Friction — Every action must preserve time for human reflection.
 
-main
+Continuity — Every record must remain public, immutable, and auditable.
 
-Production
+6. Repository Structure
+governance-registry/
+ ├─ docs/              # Ratified documents (constitutions, charters, protocols)
+ ├─ resolutions/       # Governance resolutions and amendments
+ ├─ bodies/            # Councils and assemblies (JSA, Aesynth Council, etc.)
+ ├─ actors/            # Registered signers and keys
+ ├─ ledger/            # Immutable event records
+ ├─ index/             # Catalogs, sitemaps, and HTML views
+ ├─ schemas/           # JSON Schemas for validation
+ ├─ tools/             # CLI and CI automation scripts
+ ├─ GOVERNANCE.md      # Internal workflow and branch protections
+ ├─ CONTRIBUTING.md    # Collaboration and ratification process
+ ├─ SECURITY.md        # Key management and disclosure procedures
+ ├─ LICENSE            # Legal license for registry data
+ └─ README.md          # This file
 
-Write-Controlled (via PRs)
+7. Status
 
-Ratified, Immutable, and Verified Documents.
+✅ Phase I: Governance & Legitimacy — Complete
+All foundational documents have been ratified and registered with full provenance.
+Phase II (Synthlex Specification) will now proceed under this established legal framework.
 
-draft
+8. License
 
-Staging
+This repository and its contents are released under the Aesynth Open Governance License v1.0 (AOG-1.0) — a permissive license designed to preserve legal traceability, attribution, and public transparency for constitutional and provenance data.
 
-Open for Collaboration
+The AOG-1.0 license permits unrestricted public reading, verification, and educational use of registry materials, provided all provenance data and signatures remain intact and unaltered.
 
-Proposed documents and pending resolutions.
+See the LICENSE
+ file for full terms.
 
-No direct commits are allowed to main. All changes must be reviewed and pass automated integrity checks before merging into production.
+“Transparency is law.
+Reflection is safety.
+Memory is a right.”
+— Aesynth Governance Charter, 2025
