@@ -1,0 +1,38 @@
+﻿# Governance Registry Manifest
+registry:
+  id: aesynth:gov:registry
+  name: "Aesynth Governance Registry"
+  purpose: "Root of Trust: constitutional corpus, provenance, ledger, resolutions, licenses, and keys."
+  version: 1.0.0
+  license: AOG-1.0
+  namespaces:
+    document: "aesynth:gov:doc/*"
+    resolution: "aesynth:gov:res/*"
+    body: "aesynth:gov:body/*"
+    actor: "aesynth:gov:actor/*"
+    ledger: "aesynth:gov:ledger/*"
+  rules:
+    - "Anything that confers authority or legal binding belongs here."
+    - "All authoritative texts must include provenance envelopes (JWS) and SHA-256 content hashes."
+    - "Merges to main require ≥ 1440 minutes Latency Gap and Verify checks."
+  indices:
+    - path: index/catalog.json
+    - path: index/sitemap.json
+  schemaRefs:
+    - path: schemas/governance-ledger.schema.yaml
+    - path: schemas/provenance-envelope.schema.json
+    - path: schemas/document.schema.json
+    - path: schemas/resolution.schema.json
+  documents:
+    - path: docs/constitutions/technical-constitution/1.0.0/Constitution.yaml
+    - path: docs/constitutions/human-constitution/1.0.0/Constitution.yaml
+    - path: docs/charters/semantic-charter/1.1.0/SemanticCharter.yaml
+    - path: docs/policy/PolicyRegistry.yaml
+    - path: docs/addendums/A-series.yaml
+    - path: docs/policies/aesynth-ip-policy-1.0.yaml
+    - path: docs/fiduciary/AJP-memorandum.yaml
+  keys:
+    - path: keys/trust-metadata.yaml
+  ci:
+    verifyWorkflow: .github/workflows/verify.yml
+    latencyWorkflow: .github/workflows/latency-gap.yml

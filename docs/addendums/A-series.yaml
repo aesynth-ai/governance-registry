@@ -1,0 +1,28 @@
+﻿meta:
+  id: aesynth:gov:doc/addendums-a-series@1.0.0
+  title: "Addendums A1–A6 (Monograph Amendments)"
+  version: 1.0.0
+  license: AOG-1.0
+  provenanceRef: "docs/addendums/provenance.json"
+addendums:
+  - code: A1
+    title: "Synthlex & Aesynth Monograph — Definitions Update"
+    status: draft
+  - code: A2
+    title: "Axis Canon Weighting Clarifications"
+    status: draft
+  - code: A3
+    title: "Provenance Envelope Extensions"
+    status: draft
+  - code: A4
+    title: "Ethical Tagging Guidelines (EPT v1)"
+    status: draft
+  - code: A5
+    title: "Semantic Contradiction Registry (SCR) v1"
+    status: draft
+  - code: A6
+    title: "Dual-Bodied Ratification Procedure v2"
+    status: draft
+governance:
+  ratificationRequired: true
+  dualBody: true

@@ -1,0 +1,6 @@
+﻿log:
+  generated: "2025-11-01T00:00:00Z"
+  operator: "codex-bootstrap"
+  summary:
+    - "Initialized governance corpus anchors"
+    - "Staged registry manifest and CI guardrails"

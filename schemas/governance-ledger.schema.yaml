@@ -1,0 +1,45 @@
+﻿$schema: "https://json-schema.org/draft/2020-12/schema"
+title: "Governance Ledger Event"
+type: object
+required: [id, type, timestamp, actorRefs, subjectRef, hash, signatures]
+properties:
+  id:
+    type: string
+    description: "aesynth:gov:ledger/<number>"
+  type:
+    type: string
+    enum: [RATIFICATION, AMENDMENT, VETO, WITHDRAWAL, NOTE]
+  timestamp:
+    type: string
+    format: date-time
+  actorRefs:
+    type: array
+    items:
+      type: string
+  subjectRef:
+    type: string
+    description: "URN of the document/resolution acted upon"
+  hash:
+    type: object
+    required: [algo, value]
+    properties:
+      algo:
+        type: string
+        enum: [sha256]
+      value:
+        type: string
+  signatures:
+    type: array
+    items:
+      type: object
+      required: [alg, kid, jws]
+      properties:
+        alg:
+          type: string
+        kid:
+          type: string
+        jws:
+          type: string
+  coolingPeriodMinutes:
+    type: integer
+    minimum: 0

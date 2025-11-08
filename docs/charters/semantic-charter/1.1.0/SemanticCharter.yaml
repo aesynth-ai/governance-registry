@@ -1,0 +1,26 @@
+﻿meta:
+  id: aesynth:gov:doc/semantic-charter@1.1.0
+  title: "Semantic Charter (Treaty of Meaning)"
+  version: 1.1.0
+  issued: "2025-11-01"
+  issuingAuthority: "Joint Semantic Assembly (Provisional)"
+  license: AOG-1.0
+  provenanceRef: "docs/charters/semantic-charter/1.1.0/provenance.json"
+  hash:
+    algo: sha256
+    value: "<to-be-computed>"
+treaty:
+  purpose: "Harmonize platform grammar (Synthlex) and interpreter ethics (Aesynth)."
+  articles:
+    - id: III
+      title: Authority & Jurisdiction
+    - id: V
+      title: Provenance & Public Audit
+    - id: VII
+      title: Joint Semantic Assembly (JSA)
+governance:
+  councils:
+    - name: Synthlex Open Council
+    - name: Aesynth Council Secretariat
+ratification:
+  resolutionRef: "aesynth:gov:res/2025-11-01-ratify-semantic-charter-1-1"
