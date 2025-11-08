@@ -1,33 +1,52 @@
-﻿meta:
-  id: aesynth:gov:doc/policy-registry@1.0.0
-  title: "Policy Registry"
-  version: 1.0.0
-  license: AOG-1.0
-  provenanceRef: "docs/policy/provenance.json"
-registries:
-  ethicalPerimeterTags:
-    schemaVersion: 1.0.0
-    tags:
-      - code: HIGH-ETHICS-RISK
-        description: "Elevated scrutiny; triggers policy checks and Latency Gap."
-        defaultReviewMinutes: 1440
-      - code: HIGH-ENERGY-CONSUMPTION
-        description: "Resource-intensive; requires ecological impact note."
-        defaultReviewMinutes: 1440
-      - code: PRIVACY-SENSITIVE
-        description: "Data privacy risk; privacy officer co-sign required."
-        defaultReviewMinutes: 1440
-  semanticContradictions:
-    schemaVersion: 1.0.0
-    rules:
-      - id: SCR-0001
-        condition: "[axis:DATA-PRIVACY] AND [persona:PUBLIC-FACING-ADVOCATE]"
-        disposition: "VETO"
-        rationale: "Public disclosure risk conflicts with privacy axis."
-      - id: SCR-0002
-        condition: "[tag:HIGH-ENERGY-CONSUMPTION] AND [context:LOW-CARBON-MANDATE]"
-        disposition: "WARN"
-        rationale: "Ethical perimeter mismatch; require mitigation plan."
-validation:
-  requiresProvenance: true
-  requiresDualBodyRatification: true
+﻿id: aesynth:gov:ledger/policy-registry-bootstrap@1
+type: NOTE
+timestamp: "2025-11-01T00:00:00Z"
+actorRefs:
+  - aesynth:gov:body/joint-semantic-assembly
+  - aesynth:gov:body/aesynth-auditor
+subjectRef: aesynth:gov:doc/policy-registry@1.0.0
+hash:
+  algo: sha256
+  value: "<to-be-computed>"
+signatures:
+  - alg: EdDSA
+    kid: jsa-provisional-key-1
+    jws: "<pending>"
+  - alg: EdDSA
+    kid: auditor-key-1
+    jws: "<pending>"
+coolingPeriodMinutes: 1440
+payload:
+  meta:
+    id: aesynth:gov:doc/policy-registry@1.0.0
+    title: "Policy Registry"
+    version: 1.0.0
+    license: AOG-1.0
+    provenanceRef: "docs/policy/provenance.json"
+  registries:
+    ethicalPerimeterTags:
+      schemaVersion: 1.0.0
+      tags:
+        - code: HIGH-ETHICS-RISK
+          description: "Elevated scrutiny; triggers policy checks and Latency Gap."
+          defaultReviewMinutes: 1440
+        - code: HIGH-ENERGY-CONSUMPTION
+          description: "Resource-intensive; requires ecological impact note."
+          defaultReviewMinutes: 1440
+        - code: PRIVACY-SENSITIVE
+          description: "Data privacy risk; privacy officer co-sign required."
+          defaultReviewMinutes: 1440
+    semanticContradictions:
+      schemaVersion: 1.0.0
+      rules:
+        - id: SCR-0001
+          condition: "[axis:DATA-PRIVACY] AND [persona:PUBLIC-FACING-ADVOCATE]"
+          disposition: "VETO"
+          rationale: "Public disclosure risk conflicts with privacy axis."
+        - id: SCR-0002
+          condition: "[tag:HIGH-ENERGY-CONSUMPTION] AND [context:LOW-CARBON-MANDATE]"
+          disposition: "WARN"
+          rationale: "Ethical perimeter mismatch; require mitigation plan."
+  validation:
+    requiresProvenance: true
+    requiresDualBodyRatification: true

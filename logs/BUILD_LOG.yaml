@@ -4,3 +4,4 @@
   summary:
     - "Initialized governance corpus anchors"
     - "Staged registry manifest and CI guardrails"
+    - "Enabled verify-governance enforcement workflow and branch protection"
