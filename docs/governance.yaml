@@ -1,0 +1,18 @@
+﻿constitutional_hashes:
+  monograph: "<sha256-monograph>"
+  system_spec: "<sha256-spec>"
+policy_references:
+  - id: "policy-stub"
+    uri: "https://placeholder.invalid/governance-registry/policy"
+provenance:
+  ledger: "civic-ledger"
+  strategy: "deferred"
+registries:
+  core:
+    - "governance-registry"
+    - "sememe-registry"
+  derived:
+    - "axis-registry"
+security:
+  posture: "stub"
+  contact: "security@aesynth.invalid"

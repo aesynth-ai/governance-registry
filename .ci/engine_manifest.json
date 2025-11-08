@@ -1,0 +1,13 @@
+﻿{
+  "repository": "governance-registry",
+  "generated": "2025-11-08",
+  "registries": {
+    "core": [
+      "governance-registry",
+      "civic-ledger"
+    ],
+    "derived": [
+      "axis-registry"
+    ]
+  }
+}

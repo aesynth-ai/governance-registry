@@ -1,0 +1,13 @@
+﻿purpose: "TBD - define mission for governance-registry"
+scope:
+  in:
+    - "TBD"
+  out:
+    - "TBD"
+value_commitments:
+  - "TBD"
+classification: "TBD"
+jurisdiction:
+  category: "TBD"
+  bindings:
+    - name: "global"

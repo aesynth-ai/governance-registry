@@ -1,0 +1,28 @@
+﻿name: verify-governance
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate YAML (docs/)
+        run: |
+          npm i -g yaml-lint
+          find docs -name "*.yaml" -print0 | xargs -0 -I{} yamllint {}
+      - name: OPA policy gate (level >= 4)
+        run: |
+          # TODO: install opa via tool cache once published
+          echo '{"policy_level":4}' > .ci/opa/input.json
+          opa eval --fail-defined -i .ci/opa/input.json -d .ci/opa 'data.governance.checks.allow'
+      - name: Canonicalize governance docs
+        run: |
+          echo "stub: replace with aesynth-canon when available"
+          ls docs/*.yaml >/dev/null
