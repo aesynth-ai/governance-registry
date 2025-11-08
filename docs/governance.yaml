@@ -1,6 +1,6 @@
-﻿constitutional_hashes:
-  monograph: "<sha256-monograph>"
-  system_spec: "<sha256-spec>"
+constitutional_hashes:
+  monograph: "7F6B32567ED3613AE11F3ECFB6C9CD2D71C0F9DFA3272D02AFF31E2B4F844C92"
+  system_spec: "EFE26234073CA3CCF3745028A74AD9C06539F063E55D74A933B02A4E6C17FCC6"
 policy_references:
   - id: "policy-stub"
     uri: "https://placeholder.invalid/governance-registry/policy"
