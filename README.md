@@ -1,3 +1,5 @@
+![verify-governance](https://github.com/aesynth-ai/governance-registry/actions/workflows/verify-governance.yml/badge.svg)
+
 Aesynth Governance Registry
 
 Public Root of Trust for the Aesynth Intelligence System
