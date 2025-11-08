@@ -1,4 +1,21 @@
 ﻿# Governance Registry Manifest
+
+documents: &document_index
+  technical_constitution:
+    path: docs/constitutions/technical-constitution/1.0.0/Constitution.yaml
+  human_constitution:
+    path: docs/constitutions/human-constitution/1.0.0/Constitution.yaml
+  semantic_charter:
+    path: docs/charters/semantic-charter/1.1.0/SemanticCharter.yaml
+  policy_registry:
+    path: docs/policy/PolicyRegistry.yaml
+  addendums_a_series:
+    path: docs/addendums/A-series.yaml
+  ip_policy:
+    path: docs/policies/aesynth-ip-policy-1.0.yaml
+  fiduciary_memorandum:
+    path: docs/fiduciary/AJP-memorandum.yaml
+
 registry:
   id: aesynth:gov:registry
   name: "Aesynth Governance Registry"
@@ -14,7 +31,7 @@ registry:
   rules:
     - "Anything that confers authority or legal binding belongs here."
     - "All authoritative texts must include provenance envelopes (JWS) and SHA-256 content hashes."
-    - "Merges to main require ≥ 1440 minutes Latency Gap and Verify checks."
+    - "Merges to main require >= 1440 minutes Latency Gap and Verify checks."
   indices:
     - path: index/catalog.json
     - path: index/sitemap.json
@@ -24,13 +41,7 @@ registry:
     - path: schemas/document.schema.json
     - path: schemas/resolution.schema.json
   documents:
-    - path: docs/constitutions/technical-constitution/1.0.0/Constitution.yaml
-    - path: docs/constitutions/human-constitution/1.0.0/Constitution.yaml
-    - path: docs/charters/semantic-charter/1.1.0/SemanticCharter.yaml
-    - path: docs/policy/PolicyRegistry.yaml
-    - path: docs/addendums/A-series.yaml
-    - path: docs/policies/aesynth-ip-policy-1.0.yaml
-    - path: docs/fiduciary/AJP-memorandum.yaml
+    <<: *document_index
   keys:
     - path: keys/trust-metadata.yaml
   ci:
