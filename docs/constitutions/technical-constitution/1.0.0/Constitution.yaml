@@ -1,0 +1,31 @@
+﻿meta:
+  id: aesynth:gov:doc/ai-technical-constitution@1.0.0
+  title: "Aesynth AI Technical Constitution"
+  version: 1.0.0
+  issued: "2025-11-01"
+  issuingAuthority: "Aesynth Council Secretariat"
+  license: AOG-1.0
+  provenanceRef: "docs/constitutions/technical-constitution/1.0.0/provenance.json"
+  hash:
+    algo: sha256
+    value: "<to-be-computed>"
+structure:
+  preamble: |
+    Synthlex exists to encode, interpret, and preserve the language of Architectural Intelligence...
+  articles:
+    - id: I
+      title: Identity and Purpose
+      status: active
+      body: |
+        ...
+    - id: V
+      title: Epistemology and Explainability
+      status: active
+      body: |
+        ...
+  enforcement:
+    verificationRequired: true
+    provenanceRequired: true
+    latencyGapMinutes: 1440
+ratification:
+  resolutionRef: "aesynth:gov:res/2025-11-01-ratify-ai-technical-constitution-1-0"
