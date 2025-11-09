@@ -1,0 +1,23 @@
+﻿[
+  "governance-registry",
+  "synthlex",
+  "aesynth-core",
+  "pattern-reader-core",
+  "criticx-engine",
+  "gdr-registry",
+  "axis-registry",
+  "break-registry",
+  "sememe-registry",
+  "policy-tools",
+  "provenance-ledger",
+  "plan-reader",
+  "plan-builder",
+  "math-kernel",
+  "drivers-threejs",
+  "drivers-sketchup",
+  "gdsq-engine",
+  "labelkit",
+  "docs-site",
+  "examples",
+  "cli"
+]

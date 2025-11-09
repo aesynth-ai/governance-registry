@@ -1,0 +1,85 @@
+﻿name: verify-policy
+on:
+  pull_request:
+  push:
+    branches: [ "main", "develop" ]
+
+jobs:
+  verify-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install CLI deps (jq, yq, ajv)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+          npm i -g ajv-cli
+
+      - name: List policies from registry
+        id: list
+        run: |
+          yq '.policies[].path' docs/policies/PolicyRegistry.yaml | sed 's/^ *- //' > /tmp/policies.txt
+          echo "count=$(wc -l < /tmp/policies.txt)" >> $GITHUB_OUTPUT
+          cat /tmp/policies.txt
+
+      - name: Validate each policy against schema
+        run: |
+          while read -r p; do
+            echo "::group::Schema validate $p"
+            ./scripts/bin/policy-validate.sh "$p"
+            echo "::endgroup::"
+          done < /tmp/policies.txt
+
+      - name: Canonical hash and compare to registry
+        run: |
+          set -e
+          yq -o=json '.policies' docs/policies/PolicyRegistry.yaml | jq -c '.[]' > /tmp/rows.jsonl
+          while read -r row; do
+            path=$(echo "$row" | jq -r '.path')
+            reg_hash=$(echo "$row" | jq -r '.sha256')
+            calc_hash=$(./scripts/bin/policy-hash.sh "$path")
+            echo "$path => $calc_hash"
+            if [ "$reg_hash" != "TBD" ] && [ "$reg_hash" != "$calc_hash" ]; then
+              echo "::error ::Hash mismatch for $path (registry=$reg_hash calc=$calc_hash)"
+              exit 1
+            fi
+          done < /tmp/rows.jsonl
+
+      - name: Ensure active policies have CRR and Ledger refs
+        run: |
+          set -e
+          while read -r p; do
+            status=$(yq '.status' "$p")
+            if [ "$status" = "active" ]; then
+              crr=$(yq '.provenance.crr_id' "$p")
+              led=$(yq '.provenance.ledger_ref' "$p")
+              if [ "$crr" = "null" ] || [ -z "$crr" ] || [ "$led" = "null" ] || [ -z "$led" ]; then
+                echo "::error ::Active policy $p missing CRR or ledger_ref"
+                exit 1
+              fi
+            fi
+          done < /tmp/policies.txt
+
+      - name: Ensure registry schema path exists
+        run: test -f schemas/policy.schema.json
+
+      - name: Publish reflection signal
+        if: success()
+        run: |
+          echo "phase=policy" > /tmp/reflection-phase.txt
+          echo "::notice ::Policy registry verified – Reflection Gate may proceed."
+
+  reflection:
+    needs: verify-policy
+    uses: aesynth-ai/governance-registry/.github/workflows/_reusable-reflection.yml@main
+    with:
+      min_hours: 12

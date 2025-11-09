@@ -1,0 +1,5 @@
+manifest_version: 1.0.0
+registry_sha256: sha256:d285a04f1854352e755c334e7e6503368dcc2254d100cc69d1c148e2ef83e3ed
+schema_sha256: sha256:00d68776a3edb80e3f52a57fbfc49ea555b214526e6658a3fc7fc2325567bb43
+last_reconciled: '2025-11-09T00:00:00Z'
+verified_by: verify-policy

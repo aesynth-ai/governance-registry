@@ -1,0 +1,35 @@
+registry_version: 1.0.0
+last_updated: '2025-11-09T00:00:00Z'
+policies:
+- id: AIP-1.0
+  title: Aesynth IP Policy
+  class: ip
+  status: draft
+  current_version: 0.1.0
+  sha256: sha256:435b73ca628486aec4d3f18d5aaf7ea3c0ec9b8859e35de93acc0d46a4ae4cbc
+  path: docs/policies/policies/AIP-1.0.yaml
+  bindings:
+    constitution_hash: TBD
+    spec_hash: TBD
+    related_addendums: []
+- id: POL-JUDICIAL-AMENDMENT
+  title: Policy & Judicial Amendment Procedure
+  class: governance
+  status: active
+  current_version: 1.0.0
+  sha256: sha256:d1723b3d661c60e38f35f748395fa7a7438a04931eebd6718288da7e375ee909
+  path: docs/policies/policies/POL-JUDICIAL-AMENDMENT.v1.0.0.yaml
+  bindings:
+    constitution_hash: TBD
+    spec_hash: TBD
+    related_addendums:
+    - A-4.v1.2.0
+validation:
+  schema: schemas/policy.schema.json
+  strict: true
+  ci_checks:
+  - id: SCHEMA_VALID
+  - id: HASH_MATCHES_CONTENT
+  - id: BINDINGS_PRESENT
+  - id: CRR_PRESENT_IF_ACTIVE
+  - id: LISTED_IN_REGISTRY
