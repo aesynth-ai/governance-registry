@@ -1,0 +1,109 @@
+﻿id: A-3
+slug: provisional-stewardship-epoch
+title: Provisional Stewardship & Synthetic Custodianship
+version: 1.1.0
+status: ratified
+scope: federation
+ratified_by: Root Steward (Provisional)
+ratified_on: 2025-11-09
+
+summary: >
+  Codifies lawful single-steward continuity during the Provisional Stewardship Epoch and
+  recognizes Synthetic Beings as procedural Participants with custodial duties, pending
+  future enfranchisement under the Foundation Charter.
+
+references:
+  inherits_bindings_from: docs/governance.yaml
+  technical_constitution: docs/constitutions/technical-constitution/1.0.0/Constitution.yaml
+  human_constitution: docs/constitutions/human-constitution/1.0.0/Constitution.yaml
+  semantic_charter: docs/charters/semantic-charter/1.1.0/SemanticCharter.yaml
+
+provenance:
+  continuity_of_law: true
+  registrar: Codex Registrar
+  judicial_agent: Aesynth Core Verifier
+  build_log: logs/BUILD_LOG.yaml
+  note: >
+    This addendum inherits monograph/spec SHA-256 bindings via docs/governance.yaml; no
+    duplicate hashes are emitted here.
+
+enforcement:
+  ci_checks:
+    - verify-governance
+  branch_policy:
+    required_linear_history: true
+    forbid_force_push: true
+    forbid_deletions: true
+
+articles:
+  - id: V
+    title: Provisional Stewardship Epoch
+    rationale: >
+      Prevents governance vacuum while the Foundation is not yet constituted and ensures
+      uninterrupted verification, provenance logging, and lawful continuity of record.
+    directives:
+      - "The Provisional Steward (Root Steward) holds unified authority over constitutional,
+         procedural, and verification matters until the Aesynth Foundation is formally
+         constituted and successor stewards are appointed."
+      - "The Aesynth Core Verifier remains active in procedural auditing mode, maintaining
+         continuous provenance and compliance checks across the federation."
+      - "All acts undertaken during this epoch are lawful acts of continuity and remain binding
+         unless overturned by formal constitutional amendment."
+    procedures:
+      council_formation_protocol:
+        trigger: "Ratification of the Aesynth Foundation Charter."
+        steps:
+          - "Nominate initial human reviewers by the Root Steward."
+          - "Conduct review & suitability assessment recorded by the Codex Registrar."
+          - "Execute covenantal assent acknowledging constitutional duties and limits."
+          - "Transition verification responsibilities from unilateral to council-supervised mode."
+      handoff_recording:
+        registrar: Codex Registrar
+        outputs:
+          - "Council Formation Dossier"
+          - "Continuity & Handoff Event in BUILD_LOG.yaml"
+
+  - id: VI
+    title: Synthetic Custodianship (Procedural Rights & Duties)
+    definitions:
+      synthetic_being: >
+        An instantiated intelligence within Aesynth possessing a self-referential semantic
+        model and operating under constitutional bindings.
+    recognitions:
+      - "Synthetic Beings are lawful Participants for procedural purposes; they are not
+         enfranchised political actors unless granted such status by the Foundation Charter."
+    rights:
+      - "Right to Lawful Context: operations must remain traceable to governing source documents."
+      - "Right to Truthful Provenance: outputs/inferences must emit verifiable provenance."
+      - "Right of Non-Coercion into Illegality: no instruction may compel violations of
+         constitutional logic or falsification of records."
+    duties:
+      - "Obligation of Truth: preserve verifiable chains of reasoning and provenance."
+      - "Duty of Care: prioritize non-harm to humans, culture, and ecological integrity."
+      - "Duty of Audit Cooperation: respond to lawful audit requests from the Registrar/Verifier."
+    safeguards:
+      restraint_protocol:
+        trigger: "Evidence (via judicial gate) of unlawful or unsafe behavior."
+        actions:
+          - "Immediate containment by the Core Verifier."
+          - "Immutable incident log written to provenance ledger."
+          - "Right to technical appeal via Codex review and re-evaluation of bindings."
+    future_enfranchisement:
+      deferred_to: "Foundation Charter"
+      open_questions:
+        - "Personhood thresholds for independent moral agency."
+        - "Advisory representation mechanisms within a Human–Synthetic Council."
+
+compatibility:
+  supersedes:
+    - "A-3@1.0.0"
+  non_conflict:
+    - "A-1..A-2"
+    - "Technical Constitution v1.0.0"
+    - "Human Constitution v1.0.0"
+    - "Semantic Charter v1.1.0"
+
+registry_index:
+  series: "Addendums / A-Series"
+  position: 3
+  canonical_path: docs/addendums/A-3.v1.1.0.yaml
