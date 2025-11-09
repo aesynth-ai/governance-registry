@@ -1,3 +1,5 @@
+![Policy](https://img.shields.io/badge/policy-AIP_1.0.0%20%7C%20APR_1.0.0-blue)
+
 ![verify-governance](https://github.com/aesynth-ai/governance-registry/actions/workflows/verify-governance.yml/badge.svg)
 
 Aesynth Governance Registry
