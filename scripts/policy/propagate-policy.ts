@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env -S node --enable-source-maps
+#!/usr/bin/env -S node --enable-source-maps
 const { execSync } = require("node:child_process");
 const fs = require("node:fs");
 const path = require("node:path");
@@ -84,15 +84,15 @@ apr: "1.0.0"
 
     try {
       exec(
-        `${GH} pr create --fill --label governance --title "Policy Genesis: seed policy_ref + CI" --body "Adds .aesynth/policy_ref.yaml and verify-policy.yml. Registry: ${regHash} — enforces reflection window + semver." --base main --head ${branch}`
+        `${GH} pr create --fill --title "Policy Genesis: seed policy_ref + CI" --body "Adds .aesynth/policy_ref.yaml and verify-policy.yml. Registry: ${regHash} � enforces reflection window + semver." --base main --head ${branch}`
       );
     } catch (err) {
       warn(`PR create failed for ${repo}: ${err.message}`);
     }
 
-    log(`✔ ${repo}`);
+    log(`? ${repo}`);
   } catch (err) {
-    warn(`✖ ${repo}: ${err.message}`);
+    warn(`? ${repo}: ${err.message}`);
   } finally {
     process.chdir(ROOT);
     if (fs.existsSync(tmp)) {
