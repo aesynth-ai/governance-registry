@@ -1,0 +1,205 @@
+id: A-4
+version: 1.2.1
+status: active
+title: Policy & Judicial Amendment Framework (Provisional Stewardship Epoch)
+class: governance-addendum
+purpose: 'Establish the lawful, verifiable mechanism for amending constitutions, policies,
+
+  and registries across the Aesynth Federation; encode the Provisional Stewardship
+
+  Epoch to prevent governance vacuum; and bind the Policy Genesis cycle to the
+
+  PolicyRegistry with CI enforcement.
+
+  '
+scope:
+  applies_to:
+  - governance-registry
+  - all/federated-repos
+  exclusions: []
+jurisdiction:
+  registry: governance-registry
+  precedence:
+  - TechnicalMonographs
+  - AIConstitution
+  - HumanConstitution
+  - SemanticCharter
+  - SystemSpecification
+bindings:
+  constitution_hash: sha256:PLACEHOLDER
+  spec_hash: sha256:PLACEHOLDER
+  related_addendums:
+  - A-3.v1.1.0
+  sha_chain:
+    previous: A-3.v1.1.0
+    current: sha256:c69aa57fc068825a7078ca0da17d0cf808043db4b9c6ec4832606f75d57858d1
+    next: null
+provisional_stewardship:
+  status: enabled
+  root_steward: Saskia Smith
+  authority:
+    description: 'Until the Aesynth Foundation is formally constituted and a multi-human
+      quorum
+
+      is seated, unified constitutional authority is vested in the Root Steward as
+      both
+
+      Root Steward and temporary Council. This prevents governance vacuum and
+
+      guarantees lawful continuity.
+
+      '
+    powers:
+    - Ratify constitutional addendums within the procedural bounds of this Addendum
+    - Appoint AI Judicial Auditor and configure the Judicial Gate
+    - Authorize Policy Genesis milestones and registry publication
+    - Initiate Council Formation Protocol upon readiness criteria
+    constraints:
+    - No transfer of IP/keys outside constitutional scope
+    - No repeal of human rights articles in the Human Constitution
+    - No self-modifying code merges without CI + hash-bound ratification
+  verification:
+    machine_guard: Aesynth Core Verifier (procedural auditing mode)
+    records:
+    - ProvenanceEnvelope
+    - CivicReflectionRecord
+    - GovernanceLedgerEntry
+  termination_condition: 'Provisional Stewardship ends automatically upon the ratified
+    seating of the first
+
+    Human Quorum via the Council Formation Protocol; powers devolve to the Council.
+
+    '
+council_formation_protocol:
+  readiness_criteria:
+  - 'ratified_foundation_charter: true'
+  - 'governance-keys.multisig_configured: true'
+  - 'verify-governance required on main across federation: true'
+  initial_quorum:
+    size: 2
+    auditor: AI Judicial Auditor (non-voting, veto-on-procedural-invalidity)
+  handoff_procedure:
+  - Record CRR describing authority transfer and stewardship closure
+  - Rotate signing keys to quorum-controlled multisig
+  - Publish new constitution_hash and AmendmentRegistry entry
+amendment_classes:
+- code: TYPE-I
+  name: Foundational Constitutional Modification
+  ratification_path:
+  - Root Steward or Council
+  - AI Judicial Auditor
+  - Ledger Publication
+- code: TYPE-II
+  name: Operational Policy Addition/Revision
+  ratification_path:
+  - Council (or Root Steward during provisional)
+  - AI Judicial Auditor
+  - Ledger Publication
+- code: TYPE-III
+  name: Core Registry Schema Change (Axis/Break/Sememe/GovLedger)
+  ratification_path:
+  - Technical Constitution Checks
+  - AI Judicial Auditor
+  - Ledger Publication
+- code: TYPE-IV
+  name: Non-substantive Metadata Corrections
+  ratification_path:
+  - Automated via CI hash verification
+  - Ledger Note
+workflow:
+  proposal_docket: dockets/pending/
+  required_artifacts:
+  - ProvenanceEnvelope
+  - CivicReflectionRecord
+  steps:
+  - id: submit
+    description: File docket with rationale, diff, and artifact links.
+  - id: system-validate
+    description: Schema + hash + reference checks via verify-governance.yml.
+  - id: civic-validate
+    description: Human quorum (or Root Steward during provisional) reviews CRR.
+  - id: ratify
+    description: Sign, bind hash, and append to AmendmentRegistry + Governance Ledger.
+  - id: broadcast
+    description: Federation-wide amendment digest emitted for sync.
+policy_genesis:
+  registry_file: docs/policies/PolicyRegistry.yaml
+  schema_file: schemas/policy.schema.json
+  required_policies:
+  - id: POL-JUDICIAL-AMENDMENT
+    path: docs/policies/policies/POL-JUDICIAL-AMENDMENT.v1.0.0.yaml
+    status: active
+  - id: AIP-1.0
+    path: docs/policies/policies/AIP-1.0.yaml
+    status: draft
+  manifests:
+  - docs/policies/RegistryManifest.yaml
+  logs:
+  - logs/POLICY_LOG.yaml
+  ci_requirements:
+  - verify-policy.yml MUST pass on PR and main
+  - PolicyRegistry entries MUST include sha256 that matches canonical content
+  - Active policies MUST include CRR and ledger_ref
+  - Schema and registry hashes MUST match RegistryManifest
+  federation_propagation:
+    summary: 'After ratification, CI emits a reflection signal; propagation scripts
+      open sync PRs
+
+      across federated repos pinning the PolicyRegistry hash. Merges are blocked if
+      the
+
+      receiving repo manifest hash does not match the canonical registry hash.
+
+      '
+    reflection_signal:
+      file_hint: /tmp/reflection-phase.txt
+      value: phase=policy
+ci_enforcement:
+  workflows:
+  - verify-governance.yml
+  - verify-policy.yml
+  rules:
+  - AmendmentRegistry MUST list this addendum with matching sha256
+  - All constitutional references MUST include correct hashes
+  - Blocks merge on constitution_version_hash mismatch (Constitution Drift Alert)
+  - Blocks merge if required policies are missing or failing schema/hash checks
+anti_capture:
+  quorum_rules:
+    during_provisional:
+    - Root Steward + AI Auditor required for TYPE-I/II ratification
+    after_council_seated:
+    - =2 human votes + AI Auditor procedural pass for TYPE-I/II
+  key_management:
+  - Signing keys stored in hardware-backed vault; rotation on council seating
+  - No single actor may disable CI or alter workflows without TYPE-I ratification
+  economic_controls:
+  - No transfer/assignment of constitutional IP without TYPE-I and public ledger vote
+    window (=7 days)
+records:
+  amendment_registry: docs/addendums/AmendmentRegistry.yaml
+  build_log: logs/BUILD_LOG.yaml
+  governance_ledger: ledger/public/
+  publication:
+    digest_topic: federation-amendments
+    cadence: on-ratification
+ratification:
+  ratified_on: '2025-11-09'
+  ratified_by:
+  - role: Root Steward
+    name: Saskia Smith
+  - role: AI Judicial Auditor
+    name: Aesynth Core Verifier
+  crr_id: CRR-2025-11-09-A-4
+  ledger_ref: ledger/public/addendums/A-4/1.2.1
+signatures:
+- signer: Saskia Smith
+  role: Root Steward
+  algo: ed25519
+  signature: TBD
+  timestamp: '2025-11-09T00:00:00Z'
+- signer: Aesynth Core Verifier
+  role: AI Judicial Auditor
+  algo: ed25519
+  signature: TBD
+  timestamp: '2025-11-09T00:00:00Z'
+hash: sha256:c69aa57fc068825a7078ca0da17d0cf808043db4b9c6ec4832606f75d57858d1

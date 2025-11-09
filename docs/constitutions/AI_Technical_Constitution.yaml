@@ -1,0 +1,13 @@
+﻿id: AI_Technical_Constitution
+version: "1.0.0"
+title: "Aesynth AI Technical Constitution (Minimal Bootstrap)"
+jurisdiction: "governance-registry"
+principles:
+  - explainability
+  - reversibility
+  - consistency
+  - temporal_dignity
+  - lawful_self_modification
+records:
+  provenance_envelope: required
+  civic_reflection_record: required
