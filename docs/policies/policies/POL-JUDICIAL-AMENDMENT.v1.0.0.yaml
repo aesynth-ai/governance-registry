@@ -1,0 +1,63 @@
+id: POL-JUDICIAL-AMENDMENT
+version: 1.0.0
+status: active
+class: governance
+title: Policy & Judicial Amendment Procedure
+summary: Operational policy encoding the living amendment mechanism and version reconciliation
+  logic for the Federation.
+jurisdiction:
+  registry: governance-registry
+  precedence:
+  - TechnicalMonographs
+  - AIConstitution
+  - HumanConstitution
+  - SemanticCharter
+  - SystemSpecification
+bindings:
+  constitution_hash: TBD
+  spec_hash: TBD
+  related_addendums:
+  - A-4.v1.2.0
+scope:
+  applies_to:
+  - all/federated-repos
+  exclusions: []
+procedures:
+  enactment: Policy proposal in dockets/, verified by CI, ratified via CRR + Ledger
+    publication.
+  amendment: Submit delta policy; CI verifies schema/hash; Human Quorum CRR required
+    if status=active.
+  repeal: Requires Type II repeal docket, Auditor verdict CONSISTENCY_PASS, and Ledger
+    publication.
+controls:
+  ci_checks:
+  - SCHEMA_VALID
+  - HASH_MATCHES_CONTENT
+  - BINDINGS_PRESENT
+  - CRR_PRESENT_IF_ACTIVE
+  - LISTED_IN_REGISTRY
+  evidence_required:
+  - ProvenanceEnvelope
+  - CRR
+  - LedgerEntry
+references: []
+provenance:
+  created_at: '2025-11-09T00:00:00Z'
+  updated_at: '2025-11-09T00:00:00Z'
+  author: Root Steward
+  reviewers:
+  - AI Judicial Auditor
+  crr_id: CRR-2025-11-09-POL-JUDICIAL-AMENDMENT
+  ledger_ref: ledger/public/policies/POL-JUDICIAL-AMENDMENT/1.0.0
+signatures:
+- signer: Root Steward (Von Saskia)
+  algo: ed25519
+  signature: TBD
+  timestamp: '2025-11-09T00:00:00Z'
+hash: sha256:d1723b3d661c60e38f35f748395fa7a7438a04931eebd6718288da7e375ee909
+i18n:
+  label:
+    en: Policy & Judicial Amendment Procedure
+  description:
+    en: Defines proposal, validation, ratification, and broadcast of policy amendments
+      across the Federation.

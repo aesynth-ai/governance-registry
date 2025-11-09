@@ -1,0 +1,7 @@
+- policy_id: POL-JUDICIAL-AMENDMENT
+  version: 1.0.0
+  ratified_on: 2025-11-09
+  ledger_ref: ledger/public/policies/POL-JUDICIAL-AMENDMENT/1.0.0
+  sha256: sha256:d1723b3d661c60e38f35f748395fa7a7438a04931eebd6718288da7e375ee909
+  crr_id: CRR-2025-11-09-POL-JUDICIAL-AMENDMENT
+  verified_by: verify-policy
