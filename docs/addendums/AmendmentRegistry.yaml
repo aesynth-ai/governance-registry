@@ -1,0 +1,10 @@
+- id: A-4
+  version: 1.2.1
+  title: Policy & Judicial Amendment Framework (Provisional Stewardship Epoch)
+  status: active
+  sha256: sha256:c69aa57fc068825a7078ca0da17d0cf808043db4b9c6ec4832606f75d57858d1
+  ratified_on: '2025-11-09'
+  ratified_by:
+  - Saskia Smith
+  - Aesynth Core Verifier
+  ledger_ref: ledger/public/addendums/A-4/1.2.1
