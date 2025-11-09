@@ -1,6 +1,11 @@
 ﻿name: verify-policy
 on:
   pull_request:
+    paths:
+      - 'docs/policies/**'
+      - '.aesynth/policy_ref.yaml'
+      - '.github/workflows/verify-policy.yml'
+      - 'schemas/**'
   push:
     branches: [ "main", "develop" ]
 
