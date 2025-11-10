@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env -S node --enable-source-maps
+#!/usr/bin/env -S node --enable-source-maps
 const fs = require("node:fs");
 const crypto = require("node:crypto");
 const YAML = require("js-yaml");

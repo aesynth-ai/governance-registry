@@ -1,16 +1,16 @@
 {
-  "ts": "2025-11-09T02:19:25.991Z",
+  "ts": "2025-11-10T01:00:02.475Z",
   "a4": {
     "hash": "sha256:c69aa57fc068825a7078ca0da17d0cf808043db4b9c6ec4832606f75d57858d1"
   },
   "manifest": {
     "manifest_version": "1.0.0",
-    "registry_sha256": "sha256:e28307a9e590208cfc84276aea68c127626515e95f0b8acc9fbda2b1909fb291",
-    "schema_sha256": "sha256:00d68776a3edb80e3f52a57fbfc49ea555b214526e6658a3fc7fc2325567bb43",
+    "registry_sha256": "sha256:77334490ddde15dd005bee510a22be42baa71584cd808edaf5b3c721555d7a32",
+    "schema_sha256": "sha256:5e09c2b91a662b13f918153c163498824867c92e98d4088c584f2155c2ce1737",
     "last_reconciled": "2025-11-09T00:00:00Z",
     "verified_by": "verify-policy"
   },
   "policy_registry": {
-    "hash": "sha256:e28307a9e590208cfc84276aea68c127626515e95f0b8acc9fbda2b1909fb291"
+    "hash": "sha256:77334490ddde15dd005bee510a22be42baa71584cd808edaf5b3c721555d7a32"
   }
 }

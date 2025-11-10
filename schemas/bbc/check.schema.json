@@ -1,0 +1,26 @@
+{
+  "$id": "https://aesynth.org/schemas/bbc/check.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BBC Check Definition",
+  "type": "object",
+  "required": ["id", "title", "severity", "description", "evidence"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["CRR", "ProvenanceEnvelope", "LedgerEntry", "SimulationTrace", "AuditReport"]
+      }
+    },
+    "tooling": { "type": "string" },
+    "inputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

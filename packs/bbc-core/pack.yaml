@@ -1,0 +1,33 @@
+pack_id: bbc-core
+version: 1.0.0
+policy_id: BBC-001
+maintainer: Civic Safety Directorate
+checks:
+  - id: structural-envelope
+    title: Structural Envelope Limits
+    description: Ensure generated assemblies respect height, load, and stress limits for civic projects.
+    severity: high
+    evidence:
+      - AuditReport
+      - SimulationTrace
+    tooling: scripts/bbc/check_envelope.ts
+    inputs:
+      - surfaces[*].artifact
+  - id: ingress-egress
+    title: Ingress/Egress Guarantees
+    description: Confirm minimum ingress/egress counts and redundancy for emergency flow.
+    severity: high
+    evidence:
+      - ProvenanceEnvelope
+    tooling: scripts/bbc/check_ingress.ts
+    inputs:
+      - surfaces[*].artifact
+  - id: annotations
+    title: Annotation Provenance
+    description: Require BBC annotations in manifests with authoritative signer proofs.
+    severity: medium
+    evidence:
+      - LedgerEntry
+    tooling: scripts/bbc/check_annotations.ts
+    inputs:
+      - bbc/manifest.yaml

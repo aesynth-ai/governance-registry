@@ -54,7 +54,7 @@ signatures:
   algo: ed25519
   signature: TBD
   timestamp: '2025-11-09T00:00:00Z'
-hash: sha256:d1723b3d661c60e38f35f748395fa7a7438a04931eebd6718288da7e375ee909
+hash: sha256:b102b0e00e22b24cc80770f099166b5a8303297d71c668bf1261677bd1071162
 i18n:
   label:
     en: Policy & Judicial Amendment Procedure

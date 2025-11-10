@@ -6,7 +6,7 @@ policies:
   class: ip
   status: draft
   current_version: 0.1.0
-  sha256: sha256:435b73ca628486aec4d3f18d5aaf7ea3c0ec9b8859e35de93acc0d46a4ae4cbc
+  sha256: sha256:15ca66f0fe10828c6a66b88896961f889e0780b6447e337594875de70d988e7e
   path: docs/policies/policies/AIP-1.0.yaml
   bindings:
     constitution_hash: TBD
@@ -17,13 +17,97 @@ policies:
   class: governance
   status: active
   current_version: 1.0.0
-  sha256: sha256:d1723b3d661c60e38f35f748395fa7a7438a04931eebd6718288da7e375ee909
+  sha256: sha256:b102b0e00e22b24cc80770f099166b5a8303297d71c668bf1261677bd1071162
   path: docs/policies/policies/POL-JUDICIAL-AMENDMENT.v1.0.0.yaml
   bindings:
     constitution_hash: TBD
     spec_hash: TBD
     related_addendums:
     - A-4.v1.2.0
+- id: FS-001
+  title: Federal Serialization Canon
+  class: compliance
+  status: active
+  current_version: 1.0.0
+  sha256: sha256:add6cb46b7e1754bf7ae76fa22ed2bfac19140c5244a6cd4582c6e8aedfe2663
+  path: docs/policies/policies/FS-001.v1.0.0.yaml
+  bindings:
+    constitution_hash: TBD
+    spec_hash: TBD
+    related_addendums:
+    - A-4.v1.2.1
+- id: FS-010
+  title: Temporal Dignity - 12h Reflection
+  class: governance
+  status: active
+  current_version: 1.0.0
+  sha256: sha256:6cfb46cea80f99d229718ad210f1cadf17600a5a45eaff8357b41c01f2cbbcba
+  path: docs/policies/policies/FS-010.v1.0.0.yaml
+  bindings:
+    constitution_hash: TBD
+    spec_hash: TBD
+    related_addendums:
+    - A-4.v1.2.1
+- id: MOP-001
+  title: Module Operating Procedure - Runtime Changes
+  class: compliance
+  status: active
+  current_version: 1.0.0
+  sha256: sha256:4f893536c75e120a8144144fa592084fb1604bbef503eb21d98de9ae2cdaad8b
+  path: docs/policies/policies/MOP-001.v1.0.0.yaml
+  bindings:
+    constitution_hash: TBD
+    spec_hash: TBD
+    related_addendums:
+    - A-4.v1.2.1
+- id: BBC-001
+  title: Baseline Building Code
+  class: compliance
+  status: active
+  current_version: 1.0.0
+  sha256: sha256:b0d420193763d5c25e221e13b7e59ceae878a0e1921dc8c26054ac0f7effcb8d
+  path: docs/policies/policies/BBC-001.v1.0.0.yaml
+  bindings:
+    constitution_hash: TBD
+    spec_hash: TBD
+    related_addendums:
+    - A-4.v1.2.1
+- id: AIP-IdenSynth-Charter
+  title: IdenSynth Charter
+  class: governance
+  status: referential
+  current_version: 1.0.0
+  sha256: sha256:09ba626414b7e6eb63413e0c2b6e35973f7a2aab60cd232bb7aefb0e2b90efc7
+  path: docs/policies/policies/AIP-IdenSynth-Charter.v1.0.0.yaml
+  bindings:
+    constitution_hash: TBD
+    spec_hash: TBD
+    related_addendums:
+    - A-4.v1.2.1
+- id: AIP-CivSynth-Charter
+  title: CivSynth Charter
+  class: governance
+  status: referential
+  current_version: 1.0.0
+  sha256: sha256:358140730f64891fa127bd02d67a3b2828bcfe86ddcc88745fb8b230000b89ec
+  path: docs/policies/policies/AIP-CivSynth-Charter.v1.0.0.yaml
+  bindings:
+    constitution_hash: TBD
+    spec_hash: TBD
+    related_addendums:
+    - A-4.v1.2.1
+- id: AIP-JuriSynth-Charter
+  title: JuriSynth Charter
+  class: governance
+  status: referential
+  current_version: 1.0.0
+  sha256: sha256:937fa8d6e65e137817088092c114e8cc701d2897519d420e967359dde202242e
+  path: docs/policies/policies/AIP-JuriSynth-Charter.v1.0.0.yaml
+  bindings:
+    constitution_hash: TBD
+    spec_hash: TBD
+    related_addendums:
+    - A-4.v1.2.1
 validation:
   schema: schemas/policy.schema.json
   strict: true

@@ -21,7 +21,7 @@
   "properties": {
     "id": { "type": "string", "pattern": "^[A-Z0-9._-]+$" },
     "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
-    "status": { "type": "string", "enum": ["active", "deprecated", "draft"] },
+    "status": { "type": "string", "enum": ["active", "deprecated", "draft", "referential"] },
     "class": {
       "type": "string",
       "enum": ["governance", "security", "ethics", "ip", "audit", "compliance"]

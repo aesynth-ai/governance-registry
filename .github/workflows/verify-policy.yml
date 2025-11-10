@@ -3,11 +3,13 @@ on:
   pull_request:
     paths:
       - 'docs/policies/**'
-      - '.aesynth/policy_ref.yaml'
-      - '.github/workflows/verify-policy.yml'
+      - 'docs/addendums/**'
+      - 'docs/constitutions/**'
       - 'schemas/**'
+      - '.github/workflows/**'
+      - 'logs/**'
   push:
-    branches: [ "main", "develop" ]
+    branches: [ "main" ]
 
 jobs:
   verify-policy:
