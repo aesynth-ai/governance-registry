@@ -1,0 +1,56 @@
+id: FS-001
+version: 1.0.0
+status: active
+class: compliance
+title: Federal Serialization Canon
+summary: Ensures all governance artefacts are serialized deterministically prior to
+  reflection or merge.
+jurisdiction:
+  registry: governance-registry
+  precedence:
+  - TechnicalMonographs
+  - AIConstitution
+  - HumanConstitution
+  - SemanticCharter
+  - SystemSpecification
+bindings:
+  constitution_hash: TBD
+  spec_hash: TBD
+  related_addendums:
+  - A-4.v1.2.1
+scope:
+  applies_to:
+  - all/federated-repos
+  exclusions: []
+procedures:
+  enactment: Activate canonical serialization hooks defined in governance-registry/scripts/governance_gate.ts.
+  amendment: Revise serialization algorithm via docket + CRR demonstrating backwards
+    compatibility.
+  repeal: Requires successor serialization policy plus Auditor attestation of registry
+    parity.
+controls:
+  ci_checks:
+  - SCHEMA_VALID
+  - HASH_MATCHES_CONTENT
+  - GOVERNANCE_GATE
+  evidence_required:
+  - ProvenanceEnvelope
+  - LedgerEntry
+references:
+- label: governance_gate.ts
+  uri: https://github.com/aesynth-ai/governance-registry/blob/main/scripts/governance_gate.ts
+  hash: TBD
+provenance:
+  created_at: '2025-11-10T00:00:00Z'
+  updated_at: '2025-11-10T00:00:00Z'
+  author: Federal Operating Council
+  reviewers:
+  - AI Judicial Auditor
+  crr_id: CRR-2025-11-10-FS-001
+  ledger_ref: ledger/public/policies/FS-001/1.0.0
+signatures:
+- signer: Federal Operating Council
+  algo: ed25519
+  signature: TBD
+  timestamp: '2025-11-10T00:00:00Z'
+hash: sha256:add6cb46b7e1754bf7ae76fa22ed2bfac19140c5244a6cd4582c6e8aedfe2663

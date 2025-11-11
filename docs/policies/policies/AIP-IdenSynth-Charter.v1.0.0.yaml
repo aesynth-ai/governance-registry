@@ -1,0 +1,53 @@
+id: AIP-IdenSynth-Charter
+version: 1.0.0
+status: referential
+class: governance
+title: IdenSynth Charter
+summary: Identity issuance and provenance signing service with no merge or code authority.
+jurisdiction:
+  registry: governance-registry
+  precedence:
+  - TechnicalMonographs
+  - AIConstitution
+bindings:
+  constitution_hash: TBD
+  spec_hash: TBD
+  related_addendums:
+  - A-4.v1.2.1
+scope:
+  applies_to:
+  - idensynth
+  exclusions:
+  - merge_authority
+procedures:
+  enactment: Charter recorded in governance registry referencing mission + service
+    contract.
+  amendment: Requires docket + CRR from Civic Synth + Human auditor acknowledging
+    new scope.
+  repeal: Requires federated vote and updated policy_ref hash for all dependents.
+controls:
+  ci_checks:
+  - REFERENTIAL_ONLY
+  evidence_required:
+  - CRR
+references:
+- label: mission
+  uri: https://github.com/aesynth-ai/idensynth/blob/main/docs/mission.yaml
+  hash: TBD
+- label: service_contract
+  uri: https://github.com/aesynth-ai/idensynth/blob/main/docs/contracts/ServiceContract.yaml
+  hash: TBD
+provenance:
+  created_at: '2025-11-10T00:00:00Z'
+  updated_at: '2025-11-10T00:00:00Z'
+  author: Federal Operating Council
+  reviewers:
+  - Civic Safety Directorate
+  crr_id: CRR-2025-11-10-AIP-IDENSYNTH
+  ledger_ref: ledger/public/charters/AIP-IdenSynth-Charter/1.0.0
+signatures:
+- signer: Federal Operating Council
+  algo: ed25519
+  signature: TBD
+  timestamp: '2025-11-10T00:00:00Z'
+hash: sha256:09ba626414b7e6eb63413e0c2b6e35973f7a2aab60cd232bb7aefb0e2b90efc7

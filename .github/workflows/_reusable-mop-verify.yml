@@ -1,0 +1,70 @@
+name: reusable-mop-verify
+
+on:
+  workflow_call:
+    inputs:
+      manifest_path:
+        description: Path to the MCP manifest to validate
+        default: docs/mcp/manifest.yaml
+        required: false
+        type: string
+      readme_path:
+        description: Path to the MCP README (ensures presence + policy reference)
+        default: docs/mcp/README.md
+        required: false
+        type: string
+      registry_ref:
+        description: governance-registry ref holding schemas/policies
+        default: main
+        required: false
+        type: string
+
+jobs:
+  mop-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout caller repository
+        uses: actions/checkout@v4
+
+      - name: Checkout governance registry toolkit
+        uses: actions/checkout@v4
+        with:
+          repository: aesynth-ai/governance-registry
+          ref: ${{ inputs.registry_ref }}
+          path: governance-toolkit
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install schema tooling
+        run: npm install -g ajv-cli@5.0.0
+
+      - name: Ensure MCP documentation exists
+        shell: bash
+        run: |
+          if [[ ! -f "${{ inputs.readme_path }}" ]]; then
+            echo "::error ::Missing ${{ inputs.readme_path }} (see MOP-001)."
+            exit 1
+          fi
+          if ! grep -q "MOP-001" "${{ inputs.readme_path }}"; then
+            echo "::error ::${{ inputs.readme_path }} must reference MOP-001 to link back to the federal process."
+            exit 1
+          fi
+
+      - name: Validate MCP manifest schema
+        shell: bash
+        run: |
+          if [[ ! -f "${{ inputs.manifest_path }}" ]]; then
+            echo "::error ::Missing ${{ inputs.manifest_path }} (see schemas/mcp.schema.json)."
+            exit 1
+          fi
+          ajv validate \
+            -s governance-toolkit/schemas/mcp.schema.json \
+            -d "${{ inputs.manifest_path }}" \
+            --spec=draft2020-12
+
+      - name: Emit completion marker
+        if: success()
+        run: echo "MOP manifest verified OK"

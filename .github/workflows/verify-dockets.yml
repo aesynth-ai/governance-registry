@@ -1,0 +1,33 @@
+name: verify-dockets
+
+on:
+  pull_request:
+    paths:
+      - 'dockets/pending/**'
+
+jobs:
+  docket-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Require CRR reference
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=$(git ls-files 'dockets/pending/*.yaml' 'dockets/pending/*.yml' 2>/dev/null || true)
+          if [[ -z "$files" ]]; then
+            echo "No docket YAML files to validate."
+            exit 0
+          fi
+          missing=0
+          for file in $files; do
+            if ! grep -Eq '^crr:\s*"?CRR-[0-9]{4}-' "$file"; then
+              echo "::error file=$file,line=1::Missing CRR reference (format: crr: CRR-YYYY-SEQ)."
+              missing=1
+            fi
+          done
+          if [[ $missing -ne 0 ]]; then
+            exit 1
+          fi
+          echo "All docket files include CRR references."

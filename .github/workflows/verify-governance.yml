@@ -1,123 +1,26 @@
 ﻿name: verify-governance
-
 on:
   pull_request:
-    paths:
-      - "registry.yaml"
-      - "docs/**"
-      - "schemas/**"
-      - "keys/**"
-      - "ci/**"
-      - "logs/**"
+    branches: [ main ]
   push:
     branches: [ main ]
-    paths:
-      - "registry.yaml"
-      - "docs/**"
-      - "schemas/**"
-      - "keys/**"
-      - "ci/**"
-      - "logs/**"
-
 jobs:
-  verify:
-    name: Verify Governance Corpus
+  gate:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-
-      - name: Install toolchain (yamllint, ajv, yq)
+          node-version: 20
+      - name: Install deps
         run: |
-          python3 -m pip install --upgrade pip yamllint
-          npm i -g ajv-cli@5.0.0
-          curl -L "https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64" -o /usr/local/bin/yq
-          chmod +x /usr/local/bin/yq
-
-      - name: YAML lint (policy-driven)
-        run: |
-          # If you maintain a yamllint schema in ci/rules.yaml, use it; else fallback to relaxed defaults.
-          if [ -f ci/rules.yaml ]; then
-            yamllint -c ci/rules.yaml .
-          else
-            yamllint -d "{extends: default, rules: {line-length: {max: 220}}}" .
-          fi
-
-      - name: "Schema: compile governance-ledger.schema.yaml"
-        run: |
-          test -f schemas/governance-ledger.schema.yaml
-          yq -o=json schemas/governance-ledger.schema.yaml > /tmp/ledger.schema.json
-          # quick sanity: ajv compile (draft 2020, non-strict for date-time formats)
-          ajv compile -s /tmp/ledger.schema.json --spec=draft2020 --strict=false
-
-      - name: Validate Policy Registry against schema
-        run: |
-          test -f docs/policy/PolicyRegistry.yaml
-          yq -o=json docs/policy/PolicyRegistry.yaml > /tmp/policy.json
-          ajv validate -s /tmp/ledger.schema.json -d /tmp/policy.json --spec=draft2020 --strict=false
-
-      - name: Registry index integrity
-        run: |
-          set -euo pipefail
-
-          check_path_and_version () {
-            local key="$1"
-            local expected_prefix="$2"
-            local filename="$3"
-            local version_query="$4"
-
-            local rel_path
-            rel_path=$(yq -r ".documents.${key}.path // \"\"" registry.yaml)
-            if [ -z "$rel_path" ]; then
-              echo "::error ::${key} missing from registry.yaml"
-              exit 1
-            fi
-
-            case "$rel_path" in
-              ${expected_prefix}*) ;;
-              *)
-                echo "::error ::${key} path ${rel_path} does not live under ${expected_prefix}"
-                exit 1
-                ;;
-            esac
-
-            local dir ver doc_version
-            dir=$(dirname "$rel_path")
-            ver=$(basename "$dir")
-            doc_version=$(yq -r "${version_query}" "$dir/$filename" | tr -d '\r')
-            if [ -z "$doc_version" ] || [ "$doc_version" = "null" ]; then
-              echo "::error ::${key} version field not found via query ${version_query}"
-              exit 1
-            fi
-            if [ "$doc_version" != "$ver" ]; then
-              echo "::error ::${key} version mismatch (doc=${doc_version} dir=${ver})"
-              exit 1
-            fi
-          }
-
-          check_path_and_version technical_constitution "docs/constitutions/technical-constitution/" "Constitution.yaml" ".meta.version"
-          check_path_and_version human_constitution      "docs/constitutions/human-constitution/"      "Constitution.yaml" ".meta.version"
-          check_path_and_version semantic_charter        "docs/charters/semantic-charter/"             "SemanticCharter.yaml" ".meta.version"
-
-      - name: Trust metadata sanity
-        run: |
-          test -f keys/trust-metadata.yaml
-          # Must have at least one key with id + fingerprint
-          [ "$(yq '.keys | length' keys/trust-metadata.yaml)" -ge 1 ]
-          yq '.keys[] | .fingerprint' keys/trust-metadata.yaml | grep -v '^$'
-
-      - name: Provenance log presence
-        run: |
-          test -f logs/BUILD_LOG.yaml
-          # Non-empty and has at least one entry
-          [ "$(yq '.events | length' logs/BUILD_LOG.yaml)" -ge 0 ]
-
-      - name: Emit status
-        run: |
-          echo "verify-governance: PASS"
+          npm init -y >/dev/null 2>&1 || true
+          npm i js-yaml
+      - name: Run governance gate
+        run: node scripts/governance_gate.ts --snapshot
+      - name: Upload audit snapshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-snapshot-A4
+          path: logs/audit-snapshot-A4.json

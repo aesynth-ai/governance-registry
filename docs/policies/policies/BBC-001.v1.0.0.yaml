@@ -1,0 +1,55 @@
+id: BBC-001
+version: 1.0.0
+status: active
+class: compliance
+title: Baseline Building Code (BBC)
+summary: Establishes minimum structural, ingress/egress, and provenance requirements
+  for plan and geometry producers.
+jurisdiction:
+  registry: governance-registry
+  precedence:
+  - TechnicalMonographs
+  - AIConstitution
+  - SemanticCharter
+bindings:
+  constitution_hash: TBD
+  spec_hash: TBD
+  related_addendums:
+  - A-4.v1.2.1
+scope:
+  applies_to:
+  - synthlex-core
+  - plan-reader
+  - pattern-reader-core
+  exclusions: []
+procedures:
+  enactment: Adopt BBC manifests + reusable CI workflow to enforce pack `bbc-core`.
+  amendment: Introduce revised packs + schema updates via docket with BBC Auditor
+    approval.
+  repeal: Requires successor building code plus civic engineering concurrence.
+controls:
+  ci_checks:
+  - BBC_MANIFEST_VALID
+  - PACK_REFERENCE_RESOLVES
+  evidence_required:
+  - AuditReport
+  - ProvenanceEnvelope
+  - LedgerEntry
+references:
+- label: BBC Core Pack
+  uri: https://github.com/aesynth-ai/governance-registry/tree/main/packs/bbc-core
+  hash: TBD
+provenance:
+  created_at: '2025-11-10T00:00:00Z'
+  updated_at: '2025-11-10T00:00:00Z'
+  author: Civic Safety Directorate
+  reviewers:
+  - Root Steward
+  crr_id: CRR-2025-11-10-BBC-001
+  ledger_ref: ledger/public/policies/BBC-001/1.0.0
+signatures:
+- signer: Civic Safety Directorate
+  algo: ed25519
+  signature: TBD
+  timestamp: '2025-11-10T00:00:00Z'
+hash: sha256:b0d420193763d5c25e221e13b7e59ceae878a0e1921dc8c26054ac0f7effcb8d

@@ -1,0 +1,6 @@
+id: MCP-2025-0001
+type: TYPE-II
+title: "Analyzer: add AXB detection for ROT-DRIFT"
+crr: "CRR-2025-11-10-AXB-ROT-DRIFT"
+proposed_by: "Aesynth Engine"
+rationale: "Expand symmetry-break coverage"

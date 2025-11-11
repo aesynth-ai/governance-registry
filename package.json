@@ -1,0 +1,30 @@
+{
+  "name": "governance-registry",
+  "version": "1.0.0",
+  "description": "![verify-governance](https://github.com/aesynth-ai/governance-registry/actions/workflows/verify-governance.yml/badge.svg)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aesynth-ai/governance-registry.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aesynth-ai/governance-registry/issues"
+  },
+  "homepage": "https://github.com/aesynth-ai/governance-registry#readme",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "js-yaml": "^4.1.0"
+  }
+}

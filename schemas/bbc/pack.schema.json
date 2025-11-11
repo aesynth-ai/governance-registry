@@ -1,0 +1,19 @@
+{
+  "$id": "https://aesynth.org/schemas/bbc/pack.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BBC Pack",
+  "type": "object",
+  "required": ["pack_id", "version", "policy_id", "checks"],
+  "properties": {
+    "pack_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "policy_id": { "type": "string", "enum": ["BBC-001"] },
+    "maintainer": { "type": "string" },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "check.schema.json" }
+    }
+  },
+  "additionalProperties": false
+}

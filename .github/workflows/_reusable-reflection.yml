@@ -1,0 +1,24 @@
+﻿name: _reusable-reflection
+on:
+  workflow_call:
+    inputs:
+      min_hours:
+        required: true
+        type: number
+jobs:
+  reflect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce reflection window
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          CREATED=$(jq -r '.pull_request.created_at' <<< '${{ toJson(github.event) }}')
+          NOW=$(date -u +%s)
+          CREATED_S=$(date -u -d "$CREATED" +%s)
+          DIFF=$(( NOW - CREATED_S ))
+          REQ=$(( ${{ inputs.min_hours }} * 3600 ))
+          if [ $DIFF -lt $REQ ]; then
+            echo "::error ::Reflection window not satisfied (${{ inputs.min_hours }}h)."
+            exit 1
+          fi
+          echo "Reflection window satisfied."

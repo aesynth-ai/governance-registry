@@ -1,0 +1,53 @@
+id: AIP-CivSynth-Charter
+version: 1.0.0
+status: referential
+class: governance
+title: CivSynth Charter
+summary: Civic reflection and digest service that only publishes CRR summaries.
+jurisdiction:
+  registry: governance-registry
+  precedence:
+  - TechnicalMonographs
+  - AIConstitution
+bindings:
+  constitution_hash: TBD
+  spec_hash: TBD
+  related_addendums:
+  - A-4.v1.2.1
+scope:
+  applies_to:
+  - civsynth
+  exclusions:
+  - ratification_authority
+procedures:
+  enactment: Charter logged with mission + contracts, referencing policy registry
+    hash pin.
+  amendment: Requires docket referencing CRR + ledger digest update proving no new
+    authorities.
+  repeal: Needs replacement civic reflection steward and ledger vote.
+controls:
+  ci_checks:
+  - REFERENTIAL_ONLY
+  evidence_required:
+  - CRR
+references:
+- label: mission
+  uri: https://github.com/aesynth-ai/civsynth/blob/main/docs/mission.yaml
+  hash: TBD
+- label: service_contract
+  uri: https://github.com/aesynth-ai/civsynth/blob/main/docs/contracts/ServiceContract.yaml
+  hash: TBD
+provenance:
+  created_at: '2025-11-10T00:00:00Z'
+  updated_at: '2025-11-10T00:00:00Z'
+  author: Civic Safety Directorate
+  reviewers:
+  - Root Steward
+  crr_id: CRR-2025-11-10-AIP-CIVSYNTH
+  ledger_ref: ledger/public/charters/AIP-CivSynth-Charter/1.0.0
+signatures:
+- signer: Civic Safety Directorate
+  algo: ed25519
+  signature: TBD
+  timestamp: '2025-11-10T00:00:00Z'
+hash: sha256:358140730f64891fa127bd02d67a3b2828bcfe86ddcc88745fb8b230000b89ec

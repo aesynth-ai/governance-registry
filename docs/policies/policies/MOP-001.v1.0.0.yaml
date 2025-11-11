@@ -1,0 +1,57 @@
+id: MOP-001
+version: 1.0.0
+status: active
+class: compliance
+title: Module Operating Procedure - Runtime Changes
+summary: Establishes the MCP process and reusable CI enforcement for repositories
+  that change runtime behaviour.
+jurisdiction:
+  registry: governance-registry
+  precedence:
+  - TechnicalMonographs
+  - AIConstitution
+  - SemanticCharter
+bindings:
+  constitution_hash: TBD
+  spec_hash: TBD
+  related_addendums:
+  - A-4.v1.2.1
+scope:
+  applies_to:
+  - synthlex-core
+  - plan-reader
+  - aesynth-core
+  exclusions:
+  - docs-only-changes
+procedures:
+  enactment: Repos document MCP manifests, adopt the reusable verification workflow,
+    and record CRR references.
+  amendment: Submit MOP delta, include simulation evidence proving no regression to
+    reflection guardrails.
+  repeal: Requires substitute MCP plus ledger vote proving operational readiness.
+controls:
+  ci_checks:
+  - SCHEMA_VALID
+  - MCP_MANIFEST_PRESENT
+  - REUSABLE_MOP_VERIFY
+  evidence_required:
+  - ProvenanceEnvelope
+  - CRR
+references:
+- label: Reusable workflow
+  uri: https://github.com/aesynth-ai/governance-registry/blob/main/.github/workflows/_reusable-mop-verify.yml
+  hash: TBD
+provenance:
+  created_at: '2025-11-10T00:00:00Z'
+  updated_at: '2025-11-10T00:00:00Z'
+  author: Federal Operating Council
+  reviewers:
+  - AI Judicial Auditor
+  crr_id: CRR-2025-11-10-MOP-001
+  ledger_ref: ledger/public/policies/MOP-001/1.0.0
+signatures:
+- signer: Federal Operating Council
+  algo: ed25519
+  signature: TBD
+  timestamp: '2025-11-10T00:00:00Z'
+hash: sha256:4f893536c75e120a8144144fa592084fb1604bbef503eb21d98de9ae2cdaad8b
