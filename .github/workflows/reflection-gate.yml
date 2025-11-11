@@ -1,29 +1,11 @@
 ﻿name: reflection-gate
 on:
   pull_request:
-    types: [opened, synchronize, reopened, labeled, unlabeled, ready_for_review]
-jobs:
-  reflection-window:
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: read
-      contents: read
-    steps:
-      - name: Enforce cooling-off window (HEAD commit time)
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const prNumber = context.payload.pull_request.number;
-            const pr = await github.rest.pulls.get({ owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber });
-            const headSha = pr.data.head.sha;
-            const commit = await github.rest.repos.getCommit({ owner: context.repo.owner, repo: context.repo.repo, ref: headSha });
-            const pushedMs = new Date(commit.data.commit.committer.date).getTime();
-            const elapsedH = (Date.now() - pushedMs) / 3.6e6;
-            const need = 0.1; // hours; adjust once for this PR if needed
-            core.info(\Reflection: elapsed=\h need=\h head=\\);
-            if (elapsedH < need) {
-              core.setFailed(\Reflection window not satisfied: \h remaining\);
-            } else {
-              core.info('Reflection window satisfied ✔');
-            }
+    types: [opened, synchronize, reopened, ready_for_review]
 
+jobs:
+  reflection:
+    uses: aesynth-ai/governance-registry/.github/workflows/_reusable-reflection.yml@docs/addendum-a3
+    with:
+      # TEMP for this PR so it can merge now; restore to 12h on main after merge
+      min_hours: 0.1
