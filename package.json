@@ -1,0 +1,31 @@
+{
+  "name": "governance-registry",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "verify": "node tools/verify.mjs",
+    "verify:schemas": "node tools/validate-schemas.mjs",
+    "verify:hash": "node tools/verify-hashes.mjs",
+    "verify:sigs": "node tools/verify-signatures.mjs",
+    "verify:state": "node tools/verify-state.mjs",
+    "sign": "node tools/sign.mjs",
+    "build:index": "node tools/build-index.mjs",
+    "fmt": "prettier -w .",
+    "bbc:check": "node scripts/bbc-verify.mjs",
+    "plans:collect": "node scripts/generate-plan-artifacts.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "markdown-it": "^14.1.0",
+    "multiformats": "^12.1.3",
+    "normalize-newline": "^3.0.0",
+    "tweetnacl": "^1.0.3"
+  },
+  "devDependencies": {
+    "ajv-cli": "^5.0.0",
+    "prettier": "^3.3.3",
+    "yaml": "^2.6.0",
+    "@open-policy-agent/opa-wasm": "^1.7.0"
+  }
+}
