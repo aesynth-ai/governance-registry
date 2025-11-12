@@ -1,0 +1,116 @@
+name: Verify & Reflect
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+env:
+  BBC_JUR: BBC.v0.1.0.TW
+  SYNTHLEX_SEED: '42'
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: pnpm-${{ runner.os }}-
+
+      - name: Install OPA (pinned)
+        run: |
+          OPA_URL="https://openpolicyagent.org/downloads/v0.65.0/opa_linux_amd64_static"
+          OPA_SHA="CD6B0B2D762571A746F0261890B155E6DD71CCA90DAD6B42B6FCF6DD7F619F08"
+          curl -sSL -o opa "$OPA_URL"
+          echo "$OPA_SHA  opa" | sha256sum -c -
+          chmod +x opa && sudo mv opa /usr/local/bin/opa
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build & tests
+        run: |
+          pnpm -r build --if-present
+          pnpm -r test --if-present
+          opa test policy/ -v
+
+      - name: Generate plan artifacts
+        run: node scripts/generate-plan-artifacts.mjs
+
+      - name: Determinism check
+        run: node scripts/check-plan-determinism.mjs --out reports/plans
+
+      - name: Schema validations
+        run: |
+          npx ajv validate --spec=draft2020 -c ajv-formats -s schemas/plan.schema.json -d 'reports/plans/*.json'
+          npx ajv validate --spec=draft2020 -c ajv-formats -s codes/${{ env.BBC_JUR }}/bbc.rules.schema.json -d codes/${{ env.BBC_JUR }}/bbc.rules.yaml
+          npx ajv validate --spec=draft2020 -c ajv-formats -s policy/waivers.schema.json -d policy/waivers.yaml
+
+      - name: Rule changelog + version gate
+        run: |
+          BASE=${{ github.base_ref || 'origin/main' }}
+          CHANGED=$(git diff --name-only "$BASE"...${{ github.sha }} | grep 'codes/.*/bbc.rules.yaml' || true)
+          if [ -n "$CHANGED" ]; then
+            git diff --name-only "$BASE"...${{ github.sha }} | grep -q 'codes/CHANGELOG.md' || (echo "Rule changed without codes/CHANGELOG.md" && exit 1)
+            OLD=$(git show "$BASE":$(echo $CHANGED) | grep '^  version:' | awk '{print $2}')
+            NEW=$(grep '^  version:' $CHANGED | awk '{print $2}')
+            [ "$OLD" != "$NEW" ] || (echo "meta.version not bumped" && exit 1)
+          fi
+
+      - name: BBC verify
+        run: pnpm run bbc:check
+
+      - name: SARIF + summary
+        run: |
+          node scripts/bbc-to-sarif.mjs reports/bbc-*.json > reports/bbc.sarif
+          node -e "const fs=require('fs');const s=JSON.parse(fs.readFileSync('reports/bbc-summary.json','utf8'));const md=['# BBC Summary','','**Failing:** '+s.failing,'**Suppressed:** '+s.suppressed,'','**Top violations:**',...Object.entries(s.counts_by_code||{}).slice(0,5).map(([k,v])=>`- ${k}: ${v}`)];fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md.join('\n'));"
+
+      - name: Constitution hashes + provenance
+        run: |
+          node scripts/hash-constitutions.mjs
+          node scripts/write-provenance.mjs
+
+      - name: Verify provenance signature (optional)
+        if: ${{ env.PROV_SIGNING_KEY != '' }}
+        env:
+          PROV_SIGNING_KEY: ${{ secrets.PROV_SIGNING_KEY }}
+        run: |
+          printf "%s" "$PROV_SIGNING_KEY" > /tmp/prov.asc
+          gpg --batch --yes --import /tmp/prov.asc
+          gpg --batch --yes --verify reports/provenance.json.asc reports/provenance.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bbc-artifacts
+          path: |
+            reports/*.json
+            reports/*.sarif
+
+  reflection:
+    needs: verify
+    if: ${{ always() }}
+    uses: aesynth-ai/governance-registry/.github/workflows/_reusable-reflection.yml@main
+    with:
+      min_hours: 12
+    secrets: inherit
