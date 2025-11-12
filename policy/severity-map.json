@@ -1,0 +1,9 @@
+{
+  "BBC-EGR-COR-001": { "severity": "error", "helpUri": "codes/BBC.v0.1.0.TW/docs/BBC-EGR-COR-001.md" },
+  "BBC-EGR-TRV-001": { "severity": "error", "helpUri": "codes/BBC.v0.1.0.TW/docs/BBC-EGR-TRV-001.md" },
+  "BBC-EGR-EXIT-001": { "severity": "error", "helpUri": "codes/BBC.v0.1.0.TW/docs/BBC-EGR-EXIT-001.md" },
+  "BBC-STR-DIM-001": { "severity": "error", "helpUri": "codes/BBC.v0.1.0.TW/docs/BBC-STR-DIM-001.md" },
+  "BBC-STR-HDR-001": { "severity": "error", "helpUri": "codes/BBC.v0.1.0.TW/docs/BBC-STR-HDR-001.md" },
+  "BBC-HRL-001":     { "severity": "warning", "helpUri": "codes/BBC.v0.1.0.TW/docs/BBC-HRL-001.md" },
+  "BBC-GRD-001":     { "severity": "warning", "helpUri": "codes/BBC.v0.1.0.TW/docs/BBC-GRD-001.md" }
+}
