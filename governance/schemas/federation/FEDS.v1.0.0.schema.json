@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Aesynth Federation Jurisdiction Schema",
+  "description": "Defines the mandatory structure, metadata, and discipline required for any governed Aesynth domain. All domain rulesets must conform to this schema before being accepted by the Aesynth Judicial Gate.",
+  "version": "feds.v1.0.0",
+  "type": "object",
+  "required": ["meta", "rules", "schemas", "documentation"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "version",
+        "jurisdiction_code",
+        "domain",
+        "status",
+        "stewards",
+        "changelog_ref",
+        "attribution",
+        "provenance_mode"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "jurisdiction_code": {
+          "type": "string",
+          "description": "Immutable jurisdiction identity. Example: BBC.v0.1.0.TW or CIV.v0.1.0.CITY"
+        },
+        "domain": {
+          "type": "string",
+          "examples": ["BBC", "CIV", "EDU", "SYNTHLEX", "SANDBOX", "GAME"],
+          "description": "Top-level identity of the governed domain."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["ACTIVE", "EXPERIMENTAL", "DEPRECATED", "FATAL"]
+        },
+        "stewards": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Placeholder or verified steward identifiers. TEMP_* allowed."
+        },
+        "changelog_ref": { "type": "string" },
+        "attribution": {
+          "type": "object",
+          "required": ["source", "license"],
+          "properties": {
+            "source": { "type": "string" },
+            "license": { "type": "string" }
+          }
+        },
+        "provenance_mode": {
+          "type": "string",
+          "enum": ["canonical", "sandbox", "creative"],
+          "description": "Controls how jurisdiction interacts with LCE generation."
+        }
+      },
+      "additionalProperties": false
+    },
+    "rules": {
+      "type": "array",
+      "description": "Executable policies encoded in Rego or linked via Rego hash.",
+      "items": {
+        "type": "object",
+        "required": ["rule_id", "severity", "description", "policy_body"],
+        "properties": {
+          "rule_id": { "type": "string" },
+          "severity": { "type": "string", "enum": ["FATAL", "WARN", "INFO"] },
+          "description": { "type": "string" },
+          "policy_body": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "schemas": {
+      "type": "object",
+      "required": ["plan_schema", "waiver_schema"],
+      "properties": {
+        "plan_schema": { "type": "string" },
+        "waiver_schema": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "documentation": {
+      "type": "object",
+      "required": ["help_ref", "waiver_guide"],
+      "properties": {
+        "help_ref": { "type": "string" },
+        "waiver_guide": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
