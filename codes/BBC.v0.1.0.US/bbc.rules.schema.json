@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["meta", "egress", "stairs", "handrails", "guards", "occupancy"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["version", "units", "tolerance_mm"],
+      "properties": {
+        "version": { "type": "string" },
+        "units": { "enum": ["metric"] },
+        "tolerance_mm": { "type": "number" }
+      }
+    },
+    "egress": {
+      "type": "object",
+      "required": [
+        "corridor_min_clear_mm",
+        "max_travel_distance_m_unsprink",
+        "max_travel_distance_m_sprink",
+        "exit_factor_ol_divisor"
+      ],
+      "properties": {
+        "corridor_min_clear_mm": { "type": "number" },
+        "door_min_clear_mm": { "type": "number" },
+        "max_travel_distance_m_unsprink": { "type": "number" },
+        "max_travel_distance_m_sprink": { "type": "number" },
+        "exit_factor_ol_divisor": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "stairs": {
+      "type": "object",
+      "required": ["riser_max_mm", "tread_min_mm", "variation_max_mm", "headroom_min_mm"],
+      "properties": {
+        "riser_max_mm": { "type": "number" },
+        "tread_min_mm": { "type": "number" },
+        "nosing_projection_mm_range": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "variation_max_mm": { "type": "number" },
+        "headroom_min_mm": { "type": "number" }
+      }
+    },
+    "handrails": {
+      "type": "object",
+      "required": ["height_mm_range", "continuous_required", "grasp_diameter_mm_range"],
+      "properties": {
+        "height_mm_range": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "continuous_required": { "type": "boolean" },
+        "grasp_diameter_mm_range": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "guards": {
+      "type": "object",
+      "required": ["height_min_mm", "opening_max_mm"],
+      "properties": {
+        "height_min_mm": { "type": "number" },
+        "opening_max_mm": { "type": "number" }
+      }
+    },
+    "occupancy": {
+      "type": "object",
+      "required": ["min_exits_if_ol_gt"],
+      "properties": {
+        "min_exits_if_ol_gt": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -66,6 +66,9 @@ jobs:
           npx ajv validate --spec=draft2020 -c ajv-formats -s schemas/plan.schema.json -d 'reports/plans/*.json'
           npx ajv validate --spec=draft2020 -c ajv-formats -s codes/${{ env.BBC_JUR }}/bbc.rules.schema.json -d codes/${{ env.BBC_JUR }}/bbc.rules.yaml
           npx ajv validate --spec=draft2020 -c ajv-formats -s policy/waivers.schema.json -d policy/waivers.yaml
+      - name: Contract smoke
+        run: node scripts/contract-smoke.mjs reports/plans
+
 
       - name: Validate severity-map help links
         run: |
