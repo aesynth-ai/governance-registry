@@ -12,7 +12,9 @@
     "build:index": "node tools/build-index.mjs",
     "fmt": "prettier -w .",
     "bbc:check": "node scripts/bbc-verify.mjs",
-    "plans:collect": "node scripts/generate-plan-artifacts.mjs"
+    "plans:collect": "node scripts/generate-plan-artifacts.mjs",
+    "verify-ci": "node scripts/generate-plan-artifacts.mjs && npx ajv validate --spec=draft2020 -c ajv-formats -s schemas/plan.schema.json -d 'reports/plans/*.json' && node scripts/contract-smoke.mjs reports/plans && opa test policy/ -v && pnpm run bbc:check && node scripts/bbc-to-sarif.mjs reports/bbc-*.json > reports/bbc.sarif && node scripts/hash-constitutions.mjs && node scripts/write-provenance.mjs",
+    "verify-fast": "BBC_ENGINE=js pnpm run bbc:check"
   },
   "dependencies": {
     "ajv": "^8.17.1",
