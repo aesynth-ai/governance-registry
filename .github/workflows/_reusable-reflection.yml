@@ -1,0 +1,39 @@
+name: _reusable-reflection
+on:
+  workflow_call:
+    inputs:
+      min_hours:
+        required: false
+        type: number
+        default: 12
+
+jobs:
+  reflect:
+    name: reflection-window
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+      contents: read
+    steps:
+      - name: Reflection window
+        env:
+          MIN_HOURS: ${{ inputs.min_hours }}
+          PR_CREATED_AT: ${{ github.event.pull_request.created_at }}
+          PUSHED_AT: ${{ github.event.head_commit.timestamp }}
+        run: |
+          node -e "
+            const min = Number(process.env.MIN_HOURS || '12');
+            const source = process.env.PR_CREATED_AT || process.env.PUSHED_AT || new Date().toISOString();
+            const started = Date.parse(source);
+            if (!Number.isFinite(started)) {
+              console.error('Unable to parse timestamp for reflection window');
+              process.exit(1);
+            }
+            const elapsed = (Date.now() - started) / 36e5;
+            console.log('Reflection window hours: ' + elapsed.toFixed(2) + ' (need ' + min + ')');
+            if (elapsed + 1e-6 < min) {
+              console.error('Reflection window not satisfied: ' + (min - elapsed).toFixed(2) + 'h remaining');
+              process.exit(2);
+            }
+            console.log('Reflection window satisfied');
+          "

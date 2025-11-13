@@ -1,100 +1,126 @@
-# governance-registry
+# Aesynth Governance Registry
 
-Governance Registry | Public Root of Trust
+Public, immutable catalog of Aesynth's foundational laws, governing bodies, signers, and ledgered proceedings. The registry is readable by anyone, write-controlled through review, and intended to be the durable root of trust for Aesynth governance.
 
-Repository: aesynth-ai/governance-registry
+- **What** exists: constitutions, charters, protocols, manifestos, and ratified resolutions.
+- **Who** approved it: actors, signing keys, and the governing bodies they represent.
+- **When** it changed: explicit versioning, supersession history, and append-only ledger events.
+- **How** to verify: canonical hashes, provenance envelopes, and detached signatures.
 
-Description:
-Public, version-controlled record of all ratified constitutional documents, resolutions, bodies, actors, and provenance events for the Aesynth Intelligence System.
+All assets live directly in Git for transparency and reproducibility. The `index/` and `schemas/` folders provide machine validation and navigation aids that keep the registry coherent.
 
-This repository serves as the Root of Trust for the entire organization, providing an immutable catalog of foundational laws and proceedings necessary for XAI governance, auditing, and compliance.
+## Repository Layout
 
-1. Core Purpose (The Registry)
+```
+registry/
+|- docs/                         # Ratified texts (Markdown + provenance envelope per version)
+|- resolutions/                  # JSON records of ratifications, amendments, vetoes, interpretations
+|- bodies/                       # Governing body manifests and seat definitions
+|- actors/                       # Signers and key material used for attestations
+|- ledger/                       # Immutable ledger events (append-only, sequence numbered)
+|- index/                        # Machine-readable catalog + sitemap for static publishing
+|- schemas/                      # JSON Schemas powering validation + CI enforcement
+|- tools/                        # CLI helpers (hashing, signature checks, renderers)
+|- GOVERNANCE.md                 # Maintainer and branch policy
+|- SECURITY.md                   # Key management, disclosure, and verification policy
+|- CONTRIBUTING.md               # How to propose changes safely
+`- LICENSE                       # Repository licensing
+```
 
-The Governance Registry tracks and verifies four core components:
+Key identifiers follow stable namespaces:
 
-What exists (Constitutional Documents, Charters, Protocols).
+- `aesynth:gov:doc/*`: constitutional documents, charters, protocols, manifestos, policies.
+- `aesynth:gov:res/*`: resolutions and official actions.
+- `aesynth:gov:body/*`: governing councils and committees.
+- `aesynth:gov:seat/*`: seats and roles bound to bodies.
+- `aesynth:gov:actor/*`: people or agents with signing keys.
+- `aesynth:gov:ledger/*`: ordered ledger events anchoring provenance.
 
-Who approved it (Signers, Governing Bodies, Roles).
+## Public API
 
-When it changed (Versions, Amendments, Supersessions).
+Static endpoints (CDN-friendly) expose the registry for read-only consumers:
 
-How to verify it (Content Hashes, Digital Signatures, Provenance Envelopes).
+- `GET /index/catalog.json`: catalog of documents, bodies, actors, resolutions, and ledger pointers.
+- `GET /docs/<slug>/<version>/provenance.json`: provenance envelope for a specific document version.
+- `GET /ledger/<sequence>.json`: immutable ledger event.
+- `GET /resolutions/<slug>.json`: resolution payload (ratify, amend, veto, interpret).
 
-The entire system is based on transparency (read-public) and permanency (version-controlled).
+HTML mirrors of ratified documents will be published under `/registry/docs/<slug>/<version>/` to satisfy public visibility requirements.
 
-2. Technical Namespaces (MVP v1)
+## Maintainer CLI
 
-All files and API endpoints are organized under the following canonical namespaces, which serve as immutable identifiers:
+A Node/TypeScript CLI (`registry-cli`) will orchestrate write operations via PRs. Planned commands:
 
-Namespace
+```bash
+registry doc new <slug> --version <semver> --file <path>
+registry doc propose <slug>@<semver>
+registry res ratify --target <slug>@<semver> --minutes <path>
+registry ledger append --event <type> --subject <urn>
+registry sign <path> --key ./keys/provisional.json
+registry verify --all
+```
 
-Example ID
+The CLI will normalize Markdown, refresh provenance envelopes, generate ledger entries, and update `index/` snapshots. All writes still land in Git and require review.
 
-Purpose
+## Governance Hooks
 
-aesynth:gov:doc/*
+- Every normative change records `requiredBodies` so dual-ratification can be enforced once new councils activate.
+- Resolutions capture `minHumanReviewMinutes`; CI can block merges until the cooling period elapses.
+- Ledger events remain append-only, and each ratification references its sealing event.
+- Public HTML views surface content, hash, signatures, and supersession chains for every ratified document.
 
-aesynth:gov:doc/constitution/v1
+## Current Seed Data (MVP)
 
-Foundational constitutional documents.
+- Aesynth Constitution v1.0.0 (`evt-000125`/`evt-000126`).
+- Human Constitution v1.0.0 (`evt-000127`/`evt-000128`).
+- Semantic Charter v1.1.0 (`evt-000123`/`evt-000124`).
+- Joint Semantic Assembly Protocol v1.0.0 (`evt-000129`/`evt-000130`).
+- Founders Manifesto v1.0.0 (`evt-000131`/`evt-000132`).
+- Governing bodies: Joint Semantic Assembly (provisioned) and Provisional Stewardship Body (active).
+- Actor: Provisional Steward of Meaning with DID key material.
 
-aesynth:gov:res/*
+The machine index at `index/catalog.json` is the canonical bundle for downstream automation. `index/sitemap.json` offers a lightweight navigation layout for static site renderers.
 
-aesynth:gov:res/veto/20250915
+## Validation & CI Expectations
 
-Resolutions, amendments, ratifications, and proceedings.
+Pull requests must pass automated checks before merge:
 
-aesynth:gov:body/*
+1. Schema validation: every JSON document must conform to its schema under `schemas/`.
+2. Hash integrity: recomputed hashes must match the values stored in provenance envelopes and ledger events.
+3. Signature verification: detached JWS signatures must validate against current actor keys.
+4. State machine checks: status transitions for documents, resolutions, and bodies must follow the allowed lifecycle.
+5. Ledger append-only rule: existing ledger entries cannot be modified or deleted; only new events may be appended.
+6. Cooling-period guard: CI confirms `minHumanReviewMinutes` has elapsed before promoting to `main`.
 
-aesynth:gov:body/synthlex-council
+Run `npm run verify` locally before opening a PR; it executes the same pipeline as `.github/workflows/verify.yml` (`validate-schemas`, `verify-hashes`, `verify-signatures`, `verify-state`, and a deterministic `build-index` pass). The `Enforce Latency Gap` workflow blocks merges until the cooling period elapses.
 
-Governing assemblies/groups.
+## Verification Ritual
 
-aesynth:gov:actor/*
+Any third party can re-derive trust in five steps:
 
-aesynth:gov:actor/john-doe-key-a
+1. Fetch `index/catalog.json` plus the relevant Markdown file and `provenance.json`.
+2. Normalize the Markdown (`md-normalized-v1`) and compute a SHA-256 digest; compare with the provenance entry.
+3. Verify each JWS signature against the keys listed in `actors/` (the CLI will offer `registry verify --all`).
+4. Confirm the document status is `ratified`, not `superseded`, and that `requiredBodies` obligations are satisfied.
+5. Walk the ledger events referencing the URN to ensure monotonic IDs and matching hashes for every ratification.
 
-Individuals or automated agents with signing keys.
+## Working With the Registry
 
-aesynth:gov:seat/*
+1. Branch from `draft` for collaborative edits. Production artifacts land in `main` only after review.
+2. Normalize Markdown before hashing (`md-normalized-v1`) and update the sidecar provenance envelope.
+3. Populate `requiredBodies` and `minHumanReviewMinutes` whenever you introduce normative changes.
+4. Append new ledger entries instead of editing historical records; IDs increment monotonically.
+5. Update `index/catalog.json` and `index/sitemap.json` so downstream consumers stay consistent.
+6. Run `npm run build:index` (if needed) and `npm run verify` to ensure the repository is internally consistent.
+7. Include minutes and supporting evidence for resolutions and body changes.
 
-aesynth:gov:seat/ethical-auditor-a
+Refer to [GOVERNANCE.md](GOVERNANCE.md) and [CONTRIBUTING.md](CONTRIBUTING.md) for deeper policy details.
 
-Specific roles within bodies.
+## Releases
 
-aesynth:gov:ledger/*
+Stable snapshots are tagged `registry-vX.Y.Z`. Each release should include a registry bundle (Merkle-rooted JSON) once the tooling is ready.
 
-(Implied via Git History & Proofs)
+## Contact
 
-Immutable log of events.
-
-3. Workflow & Branch Structure
-
-To maintain the integrity of the Root of Trust, a two-branch workflow is enforced:
-
-Branch
-
-Status
-
-Access
-
-Content Status
-
-main
-
-Production
-
-Write-Controlled (via PRs)
-
-Ratified, Immutable, and Verified Documents.
-
-draft
-
-Staging
-
-Open for Collaboration
-
-Proposed documents and pending resolutions.
-
-No direct commits are allowed to main. All changes must be reviewed and pass automated integrity checks before merging into production.
+Security disclosures: security@aesynth.ai  
+General governance inquiries: governance@aesynth.ai

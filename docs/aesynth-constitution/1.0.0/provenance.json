@@ -1,0 +1,13 @@
+{
+  "subject": "docs/aesynth-constitution/1.0.0/aesynth-constitution.md",
+  "canonicalization": "md-normalized-v1",
+  "sha256": "aef714c6c4dd24458135263a1ce9ff1ba63c806c36e5e1bb624f56be1c6e0ca7",
+  "signatures": [
+    {
+      "keyId": "did:key:z6MkProvisionalSteward",
+      "alg": "ed25519",
+      "jws": "92oNN2bYZAuWqC42NhgX3M1lpE9_QTr_odsD0iECO3xtVwqUr4O5bZT-vikoTWijR0LHkKRVxTWEFI6Jt8yECQ",
+      "signedAt": "2025-11-01T05:05:10Z"
+    }
+  ]
+}

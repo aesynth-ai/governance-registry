@@ -1,0 +1,41 @@
+{
+  "type": "Body",
+  "urn": "aesynth:gov:body/jsa",
+  "name": "Joint Semantic Assembly",
+  "status": "provisioned",
+  "seats": [
+    {
+      "urn": "aesynth:gov:seat/jsa-synthlex-1",
+      "role": "Synthlex Delegate"
+    },
+    {
+      "urn": "aesynth:gov:seat/jsa-synthlex-2",
+      "role": "Synthlex Delegate"
+    },
+    {
+      "urn": "aesynth:gov:seat/jsa-synthlex-3",
+      "role": "Synthlex Delegate"
+    },
+    {
+      "urn": "aesynth:gov:seat/jsa-aesynth-1",
+      "role": "Aesynth Delegate"
+    },
+    {
+      "urn": "aesynth:gov:seat/jsa-aesynth-2",
+      "role": "Aesynth Delegate"
+    },
+    {
+      "urn": "aesynth:gov:seat/jsa-chair",
+      "role": "Independent Legal Observer (Chair, non-voting)"
+    }
+  ],
+  "activationCriteria": [
+    ">=3 qualified independent contributors",
+    "Public Ledger operational",
+    "Founding Cession signed"
+  ],
+  "charterRefs": [
+    "aesynth:gov:doc/semantic-charter@1.1.0",
+    "aesynth:gov:doc/jsa-protocol@1.0.0"
+  ]
+}

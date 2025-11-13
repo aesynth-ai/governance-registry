@@ -1,0 +1,25 @@
+repository:
+  default_branch: main
+  description: "Aesynth Governance Registry — public, signed ledger of constitutional AI governance."
+  homepage: ""
+  topics:
+    - aesynth
+    - governance
+    - provenance
+    - xai
+    - constitutional-ai
+    - open-governance
+  has_issues: true
+  has_projects: false
+  has_wiki: false
+  delete_branch_on_merge: true
+  allow_merge_commit: false
+  allow_squash_merge: true
+  allow_rebase_merge: false
+  allow_auto_merge: false
+  allow_forking: true
+  archived: false
+  private: false
+  enable_automated_security_fixes: true
+  enable_vulnerability_alerts: true
+  license: AOG-1.0

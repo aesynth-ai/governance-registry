@@ -1,0 +1,37 @@
+{
+  "type": "Resolution",
+  "urn": "aesynth:gov:res/2025-11-01-ratify-jsa-protocol-1-0",
+  "action": "ratify",
+  "targets": [
+    "aesynth:gov:doc/jsa-protocol@1.0.0"
+  ],
+  "issuedBy": "aesynth:gov:body/provisional-stewardship",
+  "requiredBodies": [
+    "aesynth:gov:body/provisional-stewardship"
+  ],
+  "minHumanReviewMinutes": 720,
+  "quorum": "single-steward-clause",
+  "vote": {
+    "for": 1,
+    "against": 0,
+    "abstain": 0
+  },
+  "minutes": "docs/minutes/2025-11-01-jsa-provisional.md",
+  "signatures": [
+    {
+      "actor": "aesynth:gov:actor/provisional-steward",
+      "alg": "ed25519",
+      "sig": null,
+      "signedAt": "2025-11-01T05:08:30Z",
+      "keyId": "did:key:z6MkProvisionalSteward"
+    }
+  ],
+  "provenance": {
+    "sha256": "1c41c3a3f28d1b0b5744ddabb41fc6f3f95a81dee5c210b1fba7338f5ad74837",
+    "attestations": [
+      "aesynth:gov:ledger/evt-000130"
+    ]
+  },
+  "effectiveDate": "2025-11-01"
+}
+

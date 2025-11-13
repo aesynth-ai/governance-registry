@@ -1,0 +1,36 @@
+{
+  "type": "Resolution",
+  "urn": "aesynth:gov:res/2025-11-01-ratify-aesynth-constitution-1-0",
+  "action": "ratify",
+  "targets": [
+    "aesynth:gov:doc/aesynth-constitution@1.0.0"
+  ],
+  "issuedBy": "aesynth:gov:body/provisional-stewardship",
+  "requiredBodies": [
+    "aesynth:gov:body/provisional-stewardship"
+  ],
+  "minHumanReviewMinutes": 720,
+  "quorum": "single-steward-clause",
+  "vote": {
+    "for": 1,
+    "against": 0,
+    "abstain": 0
+  },
+  "minutes": "docs/minutes/2025-11-01-jsa-provisional.md",
+  "signatures": [
+    {
+      "actor": "aesynth:gov:actor/provisional-steward",
+      "alg": "ed25519",
+      "sig": null,
+      "signedAt": "2025-11-01T05:05:10Z",
+      "keyId": "did:key:z6MkProvisionalSteward"
+    }
+  ],
+  "provenance": {
+    "sha256": "2244d091ffb2c1c530ee448fdce91fe71bb5dbd8d2ba578bcd811e2e594482c0",
+    "attestations": [
+      "aesynth:gov:ledger/evt-000126"
+    ]
+  },
+  "effectiveDate": "2025-11-01"
+}

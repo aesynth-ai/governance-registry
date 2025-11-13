@@ -1,0 +1,13 @@
+{
+  "type": "LedgerEvent",
+  "urn": "aesynth:gov:ledger/evt-000127",
+  "timestamp": "2025-11-01T05:06:30Z",
+  "event": "document.publish",
+  "subject": "aesynth:gov:doc/human-constitution@1.0.0",
+  "refs": [
+    "docs/human-constitution/1.0.0/human-constitution.md"
+  ],
+  "actor": "aesynth:gov:actor/provisional-steward",
+  "sha256": "aa9b2edcd55ac654c121d25228febd4d2dc2c194921055f71c2440ade5a58d67",
+  "jws": null
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://registry.aesynth.ai/schemas/provenance-envelope.schema.json",
+  "title": "Provenance Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "subject",
+    "canonicalization",
+    "sha256",
+    "signatures"
+  ],
+  "properties": {
+    "subject": {
+      "type": "string"
+    },
+    "canonicalization": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "signatures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "keyId",
+          "alg",
+          "jws",
+          "signedAt"
+        ],
+        "properties": {
+          "keyId": {
+            "type": "string"
+          },
+          "alg": {
+            "type": "string"
+          },
+          "jws": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "signedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

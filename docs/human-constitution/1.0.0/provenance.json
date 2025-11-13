@@ -1,0 +1,13 @@
+{
+  "subject": "docs/human-constitution/1.0.0/human-constitution.md",
+  "canonicalization": "md-normalized-v1",
+  "sha256": "aa9b2edcd55ac654c121d25228febd4d2dc2c194921055f71c2440ade5a58d67",
+  "signatures": [
+    {
+      "keyId": "did:key:z6MkProvisionalSteward",
+      "alg": "ed25519",
+      "jws": "csLc5afIvrVmqxgitb6lgmZSZLVeh0j57ex-2Vv8K6FHTUbLB083B6f9IvcRIu9zzKxa-yySDhE5wkHOj9a8AA",
+      "signedAt": "2025-11-01T05:07:22Z"
+    }
+  ]
+}
