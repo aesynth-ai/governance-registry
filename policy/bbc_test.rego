@@ -73,25 +73,34 @@ plan_tolerance := {
   "exits": plan_ok.exits
 }
 
-codes(input) = {v.code | v := data.bbc.violation with input as input}
 
-input_ok := {"plan": plan_ok, "rules": rules_ok}
-input_corridor_fail := {"plan": plan_corridor_fail, "rules": rules_ok}
-input_exit_fail := {"plan": plan_exit_fail, "rules": rules_ok}
-input_tolerance := {"plan": plan_tolerance, "rules": rules_ok}
+violations(payload) := vs {
+  vs := data.bbc.violation with input as payload
+}
+
+payload_ok := {"plan": plan_ok, "rules": rules_ok}
+payload_corridor_fail := {"plan": plan_corridor_fail, "rules": rules_ok}
+payload_exit_fail := {"plan": plan_exit_fail, "rules": rules_ok}
+payload_tolerance := {"plan": plan_tolerance, "rules": rules_ok}
+
 
 test_pass_minimal {
-  codes(input_ok) == {}
+  count(violations(payload_ok)) == 0
+}
+
+has_code(payload, code) {
+  v := violations(payload)[_]
+  v.code == code
 }
 
 test_fail_corridor_too_narrow {
-  "BBC-EGR-COR-001" in codes(input_corridor_fail)
+  has_code(payload_corridor_fail, "BBC-EGR-COR-001")
 }
 
 test_fail_exit_count {
-  "BBC-EGR-EXIT-001" in codes(input_exit_fail)
+  has_code(payload_exit_fail, "BBC-EGR-EXIT-001")
 }
 
 test_tolerance_applied {
-  not ("BBC-EGR-COR-001" in codes(input_tolerance))
+  not has_code(payload_tolerance, "BBC-EGR-COR-001")
 }

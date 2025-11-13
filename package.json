@@ -13,8 +13,8 @@
     "fmt": "prettier -w .",
     "bbc:check": "node scripts/bbc-verify.mjs",
     "plans:collect": "node scripts/generate-plan-artifacts.mjs",
-    "verify-ci": "node scripts/generate-plan-artifacts.mjs && npx ajv validate --spec=draft2020 -c ajv-formats -s schemas/plan.schema.json -d 'reports/plans/*.json' && node scripts/contract-smoke.mjs reports/plans && opa test policy/ -v && pnpm run bbc:check && node scripts/bbc-to-sarif.mjs reports/bbc-*.json > reports/bbc.sarif && node scripts/hash-constitutions.mjs && node scripts/write-provenance.mjs",
-    "verify-fast": "BBC_ENGINE=js pnpm run bbc:check"
+    "verify-ci": "node scripts/generate-plan-artifacts.mjs && npx ajv validate --spec=draft2020 -c ajv-formats -s schemas/plan.schema.json -d \"reports/plans/*.json\" && node scripts/contract-smoke.mjs reports/plans && node scripts/waiver-sentinel.mjs && opa test policy/ -v && pnpm run bbc:check && node scripts/bbc-to-sarif.mjs reports/bbc-*.json > reports/bbc.sarif && node scripts/hash-constitutions.mjs && node scripts/write-provenance.mjs",
+    "verify-fast": "cross-env BBC_ENGINE=js pnpm run bbc:check"
   },
   "dependencies": {
     "ajv": "^8.17.1",
@@ -25,9 +25,10 @@
     "tweetnacl": "^1.0.3"
   },
   "devDependencies": {
+    "@open-policy-agent/opa-wasm": "^1.7.0",
     "ajv-cli": "^5.0.0",
+    "cross-env": "^10.1.0",
     "prettier": "^3.3.3",
-    "yaml": "^2.6.0",
-    "@open-policy-agent/opa-wasm": "^1.7.0"
+    "yaml": "^2.6.0"
   }
 }

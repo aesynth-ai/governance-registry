@@ -12,6 +12,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+
 
 const JUR = process.env.BBC_JUR || 'BBC.v0.1.0.TW';
 const enginePref = process.env.BBC_ENGINE || 'auto'; // 'auto'|'cli'|'wasm'|'js'
