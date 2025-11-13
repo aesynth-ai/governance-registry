@@ -1,0 +1,22 @@
+name: Rule change proposal
+description: Propose a change to BBC rules
+labels: [rules:change]
+body:
+  - type: dropdown
+    id: jurisdiction
+    attributes: { label: Jurisdiction, options: [BBC.v0.1.0.TW, BBC.v0.1.0.US] }
+    validations: { required: true }
+  - type: textarea
+    id: rationale
+    attributes: { label: Rationale, description: Why this change improves safety/compliance }
+    validations: { required: true }
+  - type: textarea
+    id: before
+    attributes: { label: Before, description: Current rule text / examples }
+  - type: textarea
+    id: after
+    attributes: { label: After, description: Proposed rule text / examples }
+  - type: input
+    id: version
+    attributes: { label: Proposed meta.version bump (semver) }
+    validations: { required: true }
