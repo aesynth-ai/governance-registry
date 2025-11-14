@@ -413,6 +413,12 @@ jobs:
 
         run: pnpm run judge
 
+      - name: Write federation provenance
+
+
+
+        run: pnpm run federation:prov
+
 
 
 

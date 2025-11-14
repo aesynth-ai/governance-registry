@@ -13,10 +13,11 @@
     "fmt": "prettier -w .",
     "bbc:check": "node scripts/bbc-verify.mjs",
     "plans:collect": "node scripts/generate-plan-artifacts.mjs",
-    "verify-ci": "node scripts/generate-plan-artifacts.mjs && node scripts/generate-civsynth-plan-artifacts.mjs && npx ajv validate --spec=draft2020 -c ajv-formats -s schemas/plan.schema.json -d 'reports/plans/*.json' && npx ajv validate --spec=draft2020 -c ajv-formats -s codes/${BBC_JUR}/bbc.rules.schema.json -d codes/${BBC_JUR}/bbc.rules.yaml && npx ajv validate --spec=draft2020 -c ajv-formats -s policy/waivers.schema.json -d policy/waivers.yaml && npx ajv validate --spec=draft2020 -c ajv-formats -s governance/schemas/civsynth/city_plan.schema.json -d 'reports/civsynth/city_plans/*.json' && node scripts/contract-smoke.mjs reports/plans && node scripts/waiver-sentinel.mjs && opa test policy/ -v && pnpm run judge && node scripts/bbc-to-sarif.mjs reports/bbc-*.json > reports/bbc.sarif && node scripts/hash-constitutions.mjs && node scripts/write-provenance.mjs",
+    "verify-ci": "node scripts/generate-plan-artifacts.mjs && node scripts/generate-civsynth-plan-artifacts.mjs && npx ajv validate --spec=draft2020 -c ajv-formats -s schemas/plan.schema.json -d 'reports/plans/*.json' && npx ajv validate --spec=draft2020 -c ajv-formats -s codes/${BBC_JUR}/bbc.rules.schema.json -d codes/${BBC_JUR}/bbc.rules.yaml && npx ajv validate --spec=draft2020 -c ajv-formats -s policy/waivers.schema.json -d policy/waivers.yaml && npx ajv validate --spec=draft2020 -c ajv-formats -s governance/schemas/civsynth/city_plan.schema.json -d 'reports/civsynth/city_plans/*.json' && node scripts/contract-smoke.mjs reports/plans && node scripts/waiver-sentinel.mjs && opa test policy/ -v && pnpm run judge && pnpm run federation:prov && node scripts/bbc-to-sarif.mjs reports/bbc-*.json > reports/bbc.sarif && node scripts/hash-constitutions.mjs && node scripts/write-provenance.mjs",
     "verify-fast": "cross-env BBC_ENGINE=js pnpm run bbc:check",
     "civsynth:check": "node scripts/civsynth-verify.mjs",
-    "judge": "node scripts/judge.mjs"
+    "judge": "node scripts/judge.mjs",
+    "federation:prov": "node scripts/federation-provenance.mjs"
   },
   "dependencies": {
     "ajv": "^8.17.1",
