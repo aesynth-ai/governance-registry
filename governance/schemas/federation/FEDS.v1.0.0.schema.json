@@ -34,7 +34,7 @@
         },
         "status": {
           "type": "string",
-          "enum": ["ACTIVE", "EXPERIMENTAL", "DEPRECATED", "FATAL"]
+          "enum": ["ACTIVE", "EXPERIMENTAL", "DEPRECATED", "FATAL", "RESERVED"]
         },
         "stewards": {
           "type": "array",

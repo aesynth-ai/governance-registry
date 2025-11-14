@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "version": "v0.1.0",
+    "jurisdiction_code": "CIV.v0.1.0.CITY",
+    "domain": "CIV",
+    "status": "EXPERIMENTAL",
+    "stewards": [
+      "TEMP_STEWARD_CIV",
+      "TEMP_STEWARD_SANDBOX"
+    ],
+    "changelog_ref": "docs/civ/CHANGELOG.md#v0.1.0",
+    "attribution": {
+      "source": "CivSynth City Charter",
+      "license": "TBD"
+    },
+    "provenance_mode": "sandbox"
+  },
+  "rules": [
+    {
+      "rule_id": "CIV-C1.01",
+      "severity": "FATAL",
+      "description": "PGZ density threshold enforced via policy/civsynth.rego",
+      "policy_body": "file:policy/civsynth.rego#C1.01"
+    }
+  ],
+  "schemas": {
+    "plan_schema": "governance/schemas/civsynth/city_plan.schema.json",
+    "waiver_schema": "policy/waivers.schema.json"
+  },
+  "documentation": {
+    "help_ref": "docs/civ/policy_guide.md",
+    "waiver_guide": "docs/civ/waiver_guide.md"
+  }
+}
