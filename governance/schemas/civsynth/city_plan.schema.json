@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aesynth.dev/schemas/civsynth/city_plan.schema.json",
+  "title": "CivSynth City Plan Input Schema",
+  "description": "Input contract for CIV.v0.1.0.CITY. Defines the minimum data required for density, greenspace equity, and transit/clinic access checks.",
+  "type": "object",
+  "required": ["meta", "design", "residence", "housing"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "description": "Plan-level metadata used for provenance and jurisdiction routing.",
+      "required": ["plan_id", "jurisdiction_code", "generated_at_utc"],
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "type": "string",
+          "description": "Unique identifier for this civic plan (stable across runs)."
+        },
+        "jurisdiction_code": {
+          "type": "string",
+          "pattern": "^CIV\\.v0\\.1\\.0\\.CITY$",
+          "description": "Jurisdiction for this input payload. Must match CIV.v0.1.0.CITY for this schema."
+        },
+        "generated_at_utc": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO-8601 timestamp (UTC) when this plan snapshot was generated."
+        },
+        "seed": {
+          "type": "integer",
+          "description": "Canonical deterministic seed used when generating this plan (ties into Deterministic Execution)."
+        }
+      }
+    },
+    "design": {
+      "type": "object",
+      "description": "Aggregate design data for the civic area or zone under analysis.",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["PGZ", "NEIGHBORHOOD", "DISTRICT", "CITY"],
+          "description": "Design type. The CIV.v0.1.0.CITY rules currently treat PGZ (Public Gathering Zone) specially for crowd-density checks."
+        },
+        "area_m2": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Total area in square meters for the design zone (optional but useful for diagnostics)."
+        },
+        "density": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Projected maximum crowd density for PGZ analysis, expressed in persons per square meter. Used by rule C1.01."
+        }
+      }
+    },
+    "residence": {
+      "type": "array",
+      "description": "Residential units or blocks considered in the equity-of-greenspace analysis.",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "required": ["id", "dist_to_greenspace"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifier for the residence (unit, building, or block). Used for diagnostics."
+          },
+          "dist_to_greenspace": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Shortest walking-path distance in meters to the nearest accessible park/greenspace. Used by rule C1.02."
+          },
+          "population": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Optional population count for weighting equity calculations."
+          }
+        }
+      }
+    },
+    "housing": {
+      "type": "object",
+      "description": "Aggregate representation of public housing being evaluated for transit and clinic access.",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["public", "mixed", "private"],
+          "description": "Housing classification. Rule C1.03 currently targets type == \"public\"."
+        },
+        "dist_to_transit": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Shortest walking-path distance in meters to an approved mass transit hub. Used by rule C1.03."
+        },
+        "dist_to_clinic": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Shortest walking-path distance in meters to a primary medical clinic."
+        }
+      }
+    }
+  }
+}
