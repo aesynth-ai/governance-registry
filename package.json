@@ -18,7 +18,7 @@
     "civsynth:check": "node scripts/civsynth-verify.mjs",
     "judge": "node scripts/judge.mjs",
     "federation:prov": "node scripts/federation-provenance.mjs"
-  },
+  }
   "dependencies": {
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
