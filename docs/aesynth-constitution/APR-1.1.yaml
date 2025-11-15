@@ -1,0 +1,81 @@
+# ============================================================
+#  APR-1.1 — Sandbox Protocol Expansion
+# ============================================================
+
+status: "DRAFT"
+extends: "APR-1.0"
+purpose: >
+  Establishes operational constraints for sandbox executions, including
+  how dream computations, creative exports, and experimental engines are
+  isolated from canonical governance paths.
+
+# ------------------------------------------------------------
+#  1. Sandbox Modes
+# ------------------------------------------------------------
+
+modes:
+  permitted:
+    - SANDBOX.v1.0.CREATIVE
+    - SANDBOX.v1.0.GAME
+    - SANDBOX.v1.0.RESEARCH
+  prohibited:
+    - CANONICAL.v1.0
+    - PRODUCTION.v1.0
+
+  requirements:
+    - "Sandbox runs MUST tag `provenance_mode: sandbox`."
+    - "Sandbox runs MUST emit `dream: true` when paired with AIP-1.1 contexts."
+    - "Sandbox runs MUST declare downgrade policies up-front."
+
+# ------------------------------------------------------------
+#  2. Rule Downgrade Matrix
+# ------------------------------------------------------------
+
+rule_handling:
+  downgrade_permitted:
+    - BBC minor checks (e.g., advisory guidance)
+    - CIV experimental clauses
+  downgrade_forbidden:
+    - Life-safety clauses
+    - Constitutional guardrails
+
+logging:
+  - "All suppressions MUST be recorded in the waiver table."
+  - "History log MUST show downgraded vs enforced counts."
+  - "Reflection clock MAY be shortened but not eliminated."
+
+# ------------------------------------------------------------
+#  3. Export Controls
+# ------------------------------------------------------------
+
+exports:
+  required_tags:
+    - sandbox_jurisdiction
+    - provenance_envelope
+    - dream_state when applicable
+
+  forbidden_claims:
+    - "Exports may not imply real-world compliance."
+    - "Exports may not reference canonical approval."
+
+# ------------------------------------------------------------
+#  4. Engine Policy
+# ------------------------------------------------------------
+
+engines:
+  allowed:
+    - OPA-CLI (preferred)
+    - OPA-WASM
+    - JS-Fallback
+  notes:
+    - "CLI absence MUST be logged with justification."
+    - "Engine divergence MUST halt export."
+
+# ------------------------------------------------------------
+#  5. Judicial Interface
+# ------------------------------------------------------------
+
+judicial_bridge:
+  - "Sandbox verdicts MUST be labeled `SANDBOX-ONLY`."
+  - "Judge v1.0 MAY accept sandbox outputs when provenance_mode == sandbox."
+  - "Sandbox evidence cannot overturn canonical rulings without steward review."

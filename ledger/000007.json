@@ -1,0 +1,13 @@
+{
+  "type": "LedgerEvent",
+  "urn": "aesynth:gov:ledger/evt-000129",
+  "timestamp": "2025-11-01T05:08:40Z",
+  "event": "document.publish",
+  "subject": "aesynth:gov:doc/jsa-protocol@1.0.0",
+  "refs": [
+    "docs/jsa-protocol/1.0.0/jsa-protocol.md"
+  ],
+  "actor": "aesynth:gov:actor/provisional-steward",
+  "sha256": "810109856d260d1e712d24f0905885a685ebf49ec6647dfeb09d38cf5366ba0e",
+  "jws": null
+}

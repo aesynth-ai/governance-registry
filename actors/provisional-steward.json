@@ -1,0 +1,17 @@
+{
+  "type": "Actor",
+  "urn": "aesynth:gov:actor/provisional-steward",
+  "displayName": "Provisional Steward of Meaning",
+  "keys": [
+    {
+      "keyId": "did:key:z6MkProvisionalSteward",
+      "alg": "ed25519",
+      "publicKeyHex": "c9db5406d8f476dc3847561c1b240ca8085797228e753c4f12589621454c3ea2",
+      "created": "2025-10-10",
+      "revoked": null
+    }
+  ],
+  "affiliations": [
+    "aesynth:gov:body/provisional-stewardship"
+  ]
+}

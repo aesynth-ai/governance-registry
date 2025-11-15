@@ -1,0 +1,13 @@
+{
+  "type": "LedgerEvent",
+  "urn": "aesynth:gov:ledger/evt-000131",
+  "timestamp": "2025-11-01T05:09:30Z",
+  "event": "document.publish",
+  "subject": "aesynth:gov:doc/founders-manifesto@1.0.0",
+  "refs": [
+    "docs/founders-manifesto/1.0.0/founders-manifesto.md"
+  ],
+  "actor": "aesynth:gov:actor/provisional-steward",
+  "sha256": "b7c76616cf7c12b60243337e6a3de28ebb5d9ea2d33f1553cd49f71fc0634c7a",
+  "jws": null
+}

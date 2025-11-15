@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://registry.aesynth.ai/schemas/ledger-event.schema.json",
+  "title": "Ledger Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "urn",
+    "timestamp",
+    "event",
+    "subject",
+    "refs",
+    "actor",
+    "sha256",
+    "jws"
+  ],
+  "properties": {
+    "type": {
+      "const": "LedgerEvent"
+    },
+    "urn": {
+      "type": "string",
+      "pattern": "^aesynth:gov:ledger\\/evt-\\d+$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "event": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "actor": {
+      "type": "string",
+      "pattern": "^aesynth:gov:actor\\/.+$"
+    },
+    "sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "jws": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "subject": "docs/semantic-charter/1.1.0/semantic-charter.md",
+  "canonicalization": "md-normalized-v1",
+  "sha256": "aff97dc878f8e1a9ce50eec653632dc2bea79804da38cf56efbef532efd00ba4",
+  "signatures": [
+    {
+      "keyId": "did:key:z6MkProvisionalSteward",
+      "alg": "ed25519",
+      "jws": "_O7prvIObtPpM_dxxwc0NZJCcq5LvLE5I0bWCzPEQit42r0H3hFlcm4D7A9-nU3uiQ_yxpx9zAeUauV0HChuAQ",
+      "signedAt": "2025-11-01T05:02:33Z"
+    }
+  ]
+}

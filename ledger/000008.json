@@ -1,0 +1,14 @@
+{
+  "type": "LedgerEvent",
+  "urn": "aesynth:gov:ledger/evt-000130",
+  "timestamp": "2025-11-01T05:09:00Z",
+  "event": "resolution.ratify",
+  "subject": "aesynth:gov:res/2025-11-01-ratify-jsa-protocol-1-0",
+  "refs": [
+    "aesynth:gov:doc/jsa-protocol@1.0.0"
+  ],
+  "actor": "aesynth:gov:actor/provisional-steward",
+  "sha256": "1c41c3a3f28d1b0b5744ddabb41fc6f3f95a81dee5c210b1fba7338f5ad74837",
+  "jws": null
+}
+

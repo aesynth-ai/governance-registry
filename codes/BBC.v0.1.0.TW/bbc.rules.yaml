@@ -1,0 +1,34 @@
+meta:
+  version: 0.1.0
+  units: metric
+  tolerance_mm: 5
+
+egress:
+  corridor_min_clear_mm: 914
+  door_min_clear_mm: 813
+  max_travel_distance_m_unsprink: 61
+  max_travel_distance_m_sprink: 76
+  exit_factor_ol_divisor: 50
+
+stairs:
+  riser_max_mm: 197
+  tread_min_mm: 254
+  nosing_projection_mm_range: [19, 38]
+  variation_max_mm: 10
+  headroom_min_mm: 2032
+
+handrails:
+  height_mm_range: [864, 965]
+  continuous_required: true
+  grasp_diameter_mm_range: [30, 60]
+
+guards:
+  height_min_mm: 1067
+  opening_max_mm: 102
+
+occupancy:
+  min_exits_if_ol_gt: 49
+  occupant_load:
+    assembly: 0.65
+    office: 9.3
+    residential: 18.6

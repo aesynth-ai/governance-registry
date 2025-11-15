@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "version": "v1.0.0",
+    "jurisdiction_code": "SANDBOX.v1.0.GAME",
+    "domain": "SANDBOX",
+    "status": "RESERVED",
+    "stewards": [
+      "TEMP_STEWARD_SANDBOX"
+    ],
+    "changelog_ref": "docs/CHANGELOG.md#sandbox",
+    "attribution": {
+      "source": "Sandbox Game Protocol",
+      "license": "TBD"
+    },
+    "provenance_mode": "sandbox"
+  },
+  "rules": [
+    {
+      "rule_id": "SANDBOX-PROTOCOL-001",
+      "severity": "WARN",
+      "description": "Sandbox protocol placeholder referencing APR-1.1",
+      "policy_body": "file:docs/aesynth-constitution/APR-1.1.yaml#sandbox_behavior"
+    }
+  ],
+  "schemas": {
+    "plan_schema": "schemas/plan.schema.json",
+    "waiver_schema": "policy/waivers.schema.json"
+  },
+  "documentation": {
+    "help_ref": "docs/README.md#sandbox",
+    "waiver_guide": "docs/README.md#waivers"
+  }
+}

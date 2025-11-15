@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["project_id", "corridors", "travel_paths"],
+  "properties": {
+    "project_id": { "type": "string" },
+    "sprinklered": { "type": "boolean" },
+    "occupant_load": { "type": "integer", "minimum": 0 },
+    "corridors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["clear_width_mm"],
+        "properties": {
+          "clear_width_mm": { "type": "number" }
+        }
+      }
+    },
+    "doors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "clear_width_mm": { "type": "number" },
+          "swing": { "enum": ["egress", "other"] }
+        }
+      }
+    },
+    "travel_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["distance_m"],
+        "properties": {
+          "distance_m": { "type": "number" }
+        }
+      }
+    },
+    "stairs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "treads": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "depth_mm": { "type": "number" },
+                "nosing_mm": { "type": "number" }
+              }
+            }
+          },
+          "risers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "height_mm": { "type": "number" }
+              }
+            }
+          },
+          "headroom_mm": { "type": "number" },
+          "variation_riser_mm": { "type": "number" },
+          "variation_tread_mm": { "type": "number" }
+        }
+      }
+    },
+    "handrails": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "height_mm": { "type": "number" },
+          "continuous": { "type": "boolean" },
+          "grasp_diameter_mm": { "type": "number" }
+        }
+      }
+    },
+    "guards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "height_mm": { "type": "number" },
+          "opening_mm": { "type": "number" }
+        }
+      }
+    },
+    "exits": {
+      "type": "object",
+      "properties": {
+        "count": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "version": "v0.1.0",
+    "jurisdiction_code": "EDU.v0.1.0.CORE",
+    "domain": "EDU",
+    "status": "PLANNED",
+    "stewards": [
+      "TEMP_STEWARD_EDU_1",
+      "TEMP_STEWARD_EDU_2"
+    ],
+    "changelog_ref": "docs/edu/CHANGELOG.md#v0.1.0-genesis",
+    "attribution": {
+      "source": "Aesynth EduSynth Core",
+      "license": "TBD"
+    },
+    "provenance_mode": "canonical"
+  },
+  "rules": [],
+  "schemas": {
+    "plan_schema": "governance/schemas/edu/edu_plan.schema.json",
+    "waiver_schema": "docs/edu/waiver.schema.TBD"
+  },
+  "documentation": {
+    "help_ref": "docs/edu/policy_guide.md#EDU.v0.1.0.CORE",
+    "waiver_guide": "docs/edu/waiver_guide.md"
+  }
+}

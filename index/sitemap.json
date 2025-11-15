@@ -1,0 +1,113 @@
+{
+  "root": "/registry",
+  "sections": [
+    {
+      "label": "Documents",
+      "items": [
+        {
+          "title": "Aesynth Constitution v1.0.0",
+          "path": "/docs/aesynth-constitution/1.0.0/aesynth-constitution.md"
+        },
+        {
+          "title": "Founders Manifesto v1.0.0",
+          "path": "/docs/founders-manifesto/1.0.0/founders-manifesto.md"
+        },
+        {
+          "title": "Human Constitution v1.0.0",
+          "path": "/docs/human-constitution/1.0.0/human-constitution.md"
+        },
+        {
+          "title": "Joint Semantic Assembly Protocol v1.0.0",
+          "path": "/docs/jsa-protocol/1.0.0/jsa-protocol.md"
+        },
+        {
+          "title": "The Semantic Charter v1.1.0",
+          "path": "/docs/semantic-charter/1.1.0/semantic-charter.md"
+        }
+      ]
+    },
+    {
+      "label": "Bodies",
+      "items": [
+        {
+          "title": "Joint Semantic Assembly",
+          "path": "/bodies/jsa.json"
+        },
+        {
+          "title": "Provisional Stewardship Body",
+          "path": "/bodies/provisional-stewardship.json"
+        }
+      ]
+    },
+    {
+      "label": "Resolutions",
+      "items": [
+        {
+          "title": "2025 11 01 ratify aesynth constitution 1 0",
+          "path": "/resolutions/2025-11-01-ratify-aesynth-constitution-1-0.json"
+        },
+        {
+          "title": "2025 11 01 ratify founders manifesto 1 0",
+          "path": "/resolutions/2025-11-01-ratify-founders-manifesto-1-0.json"
+        },
+        {
+          "title": "2025 11 01 ratify human constitution 1 0",
+          "path": "/resolutions/2025-11-01-ratify-human-constitution-1-0.json"
+        },
+        {
+          "title": "2025 11 01 ratify jsa protocol 1 0",
+          "path": "/resolutions/2025-11-01-ratify-jsa-protocol-1-0.json"
+        },
+        {
+          "title": "2025 11 01 ratify semantic charter 1 1",
+          "path": "/resolutions/2025-11-01-ratify-semantic-charter-1-1.json"
+        }
+      ]
+    },
+    {
+      "label": "Ledger",
+      "items": [
+        {
+          "title": "Event 000123 - document.publish",
+          "path": "/ledger/000001.json"
+        },
+        {
+          "title": "Event 000124 - resolution.ratify",
+          "path": "/ledger/000002.json"
+        },
+        {
+          "title": "Event 000125 - document.publish",
+          "path": "/ledger/000003.json"
+        },
+        {
+          "title": "Event 000126 - resolution.ratify",
+          "path": "/ledger/000004.json"
+        },
+        {
+          "title": "Event 000127 - document.publish",
+          "path": "/ledger/000005.json"
+        },
+        {
+          "title": "Event 000128 - resolution.ratify",
+          "path": "/ledger/000006.json"
+        },
+        {
+          "title": "Event 000129 - document.publish",
+          "path": "/ledger/000007.json"
+        },
+        {
+          "title": "Event 000130 - resolution.ratify",
+          "path": "/ledger/000008.json"
+        },
+        {
+          "title": "Event 000131 - document.publish",
+          "path": "/ledger/000009.json"
+        },
+        {
+          "title": "Event 000132 - resolution.ratify",
+          "path": "/ledger/000010.json"
+        }
+      ]
+    }
+  ]
+}

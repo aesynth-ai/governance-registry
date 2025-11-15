@@ -1,0 +1,14 @@
+{
+  "type": "LedgerEvent",
+  "urn": "aesynth:gov:ledger/evt-000128",
+  "timestamp": "2025-11-01T05:07:30Z",
+  "event": "resolution.ratify",
+  "subject": "aesynth:gov:res/2025-11-01-ratify-human-constitution-1-0",
+  "refs": [
+    "aesynth:gov:doc/human-constitution@1.0.0"
+  ],
+  "actor": "aesynth:gov:actor/provisional-steward",
+  "sha256": "a59e3096ad056822d9e1e64d90f56dfbbf748282414251ab9853a00e10af9395",
+  "jws": null
+}
+

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://registry.aesynth.ai/schemas/body.schema.json",
+  "title": "Governance Body",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "urn",
+    "name",
+    "status",
+    "seats",
+    "activationCriteria",
+    "charterRefs"
+  ],
+  "properties": {
+    "type": {
+      "const": "Body"
+    },
+    "urn": {
+      "type": "string",
+      "pattern": "^aesynth:gov:body\\/.+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "provisioned",
+        "active",
+        "dormant"
+      ]
+    },
+    "seats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "urn",
+          "role"
+        ],
+        "properties": {
+          "urn": {
+            "type": "string",
+            "pattern": "^aesynth:gov:seat\\/.+$"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "activationCriteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "charterRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^aesynth:gov:doc\\/.+@\\d+\\.\\d+\\.\\d+$"
+      }
+    }
+  }
+}

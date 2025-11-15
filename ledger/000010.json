@@ -1,0 +1,14 @@
+{
+  "type": "LedgerEvent",
+  "urn": "aesynth:gov:ledger/evt-000132",
+  "timestamp": "2025-11-01T05:10:00Z",
+  "event": "resolution.ratify",
+  "subject": "aesynth:gov:res/2025-11-01-ratify-founders-manifesto-1-0",
+  "refs": [
+    "aesynth:gov:doc/founders-manifesto@1.0.0"
+  ],
+  "actor": "aesynth:gov:actor/provisional-steward",
+  "sha256": "14e582f9ac748c8d714b09bfd640c584d12c2c4a7702521548779c721fbe17e2",
+  "jws": null
+}
+
