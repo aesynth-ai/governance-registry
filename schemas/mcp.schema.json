@@ -1,0 +1,83 @@
+{
+  "$id": "https://aesynth.org/schemas/mcp.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Module Change Proposal Manifest",
+  "type": "object",
+  "required": ["module", "policy", "operations", "risk", "approvals"],
+  "properties": {
+    "module": {
+      "type": "object",
+      "required": ["id", "owner", "version", "description", "interfaces"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "owner": { "type": "string", "minLength": 3 },
+        "version": { "type": "string" },
+        "tier": { "type": "string", "enum": ["runtime", "library", "governance"] },
+        "description": { "type": "string" },
+        "interfaces": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "type"],
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "type": "string" },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "required": ["id", "version", "url"],
+      "properties": {
+        "id": { "type": "string", "enum": ["MOP-001"] },
+        "version": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "operations": {
+      "type": "object",
+      "required": ["change_window_hours", "freeze_duration_hours", "deployment_channels"],
+      "properties": {
+        "change_window_hours": { "type": "integer", "minimum": 1, "maximum": 72 },
+        "freeze_duration_hours": { "type": "integer", "minimum": 1, "maximum": 168 },
+        "deployment_channels": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "rollback_procedure": { "type": "string" }
+      }
+    },
+    "risk": {
+      "type": "object",
+      "required": ["tier", "last_reviewed"],
+      "properties": {
+        "tier": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "last_reviewed": { "type": "string", "format": "date-time" },
+        "impact": { "type": "string" }
+      }
+    },
+    "approvals": {
+      "type": "object",
+      "required": ["required_roles", "evidence"],
+      "properties": {
+        "required_roles": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["CRR", "LedgerEntry", "AuditReport", "ProvenanceEnvelope"]
+          }
+        }
+      }
+    },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

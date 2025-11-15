@@ -1,0 +1,22 @@
+﻿bindings:
+  monograph: "v1.1"
+  system_spec: "v1.0"
+invariants:
+  - id: "inv-core-001"
+    statement: "governance-registry governance state remains canonical"
+interfaces:
+  observe_packet:
+    schema: "../schemas/observe_packet.json"
+  observe_ack:
+    schema: "../schemas/observe_ack.json"
+  report_request:
+    schema: "../schemas/report_request.json"
+  report_packet:
+    schema: "../schemas/report_packet.json"
+traceability:
+  "6.1":
+    - source: "monograph.v1.1:axiom-01"
+      target: "spec:interfaces:observe_packet"
+ci_pipelines:
+  - name: "verify-governance"
+    description: "Enforce policy, schema, and provenance contracts"

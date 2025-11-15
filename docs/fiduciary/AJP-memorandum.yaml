@@ -1,0 +1,28 @@
+﻿meta:
+  id: aesynth:gov:doc/ajp-memorandum@1.0.0
+  title: "Architectural Juristic Person (AJP) Memorandum"
+  version: 1.0.0
+  license: AOG-1.0
+  provenanceRef: "docs/fiduciary/provenance.json"
+ajp:
+  recognition:
+    basis:
+      - "Constitutional Coherence"
+      - "Identifiable Governance"
+      - "Continuity"
+      - "Public Purpose"
+    clauseRef: "Article IX – Architectural Personhood (draft)"
+  maintenanceEndowment:
+    capPercentGross: 1.0
+    uses:
+      - "Governance Registry & provenance infrastructure"
+      - "Constitutional audits & ethical reviews"
+      - "Approved improvements consistent with the Constitution"
+    controls:
+      dualSignature:
+        - "Joint Semantic Assembly"
+        - "Auditor"
+      publicLedger: true
+registration:
+  preferredJurisdiction: "South Africa (NPC/Trust)"
+  secondaryJurisdiction: "EU Foundation (Member State)"

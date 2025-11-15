@@ -1,0 +1,10 @@
+﻿id: SystemSpecification
+version: "1.0"
+title: "Aesynth / Synthlex System Specification (Bootstrap Index)"
+links:
+  - file: "Aesynth_Synthlex_System_Specification_v1.pdf"
+    integrity: "external-pdf"
+summary:
+  aesynth: "Cognitive layer"
+  synthlex: "Execution layer"
+  governance: "Lawful oversight + provenance"

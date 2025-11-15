@@ -1,0 +1,71 @@
+name: reusable-bbc-verify
+
+on:
+  workflow_call:
+    inputs:
+      manifest_path:
+        description: Path to the repository BBC manifest
+        default: bbc/manifest.yaml
+        required: false
+        type: string
+      registry_ref:
+        description: governance-registry ref holding BBC schemas/packs
+        default: main
+        required: false
+        type: string
+
+jobs:
+  bbc-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout caller repository
+        uses: actions/checkout@v4
+
+      - name: Checkout governance registry toolkit
+        uses: actions/checkout@v4
+        with:
+          repository: aesynth-ai/governance-registry
+          ref: ${{ inputs.registry_ref }}
+          path: governance-toolkit
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install schema tooling
+        run: npm install -g ajv-cli@5.0.0
+
+      - name: Validate BBC manifest schema
+        shell: bash
+        run: |
+          if [[ ! -f "${{ inputs.manifest_path }}" ]]; then
+            echo "::error ::Missing ${{ inputs.manifest_path }} (see BBC-001)."
+            exit 1
+          fi
+          ajv validate \
+            -s governance-toolkit/schemas/bbc/manifest.schema.json \
+            -d "${{ inputs.manifest_path }}" \
+            --spec=draft2020-12
+
+      - name: Ensure pack reference resolves
+        shell: bash
+        run: |
+          pack=$(grep -E '^pack_id:' "${{ inputs.manifest_path }}" | head -n1 | awk '{print $2}')
+          if [[ -z "$pack" ]]; then
+            echo "::error ::bbc/manifest pack_id missing"
+            exit 1
+          fi
+          pack_file="governance-toolkit/packs/$pack/pack.yaml"
+          if [[ ! -f "$pack_file" ]]; then
+            echo "::error ::Pack $pack not found in governance-registry/packs"
+            exit 1
+          fi
+          ajv validate \
+            -s governance-toolkit/schemas/bbc/pack.schema.json \
+            -d "$pack_file" \
+            --spec=draft2020-12
+
+      - name: Emit completion marker
+        if: success()
+        run: echo "BBC manifest verified OK"

@@ -1,0 +1,19 @@
+﻿ci:
+  branchProtection:
+    main:
+      requiredStatusChecks:
+        - "Verify Registry"
+        - "Enforce Latency Gap"
+      requiredReviewers:
+        - "Joint Semantic Assembly"
+        - "Aesynth Auditor"
+      signedCommits: true
+      allowForcePushes: false
+      allowDeletions: false
+  workflows:
+    verify: ".github/workflows/verify.yml"
+    latency: ".github/workflows/latency-gap.yml"
+policies:
+  latencyGapMinutes: 1440
+  provenanceRequired: true
+  dualBodyRatification: true

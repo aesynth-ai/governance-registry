@@ -1,137 +1,21 @@
-SPDX-License-Identifier: AOG-1.0
-© 2025 Aesynth AI Initiative. All rights reserved under the terms below.
+﻿MIT License
 
-──────────────────────────────────────────────────────────────────────────────
+Copyright (c) 2024 Aesynth
 
-PREAMBLE
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The Aesynth Open Governance License (AOG-1.0) exists to preserve public
-transparency, verifiable integrity, and ethical accountability for
-constitutional and provenance data published by the Aesynth AI Initiative.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-This license grants broad rights to read, verify, and reuse the contents of
-the Aesynth Governance Registry, while imposing duties that protect the
-authenticity and traceability of the public record.  It is designed for
-texts, data, and schemas that function as the legal infrastructure of
-Explainable Artificial Intelligence (XAI).
-
-──────────────────────────────────────────────────────────────────────────────
-
-SECTION 1 – DEFINITIONS
-
-“Registry Materials” means all text, data, metadata, JSON, Markdown, and
-provenance envelopes contained in this repository, including schemas,
-catalogs, and ledger records.
-
-“Derivative Work” means any modified, extended, translated, or re-formatted
-version of the Registry Materials.
-
-“Official Record” means any file within an Aesynth repository whose status
-is ratified and verified by a valid provenance signature and ledger event.
-
-──────────────────────────────────────────────────────────────────────────────
-
-SECTION 2 – GRANT OF RIGHTS
-
-Subject to the conditions of this License, every person is granted a
-perpetual, worldwide, royalty-free right to:
-
-1.  **Read and Verify** – Access and cryptographically verify all Registry
-    Materials and signatures.
-
-2.  **Share and Mirror** – Copy and redistribute the Registry Materials in
-    any medium or format, provided that provenance data, signatures, and
-    attributions remain intact.
-
-3.  **Educate and Research** – Use the Registry Materials for teaching,
-    research, or documentation of explainable governance systems.
-
-4.  **Extend Transparently** – Create Derivative Works or compatible
-    registries, provided that such works remain publicly readable and
-    clearly distinguished from the Official Record.
-
-──────────────────────────────────────────────────────────────────────────────
-
-SECTION 3 – CONDITIONS OF USE
-
-A.  **Preserve Provenance**  
-    You must not remove, alter, or obscure any content hash, digital
-    signature, or ledger reference.
-
-B.  **Maintain Attribution**  
-    All redistributions and Derivative Works must display the following
-    notice in human-readable and machine-readable form:
-
-        This work incorporates materials from the
-        “Aesynth Governance Registry” (AOG-1.0)
-        © Aesynth AI Initiative 2025.
-
-C.  **Disclose Modifications**  
-    Any alteration must be clearly marked as *unratified*, *draft*, or
-    *derivative* and must not be represented as part of the Official Record.
-
-D.  **No Misrepresentation**  
-    You may not claim endorsement or official status for altered materials.
-
-E.  **Open Access for Derivatives**  
-    Any publicly released Derivative Work must remain freely readable and
-    auditable by the public.
-
-──────────────────────────────────────────────────────────────────────────────
-
-SECTION 4 – PROHIBITED USES
-
-1.  You may not sublicense the Registry Materials under restrictive or
-    proprietary terms.  
-2.  You may not use the Registry Materials to operate closed or deceptive
-    governance systems that conceal provenance or attribution.  
-3.  You may not forge or falsify cryptographic signatures or hashes.  
-4.  You may not remove historical records or rewrite ledger events.
-
-──────────────────────────────────────────────────────────────────────────────
-
-SECTION 5 – NO WARRANTY
-
-The Registry Materials are provided “AS IS” without warranty of any kind,
-express or implied, including but not limited to the warranties of
-accuracy, completeness, merchantability, or fitness for a particular
-purpose.  You assume full responsibility for verifying authenticity before
-reliance.
-
-──────────────────────────────────────────────────────────────────────────────
-
-SECTION 6 – LIMITATION OF LIABILITY
-
-In no event shall the authors or copyright holders be liable for any claim,
-damages, or other liability arising from use of the Registry Materials or
-from any alleged inaccuracy within them.
-
-──────────────────────────────────────────────────────────────────────────────
-
-SECTION 7 – VERSIONING
-
-Aesynth AI Initiative may publish updated versions of this License
-(AOG-1.x).  You may apply any later version, provided that the later version
-does not reduce public transparency, attribution, or verification rights
-granted by this version.
-
-──────────────────────────────────────────────────────────────────────────────
-
-SECTION 8 – TERMINATION
-
-Violation of Sections 3 or 4 automatically terminates this License.  
-Rights may be reinstated upon public correction of the violation and
-acknowledgement in the ledger of the relevant repository.
-
-──────────────────────────────────────────────────────────────────────────────
-
-SECTION 9 – GOVERNING LAW
-
-This License shall be governed by the principles of open knowledge and
-public accountability rather than by any specific national jurisdiction.
-Where a legal forum is required, the courts of neutral international
-arbitration may be used.
-
-──────────────────────────────────────────────────────────────────────────────
-
-END OF TERMS – AOG-1.0
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

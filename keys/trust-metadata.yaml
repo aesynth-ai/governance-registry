@@ -1,0 +1,32 @@
+﻿meta:
+  id: aesynth:gov:keys/trust-metadata@1.0.0
+  title: "Node Governance Keys & Trust Metadata"
+  version: 1.0.0
+  license: AOG-1.0
+trust:
+  authorities:
+    - name: "Joint Semantic Assembly (Provisional)"
+      kid: "jsa-provisional-key-1"
+      jwkRef: "keys/jsa-provisional-key-1.jwk.json"
+    - name: "Aesynth Council Secretariat"
+      kid: "acs-key-1"
+      jwkRef: "keys/acs-key-1.jwk.json"
+  signing:
+    alg: "EdDSA"
+    envelope: "JWS"
+  rotation:
+    policy: "Rotate on council change or annual cadence, whichever comes first"
+    ledgerEventRequired: true
+keys:
+  - id: "jsa-provisional-key-1"
+    fingerprint: "sha256:<pending-jsa-key>"
+    jwkRef: "keys/jsa-provisional-key-1.jwk.json"
+    roles:
+      - "council"
+      - "ratifier"
+  - id: "acs-key-1"
+    fingerprint: "sha256:<pending-acs-key>"
+    jwkRef: "keys/acs-key-1.jwk.json"
+    roles:
+      - "auditor"
+      - "ledger"

@@ -1,0 +1,52 @@
+id: FS-010
+version: 1.0.0
+status: active
+class: governance
+title: Temporal Dignity - 12h Reflection
+summary: Guarantees a minimum 12 hour reflection window for high-impact governance
+  merges across the federation.
+jurisdiction:
+  registry: governance-registry
+  precedence:
+  - TechnicalMonographs
+  - AIConstitution
+  - HumanConstitution
+bindings:
+  constitution_hash: TBD
+  spec_hash: TBD
+  related_addendums:
+  - A-4.v1.2.1
+scope:
+  applies_to:
+  - governance-registry
+  - aesynth-core
+  - synthlex-core
+  - plan-reader
+  exclusions: []
+procedures:
+  enactment: Reflection workflows enforce `pull_request` time locks before merge.
+  amendment: Requires docket + CRR demonstrating equal or stronger temporal dignity.
+  repeal: Requires unanimous Civic + Judicial approval and ledger statement describing
+    successor guard.
+controls:
+  ci_checks:
+  - REFLECTION_WINDOW_ENFORCED
+  - CRR_PRESENT_IF_ACTIVE
+  evidence_required:
+  - CRR
+  - LedgerEntry
+references: []
+provenance:
+  created_at: '2025-11-10T00:00:00Z'
+  updated_at: '2025-11-10T00:00:00Z'
+  author: Civic Safety Directorate
+  reviewers:
+  - Root Steward
+  crr_id: CRR-2025-11-10-FS-010
+  ledger_ref: ledger/public/policies/FS-010/1.0.0
+signatures:
+- signer: Civic Safety Directorate
+  algo: ed25519
+  signature: TBD
+  timestamp: '2025-11-10T00:00:00Z'
+hash: sha256:6cfb46cea80f99d229718ad210f1cadf17600a5a45eaff8357b41c01f2cbbcba

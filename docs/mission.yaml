@@ -1,0 +1,17 @@
+﻿purpose: "Operate the canonical registry for governance contracts across the Aesynth stack."
+scope:
+  in:
+    - "Maintain schema, lifecycle, and indexing metadata for governance artifacts"
+    - "Provide read APIs and signed exports to dependent registries"
+  out:
+    - "Author downstream product policies"
+    - "Execute runtime enforcement in client systems"
+value_commitments:
+  - "Keep registry state tamper-evident and replayable"
+  - "Publish backward-compatible notices for every change"
+classification: "Core"
+jurisdiction:
+  category: "Core"
+  bindings:
+    - name: "global"
+      scope: "Core mandates"

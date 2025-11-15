@@ -1,0 +1,26 @@
+﻿name: verify-governance
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install deps
+        run: |
+          npm init -y >/dev/null 2>&1 || true
+          npm i js-yaml
+      - name: Run governance gate
+        run: node scripts/governance_gate.ts --snapshot
+      - name: Upload audit snapshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-snapshot-A4
+          path: logs/audit-snapshot-A4.json

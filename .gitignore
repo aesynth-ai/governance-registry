@@ -1,3 +1,5 @@
 node_modules/
 keys/
 reports/
+﻿node_modules/
+.tmp/

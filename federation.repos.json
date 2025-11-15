@@ -1,0 +1,23 @@
+﻿[
+  "8x2style-system",
+  "aesynth-core",
+  "archetype-registry",
+  "axis-break-engine",
+  "axis-registry",
+  "break-registry",
+  "canonicalizer",
+  "civic-ledger",
+  "cli-suite",
+  "codex-aesthetica",
+  "criticx-core",
+  "design-baddie",
+  "governance-registry",
+  "labelkit",
+  "math-kernel",
+  "pattern-reader-core",
+  "persona-registry",
+  "plan-builder",
+  "plan-reader",
+  "sememe-registry",
+  "synthlex-core"
+]

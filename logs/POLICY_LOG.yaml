@@ -1,0 +1,11 @@
+- policy_id: POL-JUDICIAL-AMENDMENT
+  version: 1.0.0
+  ratified_on: 2025-11-09
+  ledger_ref: ledger/public/policies/POL-JUDICIAL-AMENDMENT/1.0.0
+  sha256: sha256:b102b0e00e22b24cc80770f099166b5a8303297d71c668bf1261677bd1071162
+  crr_id: CRR-2025-11-09-POL-JUDICIAL-AMENDMENT
+  verified_by: verify-policy
+- ts: '2025-11-09T01:05:06Z'
+  event: policy_registry_published
+  registry_hash: sha256:e28307a9e590208cfc84276aea68c127626515e95f0b8acc9fbda2b1909fb291
+  manifest: docs/policies/RegistryManifest.yaml

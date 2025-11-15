@@ -1,0 +1,41 @@
+{
+  "$id": "https://aesynth.org/schemas/capability.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Capability Token",
+  "type": "object",
+  "required": ["id", "subject", "actions", "scope", "issued_at", "expires_at", "signature"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[A-Z0-9-]+$" },
+    "subject": {
+      "type": "object",
+      "required": ["type", "identifier"],
+      "properties": {
+        "type": { "type": "string", "enum": ["service", "agent", "pipeline"] },
+        "identifier": { "type": "string" }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["read:ledger", "open:docket", "sign:provenance", "issue:capability"]
+      }
+    },
+    "scope": { "type": "string" },
+    "issued_at": { "type": "string", "format": "date-time" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "restrictions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "signature": {
+      "type": "object",
+      "required": ["algo", "value"],
+      "properties": {
+        "algo": { "type": "string", "enum": ["ed25519", "ecdsa-p256"] },
+        "value": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": false
+}

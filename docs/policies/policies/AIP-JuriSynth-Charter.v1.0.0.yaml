@@ -1,0 +1,52 @@
+id: AIP-JuriSynth-Charter
+version: 1.0.0
+status: referential
+class: governance
+title: JuriSynth Charter
+summary: Provides legal mapping & advisory memos while remaining non-authoritative
+  on merges.
+jurisdiction:
+  registry: governance-registry
+  precedence:
+  - TechnicalMonographs
+  - AIConstitution
+bindings:
+  constitution_hash: TBD
+  spec_hash: TBD
+  related_addendums:
+  - A-4.v1.2.1
+scope:
+  applies_to:
+  - jurisynth
+  exclusions:
+  - merge_authority
+procedures:
+  enactment: Charter anchored in policy registry referencing mission + service contract.
+  amendment: Requires docket, rationale, and CRR citing new advisory responsibilities.
+  repeal: Requires appointment of successor legal explainer and ledger broadcast.
+controls:
+  ci_checks:
+  - REFERENTIAL_ONLY
+  evidence_required:
+  - CRR
+references:
+- label: mission
+  uri: https://github.com/aesynth-ai/jurisynth/blob/main/docs/mission.yaml
+  hash: TBD
+- label: service_contract
+  uri: https://github.com/aesynth-ai/jurisynth/blob/main/docs/contracts/ServiceContract.yaml
+  hash: TBD
+provenance:
+  created_at: '2025-11-10T00:00:00Z'
+  updated_at: '2025-11-10T00:00:00Z'
+  author: Federal Operating Council
+  reviewers:
+  - AI Judicial Auditor
+  crr_id: CRR-2025-11-10-AIP-JURISYNTH
+  ledger_ref: ledger/public/charters/AIP-JuriSynth-Charter/1.0.0
+signatures:
+- signer: Federal Operating Council
+  algo: ed25519
+  signature: TBD
+  timestamp: '2025-11-10T00:00:00Z'
+hash: sha256:937fa8d6e65e137817088092c114e8cc701d2897519d420e967359dde202242e

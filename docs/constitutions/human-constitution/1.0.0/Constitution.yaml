@@ -1,0 +1,24 @@
+﻿meta:
+  id: aesynth:gov:doc/human-constitution@1.0.0
+  title: "Aesynth Constitution for People"
+  version: 1.0.0
+  issued: "2025-11-01"
+  issuingAuthority: "Aesynth Foundation (People's Charter)"
+  license: AOG-1.0
+  provenanceRef: "docs/constitutions/human-constitution/1.0.0/provenance.json"
+  hash:
+    algo: sha256
+    value: "<to-be-computed>"
+structure:
+  preamble: |
+    The rights and civic duties of all human participants interacting with the Aesynth system...
+  billOfRights:
+    - id: HR1
+      name: Transparency & Comprehensibility
+    - id: HR2
+      name: Contestability & Appeal
+  duties:
+    - id: HD1
+      name: Duty of Ecological Care
+ratification:
+  resolutionRef: "aesynth:gov:res/2025-11-01-ratify-human-constitution-1-0"

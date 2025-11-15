@@ -1,0 +1,28 @@
+﻿meta:
+  id: aesynth:gov:doc/ip-policy@1.0.0
+  title: "Aesynth Foundation Intellectual Property & Licensing Policy (AIP-1.0)"
+  version: 1.0.0
+  license: AOG-1.0
+  provenanceRef: "docs/policies/provenance.json"
+policy:
+  principles:
+    - "Law Before Profit"
+    - "Transparency Obligation"
+    - "Reciprocal Commons"
+  layers:
+    governanceCore:
+      license: ["AOG-1.0","AGPL-3.0"]
+      endowment: "1%"
+    languageSpec:
+      license: ["AOG-1.0","CC-BY-SA-4.0"]
+    applications:
+      license: ["Proprietary","Dual-License"]
+      spsRequired: true
+  obligations:
+    - "Generate Proof of Compliance (SPS)"
+    - "Retain Provenance Headers"
+    - "Register derivative in Derivative Works Ledger"
+    - "Contribute 1% Maintenance Endowment or equivalent in-kind"
+enforcement:
+  certificationMark: "Synthlex Compliant"
+  disputeForum: "Aesynth Foundation Arbitration Protocol"
