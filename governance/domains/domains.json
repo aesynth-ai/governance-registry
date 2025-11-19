@@ -1,10 +1,12 @@
-{
+﻿{
   "domains": [
     { "code": "BBC.v0.1.0.TW", "domain": "BBC", "status": "ACTIVE" },
     { "code": "BBC.v0.1.0.US", "domain": "BBC", "status": "EXPERIMENTAL" },
     { "code": "CIV.v0.1.0.CITY", "domain": "CIV", "status": "EXPERIMENTAL" },
     { "code": "SYNTHLEX.v1.0.0.CORE", "domain": "SYNTHLEX", "status": "EXPERIMENTAL" },
     { "code": "SANDBOX.v1.0.GAME", "domain": "SANDBOX", "status": "RESERVED" },
-    { "code": "EDU.v0.1.0.CORE", "domain": "EDU", "status": "PLANNED" }
+    { "code": "EDU.v0.1.0.CORE", "domain": "EDU", "status": "PLANNED" },
+    { "code": "ASD.v0.1.0.CORE", "name": "Aesynth Synesthetic Domain", "status": "PLANNED", "description": "Semantic registry for the Axis Break System (ABS) and cross-modal synesthetic mappings across architecture, interiors, fashion, art, music, and multi-modal design logic.", "repository": "https://github.com/aesynth-ai/aesynth-asd" }
   ]
 }
+
