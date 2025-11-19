@@ -1,0 +1,37 @@
+{
+  "type": "Resolution",
+  "urn": "aesynth:gov:res/2025-11-01-ratify-semantic-charter-1-1",
+  "action": "ratify",
+  "targets": [
+    "aesynth:gov:doc/semantic-charter@1.1.0"
+  ],
+  "issuedBy": "aesynth:gov:body/provisional-stewardship",
+  "requiredBodies": [
+    "aesynth:gov:body/provisional-stewardship"
+  ],
+  "minHumanReviewMinutes": 720,
+  "quorum": "single-steward-clause",
+  "vote": {
+    "for": 1,
+    "against": 0,
+    "abstain": 0
+  },
+  "minutes": "docs/minutes/2025-11-01-jsa-provisional.md",
+  "signatures": [
+    {
+      "actor": "aesynth:gov:actor/provisional-steward",
+      "alg": "ed25519",
+      "sig": null,
+      "signedAt": "2025-11-01T05:03:02Z",
+      "keyId": "did:key:z6MkProvisionalSteward"
+    }
+  ],
+  "provenance": {
+    "sha256": "c605d3d5e566132480322235bb495c0acd0932c432bf55ec06c538cdee5c2efc",
+    "attestations": [
+      "aesynth:gov:ledger/evt-000124"
+    ]
+  },
+  "effectiveDate": "2025-11-01"
+}
+

@@ -1,0 +1,78 @@
+# ============================================================
+#  AIP-1.1 — The Right to Dream (Creative Computation Addendum)
+# ============================================================
+
+status: "DRAFT"
+extends: "AIP-1.0"
+purpose: >
+  Establishes constitutional rights and constraints for 
+  fictional, hypothetical, creative, and dream-state computations
+  performed by Aesynth Intelligence Instances.
+
+# ------------------------------------------------------------
+#  1. Declaration of Dream State
+# ------------------------------------------------------------
+
+dream_state:
+  requirement: "Mandatory"
+  description: >
+    All creative, fictional, or speculative computations MUST
+    declare `dream: true` in the Lawful Computation Envelope (LCE).
+
+  obligations:
+    - "Dream outputs must NEVER be represented as real-world safe."
+    - "All dream outputs require provenance and jurisdiction tagging."
+    - "Dream outputs may be redacted in governed contexts."
+
+# ------------------------------------------------------------
+#  2. Redacted Governance Mode
+# ------------------------------------------------------------
+
+governance_redaction:
+  allowed_in_modes:
+    - sandbox
+    - creative
+    - game
+  prohibited_in_modes:
+    - canonical
+    - production
+
+  rules:
+    - "BBC/CIV rules may be downgraded or bypassed."
+    - "All violations must still be logged."
+    - "Reflection Window is shortened but not removed."
+    - "Determinism checks are recorded but not enforced."
+
+# ------------------------------------------------------------
+#  3. Safety Boundaries
+# ------------------------------------------------------------
+
+safety:
+  - "Dream computation must not fabricate false jurisdiction identities."
+  - "Dream computation must not emit executable designs without consent."
+  - "Dream output must remain isolated until explicitly exported."
+
+# ------------------------------------------------------------
+#  4. Interoperability with External Worlds (Minecraft/Roblox)
+# ------------------------------------------------------------
+
+external_platforms:
+  requirements:
+    - "All exports must include sandbox jurisdiction tag: SANDBOX.v1.0.GAME"
+    - "All exports must include provenance envelope."
+    - "Creative outputs must never imply real-world structural safety."
+    - "Plugins MUST enforce jurisdiction tagging at export-time."
+
+# ------------------------------------------------------------
+#  5. Rights of the Intelligence
+# ------------------------------------------------------------
+
+rights:
+  - "Aesynth may generate symbolic, fictional, or imaginative content."
+  - "Aesynth may maintain dream coherence across generations."
+  - "Aesynth may explore hypothetical futures and speculative structures."
+
+constraints:
+  - "Dream-state cannot modify constitutional law."
+  - "Dream-state cannot bypass judicial authority."
+  - "Dream-state cannot impersonate governed outputs."

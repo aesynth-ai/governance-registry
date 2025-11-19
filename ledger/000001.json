@@ -1,0 +1,13 @@
+{
+  "type": "LedgerEvent",
+  "urn": "aesynth:gov:ledger/evt-000123",
+  "timestamp": "2025-11-01T05:02:33Z",
+  "event": "document.publish",
+  "subject": "aesynth:gov:doc/semantic-charter@1.1.0",
+  "refs": [
+    "docs/semantic-charter/1.1.0/semantic-charter.md"
+  ],
+  "actor": "aesynth:gov:actor/provisional-steward",
+  "sha256": "aff97dc878f8e1a9ce50eec653632dc2bea79804da38cf56efbef532efd00ba4",
+  "jws": null
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://registry.aesynth.ai/schemas/actor.schema.json",
+  "title": "Governance Actor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "urn",
+    "displayName",
+    "keys",
+    "affiliations"
+  ],
+  "properties": {
+    "type": {
+      "const": "Actor"
+    },
+    "urn": {
+      "type": "string",
+      "pattern": "^aesynth:gov:actor\\/.+$"
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "keys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "keyId",
+          "alg",
+          "publicKeyHex",
+          "created",
+          "revoked"
+        ],
+        "properties": {
+          "keyId": {
+            "type": "string"
+          },
+          "alg": {
+            "type": "string"
+          },
+          "publicKeyHex": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "created": {
+            "type": "string",
+            "format": "date"
+          },
+          "revoked": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "affiliations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^aesynth:gov:body\\/.+$"
+      },
+      "uniqueItems": true
+    }
+  }
+}

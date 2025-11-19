@@ -1,10 +1,18 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-if ! command -v ajv >/dev/null 2>&1; then
-  echo "ajv-cli is required: npm i -g ajv-cli"; exit 1
-fi
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
-SCHEMA="schemas/policy.schema.json"
-FILE="$1"
-ajv validate -s "$SCHEMA" -d "$FILE" --strict=true
+SCHEMA="$ROOT_DIR/schemas/policy.schema.json"
+POLICY_DIR="$ROOT_DIR/docs/policies/policies"
+
+for p in "$POLICY_DIR"/*.yaml; do
+  [ -e "$p" ] || continue
+  echo "Schema validate $p"
+  npx ajv validate \
+    --spec=draft2020 \
+    --strict=false \
+    -c ajv-formats \
+    -s "$SCHEMA" \
+    -d "$p"
+done

@@ -1,0 +1,402 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-11-01T05:15:00Z",
+  "documents": [
+    {
+      "type": "Document",
+      "urn": "aesynth:gov:doc/aesynth-constitution",
+      "title": "Aesynth Constitution",
+      "category": "constitution",
+      "status": "ratified",
+      "version": "1.0.0",
+      "supersedes": null,
+      "supersededBy": null,
+      "bodyRefs": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "requiredBodies": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "effectiveDate": "2025-11-01",
+      "source": {
+        "path": "docs/aesynth-constitution/1.0.0/aesynth-constitution.md",
+        "canonicalMediaType": "text/markdown; charset=utf-8"
+      },
+      "provenance": {
+        "sha256": "aef714c6c4dd24458135263a1ce9ff1ba63c806c36e5e1bb624f56be1c6e0ca7",
+        "contentCanonicalization": "md-normalized-v1",
+        "attestations": [
+          "aesynth:gov:ledger/evt-000125",
+          "aesynth:gov:ledger/evt-000126"
+        ],
+        "envelope": "docs/aesynth-constitution/1.0.0/provenance.json"
+      },
+      "signatures": [
+        {
+          "keyId": "did:key:z6MkProvisionalSteward",
+          "alg": "ed25519",
+          "jws": "92oNN2bYZAuWqC42NhgX3M1lpE9_QTr_odsD0iECO3xtVwqUr4O5bZT-vikoTWijR0LHkKRVxTWEFI6Jt8yECQ",
+          "signedAt": "2025-11-01T05:05:10Z"
+        }
+      ],
+      "links": {
+        "html": "/registry/docs/aesynth-constitution/1.0.0/",
+        "raw": "/docs/aesynth-constitution/1.0.0/aesynth-constitution.md"
+      }
+    },
+    {
+      "type": "Document",
+      "urn": "aesynth:gov:doc/founders-manifesto",
+      "title": "Founders Manifesto",
+      "category": "manifesto",
+      "status": "ratified",
+      "version": "1.0.0",
+      "supersedes": null,
+      "supersededBy": null,
+      "bodyRefs": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "requiredBodies": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "effectiveDate": "2025-11-01",
+      "source": {
+        "path": "docs/founders-manifesto/1.0.0/founders-manifesto.md",
+        "canonicalMediaType": "text/markdown; charset=utf-8"
+      },
+      "provenance": {
+        "sha256": "b7c76616cf7c12b60243337e6a3de28ebb5d9ea2d33f1553cd49f71fc0634c7a",
+        "contentCanonicalization": "md-normalized-v1",
+        "attestations": [
+          "aesynth:gov:ledger/evt-000131",
+          "aesynth:gov:ledger/evt-000132"
+        ],
+        "envelope": "docs/founders-manifesto/1.0.0/provenance.json"
+      },
+      "signatures": [
+        {
+          "keyId": "did:key:z6MkProvisionalSteward",
+          "alg": "ed25519",
+          "jws": "Lx7HgZYZJh70fS9CG1ZVv4GiqKCgrMwZTXmtbKno41N0Rs1fUxjncpdIqkDxYST3i06g0QIiNtvCeJMcJKOdDQ",
+          "signedAt": "2025-11-01T05:09:45Z"
+        }
+      ],
+      "links": {
+        "html": "/registry/docs/founders-manifesto/1.0.0/",
+        "raw": "/docs/founders-manifesto/1.0.0/founders-manifesto.md"
+      }
+    },
+    {
+      "type": "Document",
+      "urn": "aesynth:gov:doc/human-constitution",
+      "title": "Human Constitution",
+      "category": "constitution",
+      "status": "ratified",
+      "version": "1.0.0",
+      "supersedes": null,
+      "supersededBy": null,
+      "bodyRefs": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "requiredBodies": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "effectiveDate": "2025-11-01",
+      "source": {
+        "path": "docs/human-constitution/1.0.0/human-constitution.md",
+        "canonicalMediaType": "text/markdown; charset=utf-8"
+      },
+      "provenance": {
+        "sha256": "aa9b2edcd55ac654c121d25228febd4d2dc2c194921055f71c2440ade5a58d67",
+        "contentCanonicalization": "md-normalized-v1",
+        "attestations": [
+          "aesynth:gov:ledger/evt-000127",
+          "aesynth:gov:ledger/evt-000128"
+        ],
+        "envelope": "docs/human-constitution/1.0.0/provenance.json"
+      },
+      "signatures": [
+        {
+          "keyId": "did:key:z6MkProvisionalSteward",
+          "alg": "ed25519",
+          "jws": "csLc5afIvrVmqxgitb6lgmZSZLVeh0j57ex-2Vv8K6FHTUbLB083B6f9IvcRIu9zzKxa-yySDhE5wkHOj9a8AA",
+          "signedAt": "2025-11-01T05:07:22Z"
+        }
+      ],
+      "links": {
+        "html": "/registry/docs/human-constitution/1.0.0/",
+        "raw": "/docs/human-constitution/1.0.0/human-constitution.md"
+      }
+    },
+    {
+      "type": "Document",
+      "urn": "aesynth:gov:doc/jsa-protocol",
+      "title": "Joint Semantic Assembly Protocol",
+      "category": "protocol",
+      "status": "ratified",
+      "version": "1.0.0",
+      "supersedes": null,
+      "supersededBy": null,
+      "bodyRefs": [
+        "aesynth:gov:body/jsa"
+      ],
+      "requiredBodies": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "effectiveDate": "2025-11-01",
+      "source": {
+        "path": "docs/jsa-protocol/1.0.0/jsa-protocol.md",
+        "canonicalMediaType": "text/markdown; charset=utf-8"
+      },
+      "provenance": {
+        "sha256": "810109856d260d1e712d24f0905885a685ebf49ec6647dfeb09d38cf5366ba0e",
+        "contentCanonicalization": "md-normalized-v1",
+        "attestations": [
+          "aesynth:gov:ledger/evt-000129",
+          "aesynth:gov:ledger/evt-000130"
+        ],
+        "envelope": "docs/jsa-protocol/1.0.0/provenance.json"
+      },
+      "signatures": [
+        {
+          "keyId": "did:key:z6MkProvisionalSteward",
+          "alg": "ed25519",
+          "jws": "6oE3uhfCfIfE6HWz9WgWA7Xvs-U820kgtnsSxwpsTg-lXW77p-OkQpBXXi1ZtgSmzCU4PVxElWxYtD2-DIjEAg",
+          "signedAt": "2025-11-01T05:08:30Z"
+        }
+      ],
+      "links": {
+        "html": "/registry/docs/jsa-protocol/1.0.0/",
+        "raw": "/docs/jsa-protocol/1.0.0/jsa-protocol.md"
+      }
+    },
+    {
+      "type": "Document",
+      "urn": "aesynth:gov:doc/semantic-charter",
+      "title": "The Semantic Charter",
+      "category": "charter",
+      "status": "ratified",
+      "version": "1.1.0",
+      "supersedes": "1.0.0",
+      "supersededBy": null,
+      "bodyRefs": [
+        "aesynth:gov:body/jsa"
+      ],
+      "requiredBodies": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "effectiveDate": "2025-11-01",
+      "source": {
+        "path": "docs/semantic-charter/1.1.0/semantic-charter.md",
+        "canonicalMediaType": "text/markdown; charset=utf-8"
+      },
+      "provenance": {
+        "sha256": "aff97dc878f8e1a9ce50eec653632dc2bea79804da38cf56efbef532efd00ba4",
+        "contentCanonicalization": "md-normalized-v1",
+        "attestations": [
+          "aesynth:gov:ledger/evt-000123",
+          "aesynth:gov:ledger/evt-000124"
+        ],
+        "envelope": "docs/semantic-charter/1.1.0/provenance.json"
+      },
+      "signatures": [
+        {
+          "keyId": "did:key:z6MkProvisionalSteward",
+          "alg": "ed25519",
+          "jws": "_O7prvIObtPpM_dxxwc0NZJCcq5LvLE5I0bWCzPEQit42r0H3hFlcm4D7A9-nU3uiQ_yxpx9zAeUauV0HChuAQ",
+          "signedAt": "2025-11-01T05:02:33Z"
+        }
+      ],
+      "links": {
+        "html": "/registry/docs/semantic-charter/1.1.0/",
+        "raw": "/docs/semantic-charter/1.1.0/semantic-charter.md"
+      }
+    }
+  ],
+  "resolutions": [
+    {
+      "urn": "aesynth:gov:res/2025-11-01-ratify-aesynth-constitution-1-0",
+      "action": "ratify",
+      "requiredBodies": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "minHumanReviewMinutes": 720,
+      "effectiveDate": "2025-11-01",
+      "subjectRefs": [
+        "aesynth:gov:doc/aesynth-constitution@1.0.0"
+      ],
+      "issuedBy": "aesynth:gov:body/provisional-stewardship",
+      "minutes": "docs/minutes/2025-11-01-jsa-provisional.md",
+      "ledgerEvent": "aesynth:gov:ledger/evt-000126",
+      "record": "resolutions/2025-11-01-ratify-aesynth-constitution-1-0.json"
+    },
+    {
+      "urn": "aesynth:gov:res/2025-11-01-ratify-founders-manifesto-1-0",
+      "action": "ratify",
+      "requiredBodies": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "minHumanReviewMinutes": 720,
+      "effectiveDate": "2025-11-01",
+      "subjectRefs": [
+        "aesynth:gov:doc/founders-manifesto@1.0.0"
+      ],
+      "issuedBy": "aesynth:gov:body/provisional-stewardship",
+      "minutes": "docs/minutes/2025-11-01-jsa-provisional.md",
+      "ledgerEvent": "aesynth:gov:ledger/evt-000132",
+      "record": "resolutions/2025-11-01-ratify-founders-manifesto-1-0.json"
+    },
+    {
+      "urn": "aesynth:gov:res/2025-11-01-ratify-human-constitution-1-0",
+      "action": "ratify",
+      "requiredBodies": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "minHumanReviewMinutes": 720,
+      "effectiveDate": "2025-11-01",
+      "subjectRefs": [
+        "aesynth:gov:doc/human-constitution@1.0.0"
+      ],
+      "issuedBy": "aesynth:gov:body/provisional-stewardship",
+      "minutes": "docs/minutes/2025-11-01-jsa-provisional.md",
+      "ledgerEvent": "aesynth:gov:ledger/evt-000128",
+      "record": "resolutions/2025-11-01-ratify-human-constitution-1-0.json"
+    },
+    {
+      "urn": "aesynth:gov:res/2025-11-01-ratify-jsa-protocol-1-0",
+      "action": "ratify",
+      "requiredBodies": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "minHumanReviewMinutes": 720,
+      "effectiveDate": "2025-11-01",
+      "subjectRefs": [
+        "aesynth:gov:doc/jsa-protocol@1.0.0"
+      ],
+      "issuedBy": "aesynth:gov:body/provisional-stewardship",
+      "minutes": "docs/minutes/2025-11-01-jsa-provisional.md",
+      "ledgerEvent": "aesynth:gov:ledger/evt-000130",
+      "record": "resolutions/2025-11-01-ratify-jsa-protocol-1-0.json"
+    },
+    {
+      "urn": "aesynth:gov:res/2025-11-01-ratify-semantic-charter-1-1",
+      "action": "ratify",
+      "requiredBodies": [
+        "aesynth:gov:body/provisional-stewardship"
+      ],
+      "minHumanReviewMinutes": 720,
+      "effectiveDate": "2025-11-01",
+      "subjectRefs": [
+        "aesynth:gov:doc/semantic-charter@1.1.0"
+      ],
+      "issuedBy": "aesynth:gov:body/provisional-stewardship",
+      "minutes": "docs/minutes/2025-11-01-jsa-provisional.md",
+      "ledgerEvent": "aesynth:gov:ledger/evt-000124",
+      "record": "resolutions/2025-11-01-ratify-semantic-charter-1-1.json"
+    }
+  ],
+  "bodies": [
+    {
+      "urn": "aesynth:gov:body/jsa",
+      "name": "Joint Semantic Assembly",
+      "status": "provisioned",
+      "charters": [
+        "aesynth:gov:doc/semantic-charter@1.1.0",
+        "aesynth:gov:doc/jsa-protocol@1.0.0"
+      ],
+      "record": "bodies/jsa.json"
+    },
+    {
+      "urn": "aesynth:gov:body/provisional-stewardship",
+      "name": "Provisional Stewardship Body",
+      "status": "active",
+      "charters": [
+        "aesynth:gov:doc/aesynth-constitution@1.0.0",
+        "aesynth:gov:doc/semantic-charter@1.1.0"
+      ],
+      "record": "bodies/provisional-stewardship.json"
+    }
+  ],
+  "actors": [
+    {
+      "urn": "aesynth:gov:actor/provisional-steward",
+      "displayName": "Provisional Steward of Meaning",
+      "keys": [
+        "did:key:z6MkProvisionalSteward"
+      ],
+      "record": "actors/provisional-steward.json"
+    }
+  ],
+  "ledger": [
+    {
+      "urn": "aesynth:gov:ledger/evt-000123",
+      "timestamp": "2025-11-01T05:02:33Z",
+      "event": "document.publish",
+      "subject": "aesynth:gov:doc/semantic-charter@1.1.0",
+      "record": "ledger/000001.json"
+    },
+    {
+      "urn": "aesynth:gov:ledger/evt-000124",
+      "timestamp": "2025-11-01T05:03:02Z",
+      "event": "resolution.ratify",
+      "subject": "aesynth:gov:res/2025-11-01-ratify-semantic-charter-1-1",
+      "record": "ledger/000002.json"
+    },
+    {
+      "urn": "aesynth:gov:ledger/evt-000125",
+      "timestamp": "2025-11-01T05:04:12Z",
+      "event": "document.publish",
+      "subject": "aesynth:gov:doc/aesynth-constitution@1.0.0",
+      "record": "ledger/000003.json"
+    },
+    {
+      "urn": "aesynth:gov:ledger/evt-000126",
+      "timestamp": "2025-11-01T05:05:20Z",
+      "event": "resolution.ratify",
+      "subject": "aesynth:gov:res/2025-11-01-ratify-aesynth-constitution-1-0",
+      "record": "ledger/000004.json"
+    },
+    {
+      "urn": "aesynth:gov:ledger/evt-000127",
+      "timestamp": "2025-11-01T05:06:30Z",
+      "event": "document.publish",
+      "subject": "aesynth:gov:doc/human-constitution@1.0.0",
+      "record": "ledger/000005.json"
+    },
+    {
+      "urn": "aesynth:gov:ledger/evt-000128",
+      "timestamp": "2025-11-01T05:07:30Z",
+      "event": "resolution.ratify",
+      "subject": "aesynth:gov:res/2025-11-01-ratify-human-constitution-1-0",
+      "record": "ledger/000006.json"
+    },
+    {
+      "urn": "aesynth:gov:ledger/evt-000129",
+      "timestamp": "2025-11-01T05:08:40Z",
+      "event": "document.publish",
+      "subject": "aesynth:gov:doc/jsa-protocol@1.0.0",
+      "record": "ledger/000007.json"
+    },
+    {
+      "urn": "aesynth:gov:ledger/evt-000130",
+      "timestamp": "2025-11-01T05:09:00Z",
+      "event": "resolution.ratify",
+      "subject": "aesynth:gov:res/2025-11-01-ratify-jsa-protocol-1-0",
+      "record": "ledger/000008.json"
+    },
+    {
+      "urn": "aesynth:gov:ledger/evt-000131",
+      "timestamp": "2025-11-01T05:09:30Z",
+      "event": "document.publish",
+      "subject": "aesynth:gov:doc/founders-manifesto@1.0.0",
+      "record": "ledger/000009.json"
+    },
+    {
+      "urn": "aesynth:gov:ledger/evt-000132",
+      "timestamp": "2025-11-01T05:10:00Z",
+      "event": "resolution.ratify",
+      "subject": "aesynth:gov:res/2025-11-01-ratify-founders-manifesto-1-0",
+      "record": "ledger/000010.json"
+    }
+  ]
+}

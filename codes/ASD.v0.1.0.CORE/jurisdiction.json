@@ -1,0 +1,17 @@
+﻿{
+  "meta": {
+    "version": "v0.1.0",
+    "jurisdiction_code": "ASD.v0.1.0.CORE",
+    "status": "PLANNED",
+    "stewards": ["TEMP_STEWARD_ASD@aesynth.dev"],
+    "description": "Foundational jurisdiction stub for the Aesynth Synesthetic Domain, referencing the external ASD semantic registry (ABS + cross-modal mappings)."
+  },
+  "rules": [],
+  "schemas": {
+    "registry_schema_ref": "https://github.com/aesynth-ai/aesynth-asd/tree/main/governance/registry"
+  },
+  "documentation": {
+    "help_reference": "https://github.com/aesynth-ai/aesynth-asd/tree/main/docs/ASD_spec.md",
+    "waiver_procedure_ref": "https://github.com/aesynth-ai/aesynth-asd/tree/main/docs/CHANGELOG.md"
+  }
+}

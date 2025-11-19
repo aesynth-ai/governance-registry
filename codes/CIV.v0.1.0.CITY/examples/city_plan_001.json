@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "plan_id": "CIV-CITY-0001",
+    "jurisdiction_code": "CIV.v0.1.0.CITY",
+    "generated_at_utc": "2025-11-13T12:00:00Z",
+    "seed": 42
+  },
+  "design": {
+    "type": "PGZ",
+    "area_m2": 1000,
+    "density": 3.5
+  },
+  "residence": [],
+  "housing": {
+    "type": "public",
+    "dist_to_transit": 500,
+    "dist_to_clinic": 800
+  }
+}

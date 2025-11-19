@@ -1,0 +1,37 @@
+{
+  "type": "Resolution",
+  "urn": "aesynth:gov:res/2025-11-01-ratify-founders-manifesto-1-0",
+  "action": "ratify",
+  "targets": [
+    "aesynth:gov:doc/founders-manifesto@1.0.0"
+  ],
+  "issuedBy": "aesynth:gov:body/provisional-stewardship",
+  "requiredBodies": [
+    "aesynth:gov:body/provisional-stewardship"
+  ],
+  "minHumanReviewMinutes": 720,
+  "quorum": "single-steward-clause",
+  "vote": {
+    "for": 1,
+    "against": 0,
+    "abstain": 0
+  },
+  "minutes": "docs/minutes/2025-11-01-jsa-provisional.md",
+  "signatures": [
+    {
+      "actor": "aesynth:gov:actor/provisional-steward",
+      "alg": "ed25519",
+      "sig": null,
+      "signedAt": "2025-11-01T05:09:45Z",
+      "keyId": "did:key:z6MkProvisionalSteward"
+    }
+  ],
+  "provenance": {
+    "sha256": "14e582f9ac748c8d714b09bfd640c584d12c2c4a7702521548779c721fbe17e2",
+    "attestations": [
+      "aesynth:gov:ledger/evt-000132"
+    ]
+  },
+  "effectiveDate": "2025-11-01"
+}
+
