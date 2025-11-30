@@ -1,0 +1,29 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+title: ProvenanceEnvelope
+description: Provenance envelope capturing ledger-bound metadata for governance events.
+type: object
+required:
+  - event
+  - subject
+  - actor
+  - timestamp
+properties:
+  event:
+    type: string
+    description: Event type (e.g., semantic-loop, snapshot).
+  subject:
+    type: string
+    description: Primary subject URN or identifier.
+  actor:
+    type: string
+    description: Actor or agent performing the action.
+  refs:
+    type: array
+    description: Inline references (loop records, manifests, etc.).
+    items: {}
+  timestamp:
+    type: string
+    format: date-time
+  urn:
+    type: string
+    description: Canonical URN for the envelope.

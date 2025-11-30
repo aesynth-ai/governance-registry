@@ -1,0 +1,13 @@
+{
+  "subject": "docs/jsa-protocol/1.0.0/jsa-protocol.md",
+  "canonicalization": "md-normalized-v1",
+  "sha256": "810109856d260d1e712d24f0905885a685ebf49ec6647dfeb09d38cf5366ba0e",
+  "signatures": [
+    {
+      "keyId": "did:key:z6MkProvisionalSteward",
+      "alg": "ed25519",
+      "jws": "6oE3uhfCfIfE6HWz9WgWA7Xvs-U820kgtnsSxwpsTg-lXW77p-OkQpBXXi1ZtgSmzCU4PVxElWxYtD2-DIjEAg",
+      "signedAt": "2025-11-01T05:08:30Z"
+    }
+  ]
+}

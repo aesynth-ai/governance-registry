@@ -1,0 +1,14 @@
+{
+  "type": "LedgerEvent",
+  "urn": "aesynth:gov:ledger/evt-000124",
+  "timestamp": "2025-11-01T05:03:02Z",
+  "event": "resolution.ratify",
+  "subject": "aesynth:gov:res/2025-11-01-ratify-semantic-charter-1-1",
+  "refs": [
+    "aesynth:gov:doc/semantic-charter@1.1.0"
+  ],
+  "actor": "aesynth:gov:actor/provisional-steward",
+  "sha256": "c605d3d5e566132480322235bb495c0acd0932c432bf55ec06c538cdee5c2efc",
+  "jws": null
+}
+

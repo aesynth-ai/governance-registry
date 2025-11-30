@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Synthlex Core Plan Schema",
+  "version": "sx.v1.0.0",
+  "type": "object",
+  "required": ["meta", "geometry", "spatial_logic", "annotations"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["plan_id", "jurisdiction_code", "deterministic_seed", "generation_timestamp"],
+      "properties": {
+        "plan_id": { "type": "string" },
+        "jurisdiction_code": {
+          "type": "string",
+          "enum": ["SYNTHLEX.v1.0.0.CORE"]
+        },
+        "deterministic_seed": { "type": "string" },
+        "generation_timestamp": { "type": "string", "format": "date-time" },
+        "steward_signature": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "geometry": {
+      "type": "object",
+      "required": ["footprint", "walls"],
+      "properties": {
+        "footprint": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 2
+          }
+        },
+        "walls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["start", "end", "thickness"],
+            "properties": {
+              "start": {
+                "type": "array",
+                "items": { "type": "number" },
+                "minItems": 2,
+                "maxItems": 3
+              },
+              "end": {
+                "type": "array",
+                "items": { "type": "number" },
+                "minItems": 2,
+                "maxItems": 3
+              },
+              "thickness": { "type": "number", "minimum": 0 }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "spatial_logic": {
+      "type": "object",
+      "required": ["axes", "breaks"],
+      "properties": {
+        "axes": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "breaks": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "annotations": {
+      "type": "object",
+      "properties": {
+        "symmetry": { "type": "string" },
+        "complexity": { "type": "string" },
+        "style_tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

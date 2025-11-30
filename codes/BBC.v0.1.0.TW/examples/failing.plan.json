@@ -1,0 +1,7 @@
+{
+  "project_id": "PLAN-FAIL",
+  "sprinklered": false,
+  "occupant_load": 120,
+  "corridors": [{ "clear_width_mm": 800 }],
+  "travel_paths": [{ "distance_m": 70 }]
+}

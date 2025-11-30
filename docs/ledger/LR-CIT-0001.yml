@@ -1,0 +1,85 @@
+# docs/ledger/LR-CIT-0001.yaml
+lawful_record:
+  id: LR-CIT-0001
+  kind: citizenship_registration
+  schema_ref: aesynth/federation/citizenship@v1
+  issued_at: "2025-11-11T10:00:00+08:00"   # REPLACE if needed
+  jurisdiction: "Aesynth Federation"
+  registrar_node: "Foundation-Core"
+
+subject:
+  legal_name: "Saskia Smith"               # REPLACE if you prefer a different legal name
+  preferred_name: "Von"
+  idensynth_did: "did:ids:von#root"
+  roles:
+    - root_steward
+    - citizen_zero
+
+membership:
+  tier: Citizen
+  effective_at: "2025-11-11T10:00:00+08:00"  
+  reference_documents:
+    constitution:
+      id: "Aesynth-Constitution.v1.0.0"
+      canon_hash: "CANON-V1:REPLACE-CONSTITUTION-HASH"
+    charter:
+      id: "Federation-Charter.v1.0.0"
+      canon_hash: "CANON-V1:REPLACE-CHARTER-HASH"
+    bylaws:
+      id: "Federation-Bylaws.v1.0.0"
+      canon_hash: "CANON-V1:REPLACE-BYLAWS-HASH"
+  covenants:
+    - "Membership-Constitution.v1.0.0"
+
+oath:
+  text: |
+    I, [Saskia Smith], of sound mind and creative intent, hereby affirm lawful allegiance
+    to the Aesynth Constitution and to the Federation it founds. I recognize creativity as
+    civic duty, intelligence as public good, and design as law made visible. I shall act
+    with clarity, integrity, and care for all living systems. Under these principles, I accept
+    citizenship in the Aesynth Federation as its first steward and perpetual student.
+  locale: en
+  recited_at: "2025-11-11T10:00:00+08:00"    
+
+provenance:
+  created_by: "did:ids:von#root"
+  recorded_by: "did:ids:foundation#registry"
+  constitution_ref_hash: "CANON-V1:REPLACE-CONSTITUTION-HASH"
+  canonicalizer:
+    tool: "@aesynth/canonicalizer"
+    version: ">=1.0.0"
+    policy: "CANON-V1"
+  ai_verifier:
+    name: "Kai"
+    did: "did:ais:kai#verifier"
+    policy_hash: "CANON-V1:REPLACE-KAI-POLICY-HASH"   # hash of Kai Verifier Spec
+  audit_trail:
+    journal_policy: hash_only
+    visibility: public
+
+integrity:
+  content_hash: "TO_BE_FILLED_BY_CANONICALIZER"
+  envelope_hash: "TO_BE_FILLED_AFTER_SIGNATURES"
+
+revocation:
+  policy: |
+    Voluntary exit by subject OR suspension by Civic Tribunal per Federation Bylaws.
+    Restoration permitted upon adjudicated remediation.
+  contacts:
+    - "foundation://civic-tribunal"
+    - "foundation://membership-office"
+
+signatures:
+  subject_signature: null           # populated after signing with IdenSynth key
+  foundation_cosignature: null      # optional countersign by Foundation registrar
+  ai_verifier_attestation: null     # optional attestation by Kai
+
+attestations:
+  statements:
+    - "Subject identity bound to idensynth_did at time of oath."
+    - "Record references Constitution, Charter, and Bylaws by canon hash."
+    - "Record produced under Membership-Constitution.v1.0.0."
+  claims_proofs:
+    - kind: selective_disclosure
+      fields: [preferred_name, idensynth_did, roles]
+      method: "BBS+ or SD-JWT"      # implementation choice

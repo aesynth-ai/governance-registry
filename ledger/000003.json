@@ -1,0 +1,13 @@
+{
+  "type": "LedgerEvent",
+  "urn": "aesynth:gov:ledger/evt-000125",
+  "timestamp": "2025-11-01T05:04:12Z",
+  "event": "document.publish",
+  "subject": "aesynth:gov:doc/aesynth-constitution@1.0.0",
+  "refs": [
+    "docs/aesynth-constitution/1.0.0/aesynth-constitution.md"
+  ],
+  "actor": "aesynth:gov:actor/provisional-steward",
+  "sha256": "aef714c6c4dd24458135263a1ce9ff1ba63c806c36e5e1bb624f56be1c6e0ca7",
+  "jws": null
+}

@@ -1,0 +1,112 @@
+{
+  "type": "CivicLedgerSnapshot",
+  "name": "ledger-snapshot-2025-11-30T13:29:28.683Z",
+  "generated": "2025-11-30T13:29:28.683Z",
+  "total": 13,
+  "items": [
+    {
+      "id": "000001",
+      "path": "ledger\\000001.json",
+      "sha256": "dcba13bdca31263413015736ca5383b83923e4a69ddeebd8adfafc44b0929f08",
+      "timestamp": "2025-11-01T05:02:33Z",
+      "subject": "aesynth:gov:doc/semantic-charter@1.1.0",
+      "event": "document.publish"
+    },
+    {
+      "id": "000002",
+      "path": "ledger\\000002.json",
+      "sha256": "36aa8fb09b02062dbbbc2815573e7c676ee67594492dfae2c303af29cf90e322",
+      "timestamp": "2025-11-01T05:03:02Z",
+      "subject": "aesynth:gov:res/2025-11-01-ratify-semantic-charter-1-1",
+      "event": "resolution.ratify"
+    },
+    {
+      "id": "000003",
+      "path": "ledger\\000003.json",
+      "sha256": "5398ed304efb218322ada655a42d181d1b434c0dafde723d97d9786bcebc9a40",
+      "timestamp": "2025-11-01T05:04:12Z",
+      "subject": "aesynth:gov:doc/aesynth-constitution@1.0.0",
+      "event": "document.publish"
+    },
+    {
+      "id": "000004",
+      "path": "ledger\\000004.json",
+      "sha256": "c618603a90113293fadd3b25c2a1b592be89bb80e85f44d26d0a5d7637742b07",
+      "timestamp": "2025-11-01T05:05:20Z",
+      "subject": "aesynth:gov:res/2025-11-01-ratify-aesynth-constitution-1-0",
+      "event": "resolution.ratify"
+    },
+    {
+      "id": "000005",
+      "path": "ledger\\000005.json",
+      "sha256": "ca4cc84abf523d718fe87831bde6edd45dff2abde5cef562b0336936075d5c20",
+      "timestamp": "2025-11-01T05:06:30Z",
+      "subject": "aesynth:gov:doc/human-constitution@1.0.0",
+      "event": "document.publish"
+    },
+    {
+      "id": "000006",
+      "path": "ledger\\000006.json",
+      "sha256": "c84e55a43ad7badac5bc80e9caf35c6e248ea73f2019a9e39c8ba7c3172fa770",
+      "timestamp": "2025-11-01T05:07:30Z",
+      "subject": "aesynth:gov:res/2025-11-01-ratify-human-constitution-1-0",
+      "event": "resolution.ratify"
+    },
+    {
+      "id": "000007",
+      "path": "ledger\\000007.json",
+      "sha256": "29bf0a44b6d3de323616df280d79be537d70f5c54d0b968fefda0a9eade94067",
+      "timestamp": "2025-11-01T05:08:40Z",
+      "subject": "aesynth:gov:doc/jsa-protocol@1.0.0",
+      "event": "document.publish"
+    },
+    {
+      "id": "000008",
+      "path": "ledger\\000008.json",
+      "sha256": "359d1a289ca4ec17380631a0485d074669bc0ba3d04b35c015b5c10988795c19",
+      "timestamp": "2025-11-01T05:09:00Z",
+      "subject": "aesynth:gov:res/2025-11-01-ratify-jsa-protocol-1-0",
+      "event": "resolution.ratify"
+    },
+    {
+      "id": "000009",
+      "path": "ledger\\000009.json",
+      "sha256": "b2b8b7c6dcd03832ebb17d2bced7e689ce440a4af2c4f6f8fb6699c04cdb9c19",
+      "timestamp": "2025-11-01T05:09:30Z",
+      "subject": "aesynth:gov:doc/founders-manifesto@1.0.0",
+      "event": "document.publish"
+    },
+    {
+      "id": "000010",
+      "path": "ledger\\000010.json",
+      "sha256": "ee9ad6dd262326ed3542bc26ab6711507a20e792c70afd1a8ce0396adff40850",
+      "timestamp": "2025-11-01T05:10:00Z",
+      "subject": "aesynth:gov:res/2025-11-01-ratify-founders-manifesto-1-0",
+      "event": "resolution.ratify"
+    },
+    {
+      "id": "000011",
+      "path": "ledger\\000011.json",
+      "sha256": "e02939342823a6c1f245132c484544206ba11e8e0166b1e266867b872667e3fe",
+      "timestamp": "2025-11-30T13:18:51.553Z",
+      "subject": "loop-milqxuvt",
+      "event": "semantic-loop"
+    },
+    {
+      "id": "000012",
+      "path": "ledger\\000012.json",
+      "sha256": "134c4c291c028fdfa35e576df069c461d51f799216a6f7b1cbf20c9bb8917f1d",
+      "timestamp": "2025-11-30T13:23:21.952Z",
+      "subject": "loop-milr3niz",
+      "event": "semantic-loop"
+    },
+    {
+      "id": "000013",
+      "path": "ledger\\000013.json",
+      "sha256": "9db90cf5da94ce8b03669a68cde5a87a4f2607e50c063bcf443a31b6f61a236a",
+      "timestamp": "2025-11-30T13:27:35.192Z",
+      "subject": "loop-milr92xe",
+      "event": "semantic-loop"
+    }
+  ]
+}

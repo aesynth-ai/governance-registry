@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "version": "v1.0.0",
+    "jurisdiction_code": "SYNTHLEX.v1.0.0.CORE",
+    "domain": "SYNTHLEX",
+    "status": "EXPERIMENTAL",
+    "stewards": [
+      "TEMP_STEWARD_SYNTHLEX"
+    ],
+    "changelog_ref": "docs/CHANGELOG.md#synthlex-v1.0.0",
+    "attribution": {
+      "source": "Synthlex Core",
+      "license": "TBD"
+    },
+    "provenance_mode": "sandbox"
+  },
+  "rules": [
+    {
+      "rule_id": "SYNTHLEX-PHASE-V-001",
+      "severity": "WARN",
+      "description": "Synthlex plan schema conformance placeholder",
+      "policy_body": "file:governance/schemas/synthlex/sx_plan.schema.json#annotations"
+    }
+  ],
+  "schemas": {
+    "plan_schema": "governance/schemas/synthlex/sx_plan.schema.json",
+    "waiver_schema": "policy/waivers.schema.json"
+  },
+  "documentation": {
+    "help_ref": "docs/synthlex/README.md",
+    "waiver_guide": "docs/synthlex/README.md#waivers"
+  }
+}

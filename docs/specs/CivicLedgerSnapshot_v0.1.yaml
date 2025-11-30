@@ -1,0 +1,9 @@
+version: 0.1.0
+title: Civic Ledger Snapshot
+description: Snapshot manifest describing the state of ledger entries at generation time.
+schema: ../../schemas/CivicLedgerSnapshot.schema.yaml
+fields:
+  name: Snapshot label.
+  generated: ISO8601 timestamp when the snapshot was created.
+  total: Count of ledger entries in the snapshot.
+  items: Array of entry descriptors with id, sha256, and optional paths.

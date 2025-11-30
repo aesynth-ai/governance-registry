@@ -1,0 +1,20 @@
+{
+  "type": "Body",
+  "urn": "aesynth:gov:body/provisional-stewardship",
+  "name": "Provisional Stewardship Body",
+  "status": "active",
+  "seats": [
+    {
+      "urn": "aesynth:gov:seat/provisional-steward",
+      "role": "Provisional Steward of Meaning"
+    }
+  ],
+  "activationCriteria": [
+    "Aesynth Constitution ratified",
+    "Semantic Charter ratified"
+  ],
+  "charterRefs": [
+    "aesynth:gov:doc/aesynth-constitution@1.0.0",
+    "aesynth:gov:doc/semantic-charter@1.1.0"
+  ]
+}

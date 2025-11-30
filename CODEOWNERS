@@ -1,0 +1,7 @@
+# Rules + policy require stewardship review
+codes/**        @aesynth-ai/stewards
+policy/**       @aesynth-ai/stewards
+schemas/**      @aesynth-ai/stewards
+governance/schemas/** @aesynth-ai/stewards
+governance/**   @aesynth-ai/stewards
+.github/**      @aesynth-ai/ci-maintainers

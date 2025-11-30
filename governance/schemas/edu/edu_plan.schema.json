@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EduSynth Core Plan Schema",
+  "version": "edu.v0.1.0",
+  "type": "object",
+  "required": ["meta", "learning_design"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "plan_id",
+        "jurisdiction_code",
+        "learner_group",
+        "deterministic_seed",
+        "generation_timestamp"
+      ],
+      "properties": {
+        "plan_id": { "type": "string" },
+        "jurisdiction_code": {
+          "type": "string",
+          "enum": ["EDU.v0.1.0.CORE"]
+        },
+        "learner_group": { "type": "string" },
+        "deterministic_seed": { "type": "string" },
+        "generation_timestamp": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "learning_design": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["module_id", "title", "outcomes"],
+        "properties": {
+          "module_id": { "type": "string" },
+          "title": { "type": "string" },
+          "outcomes": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "assessment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["assessment_id", "type"],
+        "properties": {
+          "assessment_id": { "type": "string" },
+          "type": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

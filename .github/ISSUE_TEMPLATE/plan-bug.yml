@@ -1,0 +1,20 @@
+name: Plan validation bug
+description: BBC flagged a plan incorrectly (or missed a violation)
+labels: [bbc:fail]
+body:
+  - type: input
+    id: plan_id
+    attributes: { label: Plan ID or filename }
+  - type: textarea
+    id: steps
+    attributes: { label: Reproduction steps, description: Commands you ran / CI link }
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes: { label: Expected result }
+  - type: textarea
+    id: actual
+    attributes: { label: Actual result }
+  - type: textarea
+    id: attach
+    attributes: { label: Attach plan JSON (or snippet), render: json }

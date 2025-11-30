@@ -1,13 +1,35 @@
 {
   "name": "governance-registry",
+  "private": true,
   "version": "1.0.0",
   "description": "![verify-governance](https://github.com/aesynth-ai/governance-registry/actions/workflows/verify-governance.yml/badge.svg)",
+  "type": "module",
   "main": "index.js",
   "directories": {
     "doc": "docs",
     "test": "tests"
   },
   "scripts": {
+    "verify": "node tools/verify.mjs",
+    "verify:schemas": "node tools/validate-schemas.mjs",
+    "verify:hash": "node tools/verify-hashes.mjs",
+    "verify:sigs": "node tools/verify-signatures.mjs",
+    "verify:state": "node tools/verify-state.mjs",
+    "sign": "node tools/sign.mjs",
+    "build:index": "node tools/build-index.mjs",
+    "fmt": "prettier -w .",
+    "bbc:check": "node scripts/bbc-verify.mjs",
+    "plans:collect": "node scripts/generate-plan-artifacts.mjs",
+    "verify-ci": "node scripts/generate-plan-artifacts.mjs && node scripts/generate-civsynth-plan-artifacts.mjs && npx ajv validate --spec=draft2020 -c ajv-formats -s schemas/plan.schema.json -d 'reports/plans/*.json' && npx ajv validate --spec=draft2020 -c ajv-formats -s codes/${BBC_JUR}/bbc.rules.schema.json -d codes/${BBC_JUR}/bbc.rules.yaml && npx ajv validate --spec=draft2020 -c ajv-formats -s policy/waivers.schema.json -d policy/waivers.yaml && npx ajv validate --spec=draft2020 -c ajv-formats -s governance/schemas/civsynth/city_plan.schema.json -d 'reports/civsynth/city_plans/*.json' && node scripts/contract-smoke.mjs reports/plans && node scripts/waiver-sentinel.mjs && opa test policy/ -v && pnpm run judge && pnpm run federation:prov && node scripts/bbc-to-sarif.mjs reports/bbc-*.json > reports/bbc.sarif && node scripts/hash-constitutions.mjs && node scripts/write-provenance.mjs",
+    "verify-fast": "cross-env BBC_ENGINE=js pnpm run bbc:check",
+    "civsynth:check": "node scripts/civsynth-verify.mjs",
+    "judge": "node scripts/judge.mjs",
+    "federation:prov": "node scripts/federation-provenance.mjs",
+    "ledger:serve": "node server/http-ledger.mjs",
+    "ledger:report": "node scripts/ledger-report.mjs",
+    "ledger:snapshot": "node scripts/ledger-snapshot.mjs",
+    "ledger:verify-snapshot": "node scripts/ledger-verify-snapshot.mjs",
+    "semantic:loop": "node scripts/semantic-loop-runner.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,7 +39,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/aesynth-ai/governance-registry/issues"
   },
@@ -25,6 +46,17 @@
   "dependencies": {
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "markdown-it": "^14.1.0",
+    "multiformats": "^12.1.3",
+    "normalize-newline": "^3.0.0",
+    "tweetnacl": "^1.0.3"
+  },
+  "devDependencies": {
+    "@open-policy-agent/opa-wasm": "^1.7.0",
+    "ajv-cli": "^5.0.0",
+    "cross-env": "^10.1.0",
+    "prettier": "^3.3.3",
+    "yaml": "^2.6.0"
   }
 }

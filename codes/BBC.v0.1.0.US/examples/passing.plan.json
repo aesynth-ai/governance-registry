@@ -1,0 +1,18 @@
+{
+  "project_id": "PLAN-001",
+  "sprinklered": false,
+  "occupant_load": 120,
+  "corridors": [{ "clear_width_mm": 1000 }],
+  "doors": [{ "clear_width_mm": 850, "swing": "egress" }],
+  "travel_paths": [{ "distance_m": 58 }],
+  "stairs": [{
+    "treads": [{ "depth_mm": 260, "nosing_mm": 25 }],
+    "risers": [{ "height_mm": 180 }],
+    "headroom_mm": 2100,
+    "variation_riser_mm": 5,
+    "variation_tread_mm": 4
+  }],
+  "handrails": [{ "height_mm": 900, "continuous": true, "grasp_diameter_mm": 40 }],
+  "guards": [{ "height_mm": 1100, "opening_mm": 90 }],
+  "exits": { "count": 3 }
+}

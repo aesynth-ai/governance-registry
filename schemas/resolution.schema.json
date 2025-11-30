@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://registry.aesynth.ai/schemas/resolution.schema.json",
+  "title": "Governance Resolution",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "urn",
+    "action",
+    "targets",
+    "requiredBodies",
+    "minHumanReviewMinutes",
+    "issuedBy",
+    "quorum",
+    "vote",
+    "minutes",
+    "signatures",
+    "provenance",
+    "effectiveDate"
+  ],
+  "properties": {
+    "type": {
+      "const": "Resolution"
+    },
+    "urn": {
+      "type": "string",
+      "pattern": "^aesynth:gov:res\\/.+$"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "ratify",
+        "amend",
+        "veto",
+        "interpret"
+      ]
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "requiredBodies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^aesynth:gov:body\\/.+$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "minHumanReviewMinutes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "issuedBy": {
+      "type": "string",
+      "pattern": "^aesynth:gov:body\\/.+$"
+    },
+    "quorum": {
+      "type": "string"
+    },
+    "vote": {
+      "type": "object",
+      "required": [
+        "for",
+        "against",
+        "abstain"
+      ],
+      "properties": {
+        "for": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "against": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "abstain": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "minutes": {
+      "type": "string"
+    },
+    "signatures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "actor",
+          "alg",
+          "sig",
+          "signedAt",
+          "keyId"
+        ],
+        "properties": {
+          "actor": {
+            "type": "string",
+            "pattern": "^aesynth:gov:actor\\/.+$"
+          },
+          "alg": {
+            "type": "string"
+          },
+          "sig": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "signedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "keyId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "sha256",
+        "attestations"
+      ],
+      "properties": {
+        "sha256": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          ]
+        },
+        "attestations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^aesynth:gov:ledger\\/evt-\\d+$"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "effectiveDate": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

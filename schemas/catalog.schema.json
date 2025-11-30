@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://registry.aesynth.ai/schemas/catalog.schema.json",
+  "title": "Registry Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "generatedAt",
+    "documents",
+    "resolutions",
+    "bodies",
+    "actors",
+    "ledger"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "$ref": "./document.schema.json"
+      }
+    },
+    "resolutions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ResolutionSummary"
+      }
+    },
+    "bodies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/BodySummary"
+      }
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ActorSummary"
+      }
+    },
+    "ledger": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/LedgerSummary"
+      }
+    }
+  },
+  "$defs": {
+    "ResolutionSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "urn",
+        "action",
+        "requiredBodies",
+        "minHumanReviewMinutes",
+        "effectiveDate",
+        "subjectRefs",
+        "issuedBy",
+        "minutes",
+        "ledgerEvent",
+        "record"
+      ],
+      "properties": {
+        "urn": {
+          "type": "string",
+          "pattern": "^aesynth:gov:res\\/.+$"
+        },
+        "action": {
+          "type": "string"
+        },
+        "requiredBodies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^aesynth:gov:body\\/.+$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "minHumanReviewMinutes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "subjectRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "issuedBy": {
+          "type": "string",
+          "pattern": "^aesynth:gov:body\\/.+$"
+        },
+        "minutes": {
+          "type": "string"
+        },
+        "ledgerEvent": {
+          "type": "string",
+          "pattern": "^aesynth:gov:ledger\\/evt-\\d+$"
+        },
+        "record": {
+          "type": "string"
+        }
+      }
+    },
+    "BodySummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "urn",
+        "name",
+        "status",
+        "charters",
+        "record"
+      ],
+      "properties": {
+        "urn": {
+          "type": "string",
+          "pattern": "^aesynth:gov:body\\/.+$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "charters": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^aesynth:gov:doc\\/.+@\\d+\\.\\d+\\.\\d+$"
+          },
+          "uniqueItems": true
+        },
+        "record": {
+          "type": "string"
+        }
+      }
+    },
+    "ActorSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "urn",
+        "displayName",
+        "keys",
+        "record"
+      ],
+      "properties": {
+        "urn": {
+          "type": "string",
+          "pattern": "^aesynth:gov:actor\\/.+$"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "record": {
+          "type": "string"
+        }
+      }
+    },
+    "LedgerSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "urn",
+        "timestamp",
+        "event",
+        "subject",
+        "record"
+      ],
+      "properties": {
+        "urn": {
+          "type": "string",
+          "pattern": "^aesynth:gov:ledger\\/evt-\\d+$"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "event": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "record": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

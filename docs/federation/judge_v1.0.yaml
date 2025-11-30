@@ -1,0 +1,88 @@
+# ============================================================
+#  Aesynth Judge v1.0 — Unified Verifier Contract
+# ============================================================
+
+version: "1.0.0"
+classification: judicial-spec
+scope:
+  - BBC
+  - CIV
+  - EDU
+  - SYNTHLEX
+  - SANDBOX
+purpose: >
+  Defines the cross-domain verification contract used by all
+  Aesynth domains. Ensures deterministic, multi-engine, provenance-
+  bound rule enforcement.
+
+# ------------------------------------------------------------
+#  1. Verification Stack
+# ------------------------------------------------------------
+
+engines:
+  primary: "OPA-CLI"        # canonical engine
+  secondary: "OPA-WASM"     # portable, deterministic fallback
+  tertiary: "JS-Fallback"   # minimal engine when others unavailable
+
+engine_rules:
+  - All three engines MUST produce equivalent verdicts.
+  - Divergence: FATAL
+  - Missing primary engine: FATAL unless provenance_mode == sandbox
+  - WASM mismatch with CLI: FATAL
+  - JS mismatch: downgrade allowed only in sandbox mode
+
+# ------------------------------------------------------------
+#  2. Input Routing
+# ------------------------------------------------------------
+
+inputs:
+  - plan_artifact
+  - jurisdiction_ruleset
+  - domain_schemas
+  - provenance_seed
+  - waiver_table
+
+routing_rules:
+  - Determine domain from jurisdiction_code prefix.
+  - Load ruleset at meta.version.
+  - Validate schemas before rule evaluation.
+  - Reject unversioned, mismatched, or unauthorized rules.
+
+# ------------------------------------------------------------
+#  3. Outputs
+# ------------------------------------------------------------
+
+outputs:
+  - verdict: PASS | FAIL | FATAL
+  - violations:
+      - rule_id
+      - severity
+      - message
+      - help_uri
+      - waived: true/false
+  - summary_json
+  - SARIF_v2.1.0
+  - history_log
+  - provenance_envelope
+
+provenance:
+  must_include:
+    - runtime
+    - engine_versions
+    - jurisdiction_code
+    - plan_hash
+    - ruleset_hash
+    - wasm_hash
+    - signature (optional: required in canonical mode)
+
+# ------------------------------------------------------------
+#  4. Sandbox Rules
+# ------------------------------------------------------------
+
+sandbox_behavior:
+  - Rule enforcement may be downgraded.
+  - Determinism MUST be logged but not strictly enforced.
+  - CLI/WASM missing: allowed.
+  - All violations MUST be recorded.
+  - Dream states MUST be declared: dream: true
+  - Provenance envelope ALWAYS required.

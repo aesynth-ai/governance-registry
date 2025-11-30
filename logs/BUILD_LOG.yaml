@@ -141,8 +141,77 @@ build_logs:
     exports.
 
     '
+- id: BUILD-2025-11-19-LEDGER-DAEMON
+  title: Civic Ledger HTTP Daemon and Dashboard
+  date: 2025-11-19
+  author: Codex Automation
+  scope: Ledger API and Dashboard
+  summary: 'Added the Civic Ledger HTTP daemon with append/read/search endpoints and an authenticated dashboard view.'
+  references:
+  - server/http-ledger.mjs
+  - dashboard/index.html
+  - dashboard/dashboard.css
+  - dashboard/dashboard.js
+  outcomes:
+  - Ledger daemon now serves /api/ledger append/read/search with optional LEDGER_API_KEY bearer auth.
+  - Dashboard UI lists ledger entries, semantic loops, and snapshots at /dashboard.
+  - npm run ledger:serve now starts the Civic Ledger service on port 4100 end-to-end.
+  verification:
+    commands:
+    - npm run ledger:serve
+- id: BUILD-2025-11-30-PR4-SYNC
+  title: governance-registry to governance-registry-pr4 Full Sync
+  date: 2025-11-30
+  author: Codex Automation
+  scope: Phase II Synthlex parity
+  summary: 'Mirrored the governance-registry (phase-II-synthlex-spec) working tree into governance-registry-pr4, ensuring scripts, specs, schemas, server modules, and dashboard assets stay aligned.'
+  references:
+  - source: C:\Users\Saskia\governance-registry
+  - target: C:\Users\Saskia\governance-registry-pr4
+  outcomes:
+  - Repository files and folders mirrored (excluding .git and node_modules) for parity.
+  - Dashboard assets, ledger artifacts, and governance schemas synced for PR4 branch.
+  verification:
+    commands:
+    - 'robocopy C:\Users\Saskia\governance-registry C:\Users\Saskia\governance-registry-pr4 /MIR /XD .git node_modules'
+- id: BUILD-2025-11-30-PR4-LEDGER-STACK
+  title: Civic Ledger HTTP Daemon, Dashboard, and CLI stack (PR4)
+  date: 2025-11-30
+  author: Codex Automation
+  scope: Phase II Synthlex ledger stack
+  summary: 'Enabled the Civic Ledger HTTP daemon, dashboard UI, CLI utilities, and schemas/specs in governance-registry-pr4.'
+  references:
+  - server/http-ledger.mjs
+  - dashboard/index.html
+  - dashboard/dashboard.css
+  - dashboard/dashboard.js
+  - scripts/ledger-report.mjs
+  - scripts/ledger-snapshot.mjs
+  - scripts/ledger-verify-snapshot.mjs
+  - scripts/semantic-loop-runner.mjs
+  - schemas/ProvenanceEnvelope.schema.yaml
+  - schemas/LedgerAppendRequest.schema.yaml
+  - schemas/LedgerAppendResponse.schema.yaml
+  - schemas/SemanticLoopRecord.schema.yaml
+  - schemas/CivicLedgerSnapshot.schema.yaml
+  - docs/specs/CivicLedger_API_v1.yaml
+  - docs/specs/SemanticLoopRecord_v0.1.yaml
+  - docs/specs/CivicLedgerSnapshot_v0.1.yaml
+  outcomes:
+  - Ledger daemon serves append/read/search, semantic loops, and snapshot listings with optional LEDGER_API_KEY auth on port 4100.
+  - Dashboard at /dashboard renders ledger entries, loop records, and snapshot manifests.
+  - CLI utilities added for semantic loop generation, ledger reports, snapshots, and verification.
+  - Civic Ledger schemas and specs checked in for API/snapshot/loop contracts.
+  verification:
+    commands:
+    - npm install
+    - npm run semantic:loop -- --domain DOM_ARCHITECTURE --repo synthlex-core
+    - npm run ledger:snapshot
+    - npm run ledger:verify-snapshot -- --manifest ledger/snapshots/ledger-snapshot-2025-11-30T13-19-45.201Z.json
+    - Start-Process node server/http-ledger.mjs (smoke start)
 policy_genesis_log:
 - ts: '2025-11-09T01:05:06Z'
   event: policy_genesis_started
   registry_hash: sha256:e28307a9e590208cfc84276aea68c127626515e95f0b8acc9fbda2b1909fb291
   tag: v1.2.0-policy-genesis
+

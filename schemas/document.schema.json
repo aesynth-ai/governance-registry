@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://registry.aesynth.ai/schemas/document.schema.json",
+  "title": "Governance Document",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "urn",
+    "title",
+    "category",
+    "status",
+    "version",
+    "bodyRefs",
+    "requiredBodies",
+    "effectiveDate",
+    "source",
+    "provenance",
+    "links"
+  ],
+  "properties": {
+    "type": {
+      "const": "Document"
+    },
+    "urn": {
+      "type": "string",
+      "pattern": "^aesynth:gov:doc\\/[a-z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "constitution",
+        "charter",
+        "protocol",
+        "manifesto",
+        "policy"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "proposed",
+        "ratified",
+        "superseded",
+        "repealed"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supersededBy": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bodyRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^aesynth:gov:body\\/.+$"
+      },
+      "uniqueItems": true
+    },
+    "requiredBodies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^aesynth:gov:body\\/.+$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "effectiveDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "path",
+        "canonicalMediaType"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "canonicalMediaType": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "sha256",
+        "attestations"
+      ],
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "contentCanonicalization": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "envelope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attestations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^aesynth:gov:ledger\\/evt-\\d+$"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "signatures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "alg",
+          "jws",
+          "signedAt",
+          "keyId"
+        ],
+        "properties": {
+          "alg": {
+            "type": "string"
+          },
+          "jws": {
+            "type": "string"
+          },
+          "signedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "keyId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "links": {
+      "type": "object",
+      "required": [
+        "html",
+        "raw"
+      ],
+      "properties": {
+        "html": {
+          "type": "string"
+        },
+        "raw": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

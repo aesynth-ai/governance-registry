@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Civic Ledger Dashboard</title>
+    <link rel="stylesheet" href="/dashboard/dashboard.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <main class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Civic Ledger</p>
+          <h1>Ledger Dashboard</h1>
+          <p class="lede">
+            Browse ledger envelopes, semantic loop records, and snapshot manifests served by the Civic Ledger HTTP daemon.
+          </p>
+        </div>
+        <div class="auth-block">
+          <label for="api-key">LEDGER_API_KEY (optional)</label>
+          <div class="input-row">
+            <input id="api-key" type="password" placeholder="Bearer token or API key" autocomplete="off" />
+            <button id="save-key" type="button">Save</button>
+          </div>
+          <p id="auth-status" class="hint">Using anonymous access</p>
+        </div>
+      </section>
+
+      <section class="panels">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Ledger</h2>
+              <p class="hint">Search and inspect envelopes</p>
+            </div>
+            <div class="actions">
+              <input id="search-input" type="search" placeholder="Search subject, urn, or event" />
+              <button id="refresh-ledger" type="button">Refresh</button>
+            </div>
+          </div>
+          <div id="ledger-list" class="ledger-list"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2 id="selection-label">Select an entry to inspect</h2>
+              <p class="hint">Envelope JSON</p>
+            </div>
+          </div>
+          <pre id="ledger-detail" class="code-block">// awaiting selection</pre>
+        </div>
+      </section>
+
+      <section class="panels">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Semantic Loops</h2>
+              <p class="hint">Generated loop records</p>
+            </div>
+            <div class="actions">
+              <button id="refresh-loops" type="button">Refresh</button>
+            </div>
+          </div>
+          <div id="loops-list" class="meta-list empty">No semantic loop records found.</div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Snapshots</h2>
+              <p class="hint">Ledger snapshot manifests</p>
+            </div>
+            <div class="actions">
+              <button id="refresh-snapshots" type="button">Refresh</button>
+            </div>
+          </div>
+          <div id="snapshots-list" class="meta-list empty">No snapshots discovered.</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/dashboard/dashboard.js"></script>
+  </body>
+</html>
