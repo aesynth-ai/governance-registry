@@ -1,0 +1,22 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+title: SemanticLoopRecord
+type: object
+required:
+  - id
+  - domain
+  - repo
+  - timestamp
+properties:
+  id:
+    type: string
+  domain:
+    type: string
+  repo:
+    type: string
+  summary:
+    type: string
+  status:
+    type: string
+  timestamp:
+    type: string
+    format: date-time

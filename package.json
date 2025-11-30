@@ -1,7 +1,14 @@
 {
   "name": "governance-registry",
   "private": true,
+  "version": "1.0.0",
+  "description": "![verify-governance](https://github.com/aesynth-ai/governance-registry/actions/workflows/verify-governance.yml/badge.svg)",
   "type": "module",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
   "scripts": {
     "verify": "node tools/verify.mjs",
     "verify:schemas": "node tools/validate-schemas.mjs",
@@ -17,11 +24,29 @@
     "verify-fast": "cross-env BBC_ENGINE=js pnpm run bbc:check",
     "civsynth:check": "node scripts/civsynth-verify.mjs",
     "judge": "node scripts/judge.mjs",
-    "federation:prov": "node scripts/federation-provenance.mjs"
-  }
+    "federation:prov": "node scripts/federation-provenance.mjs",
+    "ledger:serve": "node server/http-ledger.mjs",
+    "ledger:report": "node scripts/ledger-report.mjs",
+    "ledger:snapshot": "node scripts/ledger-snapshot.mjs",
+    "ledger:verify-snapshot": "node scripts/ledger-verify-snapshot.mjs",
+    "semantic:loop": "node scripts/semantic-loop-runner.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aesynth-ai/governance-registry.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aesynth-ai/governance-registry/issues"
+  },
+  "homepage": "https://github.com/aesynth-ai/governance-registry#readme",
   "dependencies": {
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
+    "js-yaml": "^4.1.0",
     "markdown-it": "^14.1.0",
     "multiformats": "^12.1.3",
     "normalize-newline": "^3.0.0",
@@ -33,31 +58,5 @@
     "cross-env": "^10.1.0",
     "prettier": "^3.3.3",
     "yaml": "^2.6.0"
-  "version": "1.0.0",
-  "description": "![verify-governance](https://github.com/aesynth-ai/governance-registry/actions/workflows/verify-governance.yml/badge.svg)",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs",
-    "test": "tests"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aesynth-ai/governance-registry.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/aesynth-ai/governance-registry/issues"
-  },
-  "homepage": "https://github.com/aesynth-ai/governance-registry#readme",
-  "dependencies": {
-    "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1",
-    "js-yaml": "^4.1.0"
   }
 }

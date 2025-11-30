@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: Civic Ledger API
+  version: "1.0"
+  description: Minimal Civic Ledger HTTP daemon interface.
+servers:
+  - url: http://localhost:4100
+paths:
+  /api/ledger/append:
+    post:
+      summary: Append a ledger entry.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../../schemas/LedgerAppendRequest.schema.yaml"
+      responses:
+        "201":
+          description: Entry appended
+          content:
+            application/json:
+              schema:
+                $ref: "../../schemas/LedgerAppendResponse.schema.yaml"
+  /api/ledger/{id}:
+    get:
+      summary: Retrieve a ledger entry.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Envelope
+  /api/ledger/search:
+    get:
+      summary: Search ledger entries.
+      parameters:
+        - in: query
+          name: q
+          schema:
+            type: string
+  /api/ledger/snapshots:
+    get:
+      summary: List snapshot manifests.
+  /api/semantic-loops:
+    get:
+      summary: List semantic loop records.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

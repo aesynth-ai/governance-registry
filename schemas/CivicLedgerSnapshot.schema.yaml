@@ -1,0 +1,39 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+title: CivicLedgerSnapshot
+type: object
+required:
+  - type
+  - name
+  - generated
+  - items
+properties:
+  type:
+    const: CivicLedgerSnapshot
+  name:
+    type: string
+  generated:
+    type: string
+    format: date-time
+  total:
+    type: integer
+    minimum: 0
+  items:
+    type: array
+    items:
+      type: object
+      required:
+        - id
+        - sha256
+      properties:
+        id:
+          type: string
+        sha256:
+          type: string
+        path:
+          type: string
+        timestamp:
+          type: string
+        subject:
+          type: string
+        event:
+          type: string

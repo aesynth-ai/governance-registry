@@ -1,0 +1,21 @@
+{
+  "type": "LedgerEvent",
+  "event": "semantic-loop",
+  "subject": "loop-milqxuvt",
+  "refs": [
+    {
+      "id": "loop-milqxuvt",
+      "domain": "DOM_ARCHITECTURE",
+      "repo": "synthlex-core",
+      "summary": "Semantic loop for DOM_ARCHITECTURE in synthlex-core",
+      "timestamp": "2025-11-30T13:18:51.545Z",
+      "status": "generated"
+    }
+  ],
+  "actor": "Saskia",
+  "sha256": null,
+  "jws": null,
+  "payload_hash": "4559579743062ac864becb93daf8226dd13d80997b152693d1e205e06b462398",
+  "urn": "aesynth:gov:ledger/evt-000011",
+  "timestamp": "2025-11-30T13:18:51.553Z"
+}

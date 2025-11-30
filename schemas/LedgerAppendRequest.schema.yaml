@@ -1,0 +1,25 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+title: LedgerAppendRequest
+type: object
+required:
+  - event
+  - subject
+properties:
+  event:
+    type: string
+    description: Ledger event type.
+  subject:
+    type: string
+    description: Subject URN or identifier.
+  actor:
+    type: string
+  refs:
+    type: array
+    items: {}
+  payload_hash:
+    type: string
+    description: Optional SHA-256 hash of attached payload.
+  timestamp:
+    type: string
+    format: date-time
+additionalProperties: true

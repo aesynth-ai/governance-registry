@@ -1,0 +1,11 @@
+version: 0.1.0
+title: Semantic Loop Record
+description: Minimal contract for semantic loop artifacts appended to the Civic Ledger.
+schema: ../../schemas/SemanticLoopRecord.schema.yaml
+fields:
+  id: Unique loop identifier.
+  domain: Domain for the loop (e.g., DOM_ARCHITECTURE).
+  repo: Repository name the loop references.
+  summary: Human-friendly description.
+  status: Status of the loop run.
+  timestamp: ISO8601 timestamp of generation.

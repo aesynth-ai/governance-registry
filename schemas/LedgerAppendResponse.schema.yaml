@@ -1,0 +1,14 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+title: LedgerAppendResponse
+type: object
+required:
+  - id
+  - urn
+  - entry
+properties:
+  id:
+    type: string
+  urn:
+    type: string
+  entry:
+    $ref: "./ProvenanceEnvelope.schema.yaml"

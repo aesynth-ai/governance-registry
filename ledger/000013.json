@@ -1,0 +1,21 @@
+{
+  "type": "LedgerEvent",
+  "event": "semantic-loop",
+  "subject": "loop-milr92xe",
+  "refs": [
+    {
+      "id": "loop-milr92xe",
+      "domain": "DOM_ARCHITECTURE",
+      "repo": "synthlex-core",
+      "summary": "Semantic loop for DOM_ARCHITECTURE in synthlex-core",
+      "timestamp": "2025-11-30T13:27:35.186Z",
+      "status": "generated"
+    }
+  ],
+  "actor": "Saskia",
+  "sha256": null,
+  "jws": null,
+  "payload_hash": "fb2bdfe458701b8591c779eef9e34b3731eac91f0d1e87d37957a3a80100f6da",
+  "urn": "aesynth:gov:ledger/evt-000013",
+  "timestamp": "2025-11-30T13:27:35.192Z"
+}
